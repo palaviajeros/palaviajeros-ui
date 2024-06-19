@@ -1,11 +1,17 @@
 export interface TravelPackageDto {
-    countryCode: String,
-    countryName: String,
-    packageName: String,
+    countryCode: string,
+    countryName: string,
+    packageName: string,
     packageId: number,
     inclusions: Services[],
     exclusions: Services[],
-    dates: DateRange[]
+    dates: DateRange[],
+    itinerary: DayPlan[],
+}
+
+export interface DayPlan {
+    dayNo: number,
+    activities: string[]
 }
 
 export interface DateRange {
@@ -19,8 +25,8 @@ export enum Services {
     MEALS,
 }
 
- const getTravelPackages = () : TravelPackageDto[] => {
-     return [
+const getTravelPackages = (): TravelPackageDto[] => {
+    return [
         {
             countryCode: 'PH',
             countryName: 'Philippines',
@@ -32,6 +38,12 @@ export enum Services {
                 {
                     startDate: new Date('2024-07-01'),
                     endDate: new Date('2024-07-08'),
+                }
+            ],
+            itinerary: [
+                {
+                    dayNo: 0,
+                    activities: ['swimming', 'bungee jumping']
                 }
             ]
         },
@@ -50,6 +62,12 @@ export enum Services {
                 {
                     startDate: new Date('2024-08-01'),
                     endDate: new Date('2024-08-08'),
+                }
+            ],
+            itinerary: [
+                {
+                    dayNo: 0,
+                    activities: ['swimming', 'bungee jumping']
                 }
             ]
         }
