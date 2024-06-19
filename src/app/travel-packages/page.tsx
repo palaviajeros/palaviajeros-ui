@@ -1,9 +1,10 @@
 import {getTravelPackages} from "@/app/lib/travel-packages";
 
 const TravelPackage = async () => {
-  const packagesData = await getTravelPackages();
+  const packages = await getTravelPackages();
+  const packagesSection = packages.map(p => (<div key={p.packageId}><h2>{p.countryName}</h2><h3>{p.packageName}</h3></div>));
   return (<div>
-    {packagesData.name} with type of {packagesData.typeOfHotDog}
+    {packagesSection}
   </div>)
 }
 export default TravelPackage;
