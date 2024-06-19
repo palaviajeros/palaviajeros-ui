@@ -8,7 +8,6 @@ const TravelPackage = () => {
         <div key={p.packageId}><h2>{p.countryName}</h2><h3>{p.packageName}</h3></div>));
     return (<div>
         {packagesSection}
-        {JSON.stringify(packages)}
     </div>)
 }
 export default TravelPackage;
