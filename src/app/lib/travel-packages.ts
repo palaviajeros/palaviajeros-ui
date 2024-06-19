@@ -1,4 +1,4 @@
-interface TravelPackageDto {
+export interface TravelPackageDto {
     countryCode: String,
     countryName: String,
     packageName: String,
@@ -8,19 +8,19 @@ interface TravelPackageDto {
     dates: DateRange[]
 }
 
-interface DateRange {
+export interface DateRange {
     startDate: Date,
     endDate: Date,
 }
 
-enum Services {
+export enum Services {
     FLIGHT,
     HOTEL,
     MEALS,
 }
 
-export async function getTravelPackages() {
-    const packages: Array<TravelPackageDto> = [
+ const getTravelPackages = () : TravelPackageDto[] => {
+     return [
         {
             countryCode: 'PH',
             countryName: 'Philippines',
@@ -54,6 +54,6 @@ export async function getTravelPackages() {
             ]
         }
     ];
-
-    return packages;
 }
+
+export default getTravelPackages;
