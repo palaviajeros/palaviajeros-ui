@@ -7,6 +7,7 @@ export interface TravelPackageDto {
     exclusions: Services[],
     dates: DateRange[],
     itinerary: DayPlan[],
+    imageUrls: string[],
 }
 
 export interface DayPlan {
@@ -25,8 +26,28 @@ export enum Services {
     MEALS,
 }
 
+const getImages = (fetchedPackages: TravelPackageDto): string[] => {
+    const baseFolder = './public';
+    const fs = require('fs');
+    let result: string[] = [];
+    const imagePath = `/packages/${fetchedPackages.countryCode}/${fetchedPackages.packageName.toLowerCase()}/`;
+
+    try {
+        let files: string[] = fs.readdirSync(`${baseFolder}${imagePath}`);
+        files.forEach(file => {
+            result.push(`${imagePath}${file}`)
+        });
+        return result;
+    } catch (err) {
+        // skip non existent directories
+    }
+    return [];
+};
+
 const getTravelPackages = (): TravelPackageDto[] => {
-    return [
+
+    let fetchedPackages
+        : TravelPackageDto[] = [
         {
             countryCode: 'PH',
             countryName: 'Philippines',
@@ -34,6 +55,7 @@ const getTravelPackages = (): TravelPackageDto[] => {
             packageId: 1,
             inclusions: [Services.FLIGHT, Services.HOTEL],
             exclusions: [Services.MEALS],
+            imageUrls: [],
             dates: [
                 {
                     startDate: new Date('2024-07-01'),
@@ -54,6 +76,7 @@ const getTravelPackages = (): TravelPackageDto[] => {
             packageId: 2,
             inclusions: [Services.FLIGHT, Services.HOTEL],
             exclusions: [Services.MEALS],
+            imageUrls: [],
             dates: [
                 {
                     startDate: new Date('2024-07-01'),
@@ -72,6 +95,9 @@ const getTravelPackages = (): TravelPackageDto[] => {
             ]
         }
     ];
+
+    fetchedPackages.forEach(p => p.imageUrls = getImages(p));
+    return fetchedPackages;
 }
 
 export default getTravelPackages;
