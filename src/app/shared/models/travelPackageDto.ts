@@ -1,8 +1,14 @@
-export interface TravelPackageDto {
+export interface TravelCountryPackages {
     countryCode: string,
     countryName: string,
+    description: string,
+    packages: TravelPackageDto[],
+}
+
+export interface TravelPackageDto {
+    packageId: string,
     packageName: string,
-    packageId: number,
+    description: string,
     inclusions: Services[],
     exclusions: Services[],
     dates: DateRange[],
@@ -21,7 +27,8 @@ export interface DateRange {
 }
 
 export enum Services {
-    FLIGHT,
-    HOTEL,
-    MEALS,
+    FLIGHT = 'Flight',
+    ACCOMMODATION = 'Accommodation',
+    MEALS = 'Meals',
+    TRANSFERS = 'Transfers',
 }

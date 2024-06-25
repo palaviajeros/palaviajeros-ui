@@ -9,7 +9,6 @@ interface TravelPackageProps {
 const TravelPackage = ({travelPackage}: TravelPackageProps) => {
     return (
         <div key={travelPackage.packageId}>
-            <h2>{travelPackage.countryName}</h2>
             <h3>{travelPackage.packageName}</h3>
             {travelPackage.imageUrls.map((imageUrl) => (
                 <Image key={`package-image-${imageUrl.split('.')[0]}`}
