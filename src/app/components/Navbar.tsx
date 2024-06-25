@@ -41,12 +41,17 @@ const Navbar: React.FC = () => {
         <Group gap={5} visibleFrom="xs">
           {items}
         </Group>
-        <div className={classes.nav_mb}>
-          <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
-          <div className={`classes.burger ${opened ? undefined : "none"}`}>
-            {items}
-          </div>
-        </div>
+        <Menu>
+          <Menu.Target>
+            <Burger
+              opened={opened}
+              onClick={toggle}
+              hiddenFrom="xs"
+              size="sm"
+            />
+          </Menu.Target>
+          <Menu.Dropdown>{items}</Menu.Dropdown>
+        </Menu>
       </Container>
     </nav>
   );

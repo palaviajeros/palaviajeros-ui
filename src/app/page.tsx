@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <Container className={classes.container}>
-      <Flex>
+      <Flex gap="lg">
         <div className={classes.contents}>
           <Title className={classes.title} order={1}>
             {textContents.title}
@@ -19,7 +19,7 @@ export default function Home() {
         <Image
           className={classes.image}
           radius="md"
-          h={600}
+          h={500}
           w="auto"
           fit="contain"
           src="/ex-home-image.jpg"

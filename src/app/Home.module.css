@@ -1,12 +1,12 @@
 .title {
   font-weight: 700;
-  font-size: 6em;
+  font-size: var(--mantine-h1-font-size);
   color: rgb(58, 48, 54);
 }
 
 .text {
+  font-size: var(--mantine-h4-font-size);
   color: rgb(53, 51, 51);
-  font-size: 2em;
 }
 
 .image {

@@ -6,7 +6,6 @@ $screen-dt: 960px;
     height: 6em;
     margin-bottom: rem(120px, 16px);
     background-color: var(--mantine-color-body);
-    // min-width: $screen-mb;
 }
 
 .inner {
@@ -28,11 +27,6 @@ $screen-dt: 960px;
     font-size: var(--mantine-font-size-sm);
     font-weight: 500;
 
-    @media (min-width:$screen-max-mb) {
-        display: flex;
-        flex-direction: row;
-    }
-
     @mixin hover {
         background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
     }
@@ -44,71 +38,5 @@ $screen-dt: 960px;
 
     &:hover {
         background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
-    }
-}
-
-/* Navbar menu*/
-.toggle {
-    display: none;
-    line-height: 1;
-    padding: rem(8px, 16px) rem(12px, 16px);
-    border-radius: var(--mantine-radius-sm);
-    text-decoration: none;
-    color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
-    font-size: var(--mantine-font-size-sm);
-    font-weight: 500;
-
-    //over this screen size, nav menu will always be block
-    @media (min-width:$screen-max-mb) {
-        display: block;
-    }
-
-    //button hover
-    @mixin hover {
-        background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
-    }
-
-    [data-mantine-color-scheme] &[data-active] {
-        background-color: var(--mantine-color-blue-filled);
-        color: var(--mantine-color-white);
-    }
-
-    &:hover {
-        background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
-    }
-}
-
-/* for toggle burger nav menu */
-.nav_mb {
-    min-width: 4em;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: space-around;
-    padding: rem(8px, 16px) rem(12px, 16px);
-    border-radius: var(--mantine-radius-sm);
-    text-decoration: none;
-    color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
-    font-size: var(--mantine-font-size-sm);
-    font-weight: 500;
-
-    @media (min-width:$screen-max-mb) {
-        display: none;
-    }
-}
-
-.burger {
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
-    padding: rem(8px, 16px) rem(12px, 16px);
-    border-radius: var(--mantine-radius-sm);
-    text-decoration: none;
-    color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
-    font-size: var(--mantine-font-size-sm);
-    font-weight: 500;
-
-    &.none {
-        display: none;
     }
 }
