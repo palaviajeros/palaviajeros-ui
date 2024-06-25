@@ -1,21 +1,17 @@
-import getTravelPackages, {TravelPackageDto} from "@/app/lib/travel-packages";
+
 import Image from "next/image";
 import './styles.travel-packages.scss';
+import {TravelPackageDto} from "@/app/shared/models/travelPackageDto";
+import getTravelPackages from "@/app/lib/travelPackages";
+import TravelPackage from "@/app/components/TravelPackage";
 
-const TravelPackage = () => {
+const TravelPackagesPage = () => {
     const packages: TravelPackageDto[] = getTravelPackages();
 
     // Todo: Add package component here, instead of 1 div, reference the component and pass the package details
-    const packagesSection = packages.map(p => (
-        <div key={p.packageId}>
-            <h2>{p.countryName}</h2>
-            <h3>{p.packageName}</h3>
-            {p.imageUrls.map((imageUrl) => (
-                <Image className='package-photo' width={500} height={500} objectFit={'contain'}
-                       key={`package-image-${imageUrl.split('.')[0]}`} src={imageUrl} alt='image'></Image>))}
-        </div>));
+    const packagesSection = packages.map(p => <TravelPackage key={p.packageId} travelPackage={p} />);
     return (<div>
         {packagesSection}
     </div>)
 }
-export default TravelPackage;
+export default TravelPackagesPage;
