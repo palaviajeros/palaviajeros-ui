@@ -1,0 +1,97 @@
+.header {
+  height: 6em;
+  margin-bottom: 8px;
+  background-color: var(--mantine-color-body);
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 375px;
+}
+
+/*link is for <a> in items*/
+.link {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  padding: 8px 12px;
+  border-radius: var(--mantine-radius-sm);
+  text-decoration: none;
+  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
+  font-size: var(--mantine-font-size-sm);
+  font-weight: 500;
+}
+@media (min-width: 575px) {
+  .link {
+    display: flex;
+    flex-direction: row;
+  }
+}
+[data-mantine-color-scheme] .link[data-active] {
+  background-color: var(--mantine-color-blue-filled);
+  color: var(--mantine-color-white);
+}
+.link:hover {
+  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+}
+
+/* Navbar menu*/
+.toggle {
+  display: none;
+  line-height: 1;
+  padding: 8px 12px;
+  border-radius: var(--mantine-radius-sm);
+  text-decoration: none;
+  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
+  font-size: var(--mantine-font-size-sm);
+  font-weight: 500;
+}
+@media (min-width: 575px) {
+  .toggle {
+    display: block;
+  }
+}
+[data-mantine-color-scheme] .toggle[data-active] {
+  background-color: var(--mantine-color-blue-filled);
+  color: var(--mantine-color-white);
+}
+.toggle:hover {
+  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+}
+
+/* for toggle burger nav menu */
+.nav_mb {
+  min-width: 4em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 8px 12px;
+  border-radius: var(--mantine-radius-sm);
+  text-decoration: none;
+  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
+  font-size: var(--mantine-font-size-sm);
+  font-weight: 500;
+}
+@media (min-width: 575px) {
+  .nav_mb {
+    display: none;
+  }
+}
+
+.burger {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  padding: 8px 12px;
+  border-radius: var(--mantine-radius-sm);
+  text-decoration: none;
+  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
+  font-size: var(--mantine-font-size-sm);
+  font-weight: 500;
+}
+.burger.none {
+  display: none;
+}/*# sourceMappingURL=Navbar.module.css.map */
