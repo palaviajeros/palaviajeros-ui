@@ -1,10 +1,12 @@
-import {Services, TravelPackageDto} from "@/app/shared/models/travelPackageDto";
+import {Services, TravelCountryPackages, TravelPackageDto} from "@/app/shared/models/travelPackageDto";
 
-const getImages = (fetchedPackages: TravelPackageDto): string[] => {
-    const baseFolder = './public';
-    const fs = require('fs');
+import fs from "fs";
+
+const baseFolder = './public';
+const getImages = (fetchedPackages: TravelPackageDto, country: TravelCountryPackages): string[] => {
+
     let result: string[] = [];
-    const imagePath = `/packages/${fetchedPackages.countryCode}/${fetchedPackages.packageName.toLowerCase()}/`;
+    const imagePath = `/packages/${country.countryCode}/${fetchedPackages.packageId.toLowerCase()}/`;
 
     try {
         let files: string[] = fs.readdirSync(`${baseFolder}${imagePath}`);
@@ -18,60 +20,14 @@ const getImages = (fetchedPackages: TravelPackageDto): string[] => {
     return [];
 };
 
-const getTravelPackages = (): TravelPackageDto[] => {
+const getTravelPackages = (): TravelCountryPackages[] => {
+    const data = fs.readFileSync('./public/packages/travelpackages.json', {encoding: 'utf8'});
+    let packagesByCountry: TravelCountryPackages[] = JSON.parse(data);
 
-    let fetchedPackages
-        : TravelPackageDto[] = [
-        {
-            countryCode: 'PH',
-            countryName: 'Philippines',
-            packageName: 'Boracay',
-            packageId: 1,
-            inclusions: [Services.FLIGHT, Services.HOTEL],
-            exclusions: [Services.MEALS],
-            imageUrls: [],
-            dates: [
-                {
-                    startDate: new Date('2024-07-01'),
-                    endDate: new Date('2024-07-08'),
-                }
-            ],
-            itinerary: [
-                {
-                    dayNo: 0,
-                    activities: ['swimming', 'bungee jumping']
-                }
-            ]
-        },
-        {
-            countryCode: 'ES',
-            countryName: 'Spain',
-            packageName: 'Barcelona',
-            packageId: 2,
-            inclusions: [Services.FLIGHT, Services.HOTEL],
-            exclusions: [Services.MEALS],
-            imageUrls: [],
-            dates: [
-                {
-                    startDate: new Date('2024-07-01'),
-                    endDate: new Date('2024-07-08'),
-                },
-                {
-                    startDate: new Date('2024-08-01'),
-                    endDate: new Date('2024-08-08'),
-                }
-            ],
-            itinerary: [
-                {
-                    dayNo: 0,
-                    activities: ['swimming', 'bungee jumping']
-                }
-            ]
-        }
-    ];
+    packagesByCountry.forEach(country =>
+        country.packages.forEach(p => p.imageUrls = getImages(p, country)));
 
-    fetchedPackages.forEach(p => p.imageUrls = getImages(p));
-    return fetchedPackages;
+    return packagesByCountry;
 }
 
 export default getTravelPackages;
