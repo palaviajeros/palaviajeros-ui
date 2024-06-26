@@ -23,10 +23,9 @@ const Navbar: React.FC = () => {
     <Link
       key={link.label}
       href={link.link}
-      className={opened ? classes.link : classes.toggle}
+      className={classes.link}
       data-active={active === link.link || undefined}
       onClick={(event) => {
-        event.preventDefault();
         setActive(link.link);
       }}
     >
@@ -50,7 +49,9 @@ const Navbar: React.FC = () => {
               size="sm"
             />
           </Menu.Target>
-          <Menu.Dropdown>{items}</Menu.Dropdown>
+          <Menu.Dropdown className={classes.dropdown}>
+            <Menu.Item>{items}</Menu.Item>
+          </Menu.Dropdown>
         </Menu>
       </Container>
     </nav>

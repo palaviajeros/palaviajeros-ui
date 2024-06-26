@@ -1,7 +1,3 @@
-$screen-mb: 375px;
-$screen-max-mb: 575px;
-$screen-dt: 960px;
-
 .header {
     height: 6em;
     margin-bottom: rem(120px, 16px);
@@ -12,7 +8,6 @@ $screen-dt: 960px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-width: $screen-mb;
 }
 
 /*link is for <a> in items*/
@@ -38,5 +33,13 @@ $screen-dt: 960px;
 
     &:hover {
         background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+    }
+}
+
+.dropdown {
+    display: block;
+
+    @media(min-width: 36em) {
+        display: none;
     }
 }
