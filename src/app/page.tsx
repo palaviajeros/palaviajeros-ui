@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <Container className={classes.container}>
-      <Flex gap="lg">
+      <Flex wrap="wrap" gap="lg">
         <div className={classes.contents}>
           <Title className={classes.title} order={1}>
             {textContents.title}
