@@ -1,23 +1,37 @@
 import React from "react";
 import Image from "next/image";
-import {TravelPackageDto} from "@/app/shared/models/travelPackageDto";
+import { TravelCountryPackages } from "@/app/shared/models/travelPackageDto";
+import { Carousel } from "@mantine/carousel";
 
 interface TravelPackageProps {
-    travelPackage: TravelPackageDto
+  travelPackage: TravelCountryPackages;
 }
 
-const TravelPackage = ({travelPackage}: TravelPackageProps) => {
-    return (
-        <div key={travelPackage.packageId}>
-            <h3>{travelPackage.packageName}</h3>
-            {travelPackage.imageUrls.map((imageUrl) => (
-                <Image key={`package-image-${imageUrl.split('.')[0]}`}
-                       className='package-photo'
-                       width={500}
-                       height={500}
-                       src={imageUrl} alt='image'></Image>))}
-        </div>
-    );
+const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
+  return (
+    <div>
+      <h3>{travelPackage.packages[0].packageName}</h3>
+      <Carousel slideSize="100%" slideGap="md" align="center" loop>
+        {travelPackage.packages
+          .flatMap((p) => p.imageUrls)
+          .map((img, index) => {
+            return (
+              <Carousel.Slide key={index}>
+                <Image
+                  key={index}
+                  className="package-photo"
+                  layout="responsive"
+                  width={16}
+                  height={9}
+                  src={img}
+                  alt="image"
+                />
+              </Carousel.Slide>
+            );
+          })}
+      </Carousel>
+    </div>
+  );
 };
 
 export default TravelPackage;
