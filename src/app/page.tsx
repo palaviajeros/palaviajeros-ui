@@ -22,7 +22,7 @@ export default function Home() {
           h={500}
           w="auto"
           fit="contain"
-          src="/ex-home-image.jpg"
+          src="/samples/ex-home-image.jpg"
         />
       </Flex>
     </Container>

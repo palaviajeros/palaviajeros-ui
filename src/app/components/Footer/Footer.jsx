@@ -6,7 +6,7 @@ import {
   IconBrandInstagram,
 } from "@tabler/icons-react";
 import Image from "next/image";
-import classes from "./Footer.module.scss";
+import classes from "@/app/components/Footer/Footer.module.scss";
 
 export default function Footer() {
   return (
