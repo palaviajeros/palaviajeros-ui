@@ -86,7 +86,7 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                 </div>
               </div>
             </Flex>
-            <h2 mb="md">Travel Plans</h2>
+            <h2>Travel Plans</h2>
             <Timeline active={2} bulletSize={25} lineWidth={3} align="left">
               {t.itinerary.map((day, index) => {
                 return (
