@@ -33,6 +33,8 @@
 .dropdown {
   display: block;
 }
-.dropdown .none {
-  display: none;
+@media (min-width: 36em) {
+  .dropdown {
+    display: none;
+  }
 }/*# sourceMappingURL=Navbar.module.css.map */

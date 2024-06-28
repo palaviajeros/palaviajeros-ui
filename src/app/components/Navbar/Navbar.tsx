@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Container, Group, Burger, Drawer } from "@mantine/core";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { IconX } from "@tabler/icons-react";
@@ -17,7 +17,14 @@ const links = [
 ];
 
 const Navbar: React.FC = () => {
-  const [active, setActive] = useState(links[0].link);
+  const pathname = usePathname();
+  const [active, setActive] = useState(
+    links[0].link
+    //   () => {
+    //   const foundLink = links.find((link) => link.link === pathname);
+    //   return foundLink ? foundLink.link : links[0].link;
+    // }
+  );
   const [opened, { toggle, close }] = useDisclosure(false);
   const isLargerThan500px = useMediaQuery("(min-width: 500px)"); //to close Drawer-nav on over 500px screen size
 
@@ -36,6 +43,7 @@ const Navbar: React.FC = () => {
     <Link
       key={link.label}
       href={link.link}
+      passHref
       className={classes.link}
       data-active={active === link.link || undefined}
       onClick={(event) => {
