@@ -1,6 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import { TravelCountryPackages } from "@/app/shared/models/travelPackageDto";
+import {
+  TravelCountryPackages,
+  DateRange
+} from "@/app/shared/models/travelPackageDto";
 import { Carousel } from "@mantine/carousel";
 import { Flex, Text, Timeline, Button } from "@mantine/core";
 import { IconCheck, IconX } from "@tabler/icons-react";
@@ -8,10 +11,7 @@ import { IconCheck, IconX } from "@tabler/icons-react";
 interface TravelPackageProps {
   travelPackage: TravelCountryPackages;
 }
-interface DateRange {
-  startDate: string;
-  endDate: string;
-}
+
 const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
   const formatDateRange = ({ startDate, endDate }: DateRange) => {
     const start = new Date(startDate);
@@ -31,9 +31,9 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
 
   return (
     <>
-      {travelPackage.packages.map((t, index) => {
+      {travelPackage.packages.map((t) => {
         return (
-          <React.Fragment key={index}>
+          <React.Fragment key={t.packageId}>
             <h3>{t.packageName}</h3>
             <Flex gap={"xl"}>
               <div style={{ flex: 1 }}>
