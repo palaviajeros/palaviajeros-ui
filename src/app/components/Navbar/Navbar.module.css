@@ -23,7 +23,7 @@
   font-weight: 500;
 }
 [data-mantine-color-scheme] .link[data-active] {
-  background-color: var(--mantine-color-blue-filled);
+  background-color: var(--mantine-color-pink-4);
   color: var(--mantine-color-white);
 }
 .link:hover {
@@ -33,6 +33,8 @@
 .dropdown {
   display: block;
 }
-.dropdown .none {
-  display: none;
+@media (min-width: 36em) {
+  .dropdown {
+    display: none;
+  }
 }/*# sourceMappingURL=Navbar.module.css.map */

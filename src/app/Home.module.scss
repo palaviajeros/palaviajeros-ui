@@ -1,18 +1,39 @@
-$title-color: rgb(58, 48, 54);
-$text-color: rgb(53, 51, 51);
+$title-color: rgb(226, 98, 164);
+$text-color: rgb(66, 62, 62);
 
+.hero {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    text-align: center;
+
+    @media(min-width: 36em) {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+}
 
 .title {
-    font-weight: 700;
-    font-size: var(--mantine-h1-font-size);
+    font-weight: 900;
+    font-size: 3em;
+    line-height: 0.8em;
     color: $title-color;
+
+
+    @media(min-width: 36em) {
+        font-weight: 900;
+        font-size: 10em;
+    }
 }
 
 .text {
-    font-size: var(--mantine-h4-font-size);
+    font-size: 1.4em;
     color: $text-color;
 }
 
 .image {
+    border: 3px solid rgb(211, 193, 190);
     opacity: 0.7;
+    border-radius: 30%;
 }

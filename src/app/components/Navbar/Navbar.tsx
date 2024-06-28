@@ -12,7 +12,7 @@ const links = [
   { link: "/", label: "Home" },
   { link: "/travel-packages", label: "Packages" },
   { link: "/about", label: "About" },
-  { link: "/contact", label: "Contact" },
+  // { link: "/contact", label: "Contact" },
 ];
 
 const Navbar: React.FC = () => {
