@@ -17,7 +17,10 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
     const start = new Date(startDate);
     const end = new Date(endDate);
 
-    const options = { day: "2-digit", month: "short" };
+    const options: Intl.DateTimeFormatOptions = {
+      day: "2-digit",
+      month: "short"
+    };
     const startFormatted = start.toLocaleDateString("en-GB", options);
     const endFormatted = end.toLocaleDateString("en-GB", options);
 
