@@ -22,12 +22,12 @@ const ContentBlock: React.FC<ContentsProps> = ({
         direction={reverse ? "row-reverse" : "row"}
         wrap="wrap"
         justify="space-evenly"
+        gap="xl"
       >
         <div className={classes.content_text}>
           <Title order={3}>{title}</Title>
           <Text size="md">{text}</Text>
         </div>
-        <Space h="lg" w="lg" />
         <Image
           src={imageUrl}
           alt={title}
@@ -69,7 +69,7 @@ const About: React.FC = () => {
       <Container>
         <Title ta="center">About Us</Title>
         <Space h="xl" />
-        <Flex direction="column" gap="lg">
+        <Flex direction="column" gap="xl">
           {contents.map((content, index) => (
             <ContentBlock
               key={index}
