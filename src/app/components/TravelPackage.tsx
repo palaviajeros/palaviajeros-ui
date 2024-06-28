@@ -31,11 +31,18 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
 
   return (
     <>
-      {travelPackage.packages.map((t) => {
+      {travelPackage.packages.map((t, index) => {
         return (
           <React.Fragment key={t.packageId}>
-            <h3>{t.packageName}</h3>
-            <Flex gap={"xl"}>
+            <Flex
+              gap={{ lg: "xl" }}
+              mb={"xl"}
+              mt={"xl"}
+              direction={{
+                base: "column",
+                lg: index % 2 === 0 ? "row" : "row-reverse"
+              }}
+            >
               <div style={{ flex: 1 }}>
                 <Carousel slideSize="100%" slideGap="md" align="center" loop>
                   {t.imageUrls.map((img, index) => {
@@ -55,6 +62,7 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                 </Carousel>
               </div>
               <div style={{ flex: 1 }}>
+                <h3>{t.packageName}</h3>
                 <Text>
                   <b>Dates:</b> {formatDateRange(t.dates[0])}
                 </Text>
@@ -86,22 +94,6 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                 </div>
               </div>
             </Flex>
-            <h2>Travel Plans</h2>
-            <Timeline active={2} bulletSize={25} lineWidth={3} align="left">
-              {t.itinerary.map((day, index) => {
-                return (
-                  <Timeline.Item title={`Day ${day.dayNo}`} key={index}>
-                    {day.activities.map((activity, index) => {
-                      return (
-                        <Text size="xs" mt={4} key={index}>
-                          • {activity}
-                        </Text>
-                      );
-                    })}
-                  </Timeline.Item>
-                );
-              })}
-            </Timeline>
           </React.Fragment>
         );
       })}

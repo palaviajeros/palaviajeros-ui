@@ -8,13 +8,8 @@
         "packageId": "boracay-1",
         "packageName": "Boracay Summer Promo",
         "description": "Boracay is the prime beach destination",
-        "inclusions": [
-          "Flight",
-          "Accommodation"
-        ],
-        "exclusions": [
-          "Transfers"
-        ],
+        "inclusions": ["Flight", "Accommodation"],
+        "exclusions": ["Transfers"],
         "dates": [
           {
             "startDate": "2024-09-01",
@@ -37,38 +32,20 @@
           },
           {
             "dayNo": 2,
-            "activities": [
-              "talipapa",
-              "bar hopping"
-            ]
+            "activities": ["talipapa", "bar hopping"]
           },
           {
             "dayNo": 3,
-            "activities": [
-              "souvenir buying",
-              "flight back"
-            ]
+            "activities": ["souvenir buying", "flight back"]
           }
         ]
-      }
-    ]
-  },
-  {
-    "countryCode": "ES",
-    "countryName": "Spain",
-    "description": "",
-    "packages": [
+      },
       {
-        "packageId": "barcelona-1",
-        "packageName": "Barcelona EU Tour",
-        "description": "Barcelona hotdogs are non-existent",
-        "inclusions": [
-          "Flight",
-          "Accommodation"
-        ],
-        "exclusions": [
-          "Transfers"
-        ],
+        "packageId": "boracay-1",
+        "packageName": "Boracay Summer Promo",
+        "description": "Boracay is the prime beach destination",
+        "inclusions": ["Flight", "Accommodation"],
+        "exclusions": ["Transfers"],
         "dates": [
           {
             "startDate": "2024-09-01",
@@ -83,24 +60,155 @@
           {
             "dayNo": 1,
             "activities": [
-              "land airport",
-              "checkin hotel",
-              "museum visit"
+              "land at caticlan airport",
+              "sea transfer",
+              "paragliding",
+              "Tour to puka beach"
             ]
           },
           {
             "dayNo": 2,
-            "activities": [
-              "Ciutadella park",
-              "tapas bar hopping"
-            ]
+            "activities": ["talipapa", "bar hopping"]
           },
           {
             "dayNo": 3,
+            "activities": ["souvenir buying", "flight back"]
+          }
+        ]
+      },
+      {
+        "packageId": "boracay-1",
+        "packageName": "Boracay Summer Promo",
+        "description": "Boracay is the prime beach destination",
+        "inclusions": ["Flight", "Accommodation"],
+        "exclusions": ["Transfers"],
+        "dates": [
+          {
+            "startDate": "2024-09-01",
+            "endDate": "2024-09-12"
+          },
+          {
+            "startDate": "2024-10-24",
+            "endDate": "2024-10-30"
+          }
+        ],
+        "itinerary": [
+          {
+            "dayNo": 1,
             "activities": [
-              "souvenir buying",
-              "flight back"
+              "land at caticlan airport",
+              "sea transfer",
+              "paragliding",
+              "Tour to puka beach"
             ]
+          },
+          {
+            "dayNo": 2,
+            "activities": ["talipapa", "bar hopping"]
+          },
+          {
+            "dayNo": 3,
+            "activities": ["souvenir buying", "flight back"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "countryCode": "ES",
+    "countryName": "Spain",
+    "description": "",
+    "packages": [
+      {
+        "packageId": "barcelona-1",
+        "packageName": "Barcelona EU Tour",
+        "description": "Barcelona hotdogs are non-existent",
+        "inclusions": ["Flight", "Accommodation"],
+        "exclusions": ["Transfers"],
+        "dates": [
+          {
+            "startDate": "2024-09-01",
+            "endDate": "2024-09-12"
+          },
+          {
+            "startDate": "2024-10-24",
+            "endDate": "2024-10-30"
+          }
+        ],
+        "itinerary": [
+          {
+            "dayNo": 1,
+            "activities": ["land airport", "checkin hotel", "museum visit"]
+          },
+          {
+            "dayNo": 2,
+            "activities": ["Ciutadella park", "tapas bar hopping"]
+          },
+          {
+            "dayNo": 3,
+            "activities": ["souvenir buying", "flight back"]
+          }
+        ]
+      },
+      {
+        "packageId": "barcelona-1",
+        "packageName": "Barcelona EU Tour",
+        "description": "Barcelona hotdogs are non-existent",
+        "inclusions": ["Flight", "Accommodation"],
+        "exclusions": ["Transfers"],
+        "dates": [
+          {
+            "startDate": "2024-09-01",
+            "endDate": "2024-09-12"
+          },
+          {
+            "startDate": "2024-10-24",
+            "endDate": "2024-10-30"
+          }
+        ],
+        "itinerary": [
+          {
+            "dayNo": 1,
+            "activities": ["land airport", "checkin hotel", "museum visit"]
+          },
+          {
+            "dayNo": 2,
+            "activities": ["Ciutadella park", "tapas bar hopping"]
+          },
+          {
+            "dayNo": 3,
+            "activities": ["souvenir buying", "flight back"]
+          }
+        ]
+      },
+      {
+        "packageId": "barcelona-1",
+        "packageName": "Barcelona EU Tour",
+        "description": "Barcelona hotdogs are non-existent",
+        "inclusions": ["Flight", "Accommodation"],
+        "exclusions": ["Transfers"],
+        "dates": [
+          {
+            "startDate": "2024-09-01",
+            "endDate": "2024-09-12"
+          },
+          {
+            "startDate": "2024-10-24",
+            "endDate": "2024-10-30"
+          }
+        ],
+        "itinerary": [
+          {
+            "dayNo": 1,
+            "activities": ["land airport", "checkin hotel", "museum visit"]
+          },
+          {
+            "dayNo": 2,
+            "activities": ["Ciutadella park", "tapas bar hopping"]
+          },
+          {
+            "dayNo": 3,
+            "activities": ["souvenir buying", "flight back"]
           }
         ]
       }
