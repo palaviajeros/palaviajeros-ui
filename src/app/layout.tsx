@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "@mantine/core/styles.css";
 import "@mantine/carousel/styles.css";
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",

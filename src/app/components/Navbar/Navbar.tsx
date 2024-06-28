@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { Container, Group, Burger, Menu } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import classes from "@/app/components/Navbar.module.scss";
+import classes from "@/app/components/Navbar/Navbar.module.scss";
 
 const links = [
   { link: "/", label: "Home" },
