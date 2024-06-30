@@ -1,5 +1,5 @@
 import { Title, Text, Image, Container, Flex } from "@mantine/core";
-import classes from "@/app/Home.module.scss";
+import Services from "./components/Home/Services/Services";
 
 export default function Home() {
   const textContents = {
@@ -8,16 +8,13 @@ export default function Home() {
   };
 
   return (
-    <Container className={classes.container}>
+    <Container>
       <Flex wrap="wrap" gap="lg">
-        <div className={classes.contents}>
-          <Title className={classes.title} order={1}>
-            {textContents.title}
-          </Title>
-          <Text className={classes.text}>{textContents.text}</Text>
+        <div>
+          <Title order={1}>{textContents.title}</Title>
+          <Text>{textContents.text}</Text>
         </div>
         <Image
-          className={classes.image}
           radius="md"
           h={500}
           w="auto"
@@ -25,6 +22,7 @@ export default function Home() {
           src="/samples/ex-home-image.jpg"
         />
       </Flex>
+      <Services />
     </Container>
   );
 }
