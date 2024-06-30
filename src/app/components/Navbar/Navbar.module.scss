@@ -27,20 +27,11 @@
     }
 
     [data-mantine-color-scheme] &[data-active] {
-        background-color: var(--mantine-color-blue-filled);
+        background-color: var(--mantine-color-pink-5);
         color: var(--mantine-color-white);
     }
 
     &:hover {
         background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
-    }
-}
-
-//for mobile nav - burger menu
-.dropdown {
-    display: block;
-
-    @media(min-width: 36em) {
-        display: none;
     }
 }

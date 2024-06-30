@@ -68,11 +68,13 @@ const Navbar: React.FC = () => {
             opened={opened}
             onClose={close}
             title=""
-            padding="md"
-            size={200}
+            padding="lx"
+            size="md"
             position="right"
             overlayProps={{ backgroundOpacity: 0.5, blur: 4 }}
-            closeButtonProps={{ icon: <IconX size={40} stroke={1.5} /> }}
+            closeButtonProps={{
+              icon: <IconX size={40} stroke={2} />,
+            }}
           >
             {items}
           </Drawer>
