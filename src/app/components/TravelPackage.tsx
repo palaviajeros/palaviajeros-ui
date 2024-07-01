@@ -5,7 +5,7 @@ import {
     DateRange, Services
 } from "@/app/shared/models/travelPackageDto";
 import {Carousel} from "@mantine/carousel";
-import {Flex, Text, Button, Badge} from "@mantine/core";
+import {Flex, Text, Button, Badge, NumberFormatter} from "@mantine/core";
 import {IconCheck, IconX} from "@tabler/icons-react";
 
 interface TravelPackageProps {
@@ -103,7 +103,12 @@ const TravelPackage = ({travelPackage}: TravelPackageProps) => {
                                             </p>
                                         );
                                     })}
-                                    <Button>Reserve</Button>
+                                    <Flex direction="row" align="center" gap={"sm"}>
+                                        <Button>Reserve</Button>
+                                        {/* eslint-disable-next-line react/jsx-no-undef */}
+                                        <NumberFormatter prefix="$ " value={t.price} thousandSeparator
+                                                         style={{fontWeight: "bold"}}/>
+                                    </Flex>
                                 </div>
                             </div>
                         </Flex>
