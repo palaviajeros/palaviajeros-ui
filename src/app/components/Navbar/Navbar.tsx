@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { Container, Group, Burger, Drawer } from "@mantine/core";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { IconX } from "@tabler/icons-react";
-import classes from "@/app/components/Navbar/Navbar.module.scss";
+import classes from "@/app/components/Navbar/Navbar.module.css";
 
 const links = [
   { link: "/", label: "Home" },
