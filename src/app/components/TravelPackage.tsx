@@ -29,6 +29,10 @@ const TravelPackage = ({travelPackage}: TravelPackageProps) => {
         return `${startFormatted} - ${endFormatted} ${year}`;
     };
 
+    function getValueOfEnumService(service: Services) {
+        return Object.entries(Services).find(([k, _]) => k === service)![1];
+    }
+
     return (
         <>
             {travelPackage.packages.map((t, index) => {
@@ -76,7 +80,7 @@ const TravelPackage = ({travelPackage}: TravelPackageProps) => {
                                                 return (
                                                     <Flex key={index} gap={"sm"}>
                                                         <IconCheck stroke={2}/>
-                                                        <Text>{`${Object.entries(Services).find(([k, _]) => k === inclusion)![1]}`}</Text>
+                                                        <Text>{`${getValueOfEnumService(inclusion)}`}</Text>
                                                     </Flex>
                                                 );
                                             })}
@@ -86,7 +90,7 @@ const TravelPackage = ({travelPackage}: TravelPackageProps) => {
                                                 return (
                                                     <Flex key={index} gap={"sm"}>
                                                         <IconX stroke={2}/>
-                                                        <Text>{`${Object.entries(Services).find(([k, _]) => k === exclusion)![1]}`}</Text>
+                                                        <Text>{`${(getValueOfEnumService(exclusion))}`}</Text>
                                                     </Flex>
                                                 );
                                             })}
