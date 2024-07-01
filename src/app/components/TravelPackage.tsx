@@ -5,7 +5,7 @@ import {
     DateRange, Services
 } from "@/app/shared/models/travelPackageDto";
 import {Carousel} from "@mantine/carousel";
-import {Flex, Text, Button} from "@mantine/core";
+import {Flex, Text, Button, Badge} from "@mantine/core";
 import {IconCheck, IconX} from "@tabler/icons-react";
 
 interface TravelPackageProps {
@@ -63,31 +63,34 @@ const TravelPackage = ({travelPackage}: TravelPackageProps) => {
                             </div>
                             <div style={{flex: 1}}>
                                 <h3>{t.name}</h3>
-                                <Text>
-                                    <b>Dates:</b> {formatDateRange(t.travelDates[0])}
-                                </Text>
+                                <Flex gap={"sm"} wrap="wrap">
+                                    {t.travelDates.map((d, index) => {
+                                            return <Badge key={index} color={"red"}>{formatDateRange(d)}</Badge>;
+                                        }
+                                    )}
+                                </Flex>
                                 <div>
                                     <Flex gap={"lg"} mt={"md"}>
-                                        <Text>
+                                        <Flex direction="column">
                                             {t.inclusions.map((inclusion, index) => {
                                                 return (
-                                                    <Flex key={index}>
+                                                    <Flex key={index} gap={"sm"}>
                                                         <IconCheck stroke={2}/>
                                                         <Text>{`${Object.entries(Services).find(([k, _]) => k === inclusion)![1]}`}</Text>
                                                     </Flex>
                                                 );
                                             })}
-                                        </Text>
-                                        <Text>
+                                        </Flex>
+                                        <Flex direction="column">
                                             {t.exclusions.map((exclusion, index) => {
                                                 return (
-                                                    <Flex key={index}>
+                                                    <Flex key={index} gap={"sm"}>
                                                         <IconX stroke={2}/>
                                                         <Text>{`${Object.entries(Services).find(([k, _]) => k === exclusion)![1]}`}</Text>
                                                     </Flex>
                                                 );
                                             })}
-                                        </Text>
+                                        </Flex>
                                     </Flex>
                                     {t.description.map((description) => {
                                         return (
