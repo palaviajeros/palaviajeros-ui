@@ -70,7 +70,7 @@ const Navbar: React.FC = () => {
             title=""
             padding="lx"
             size="md"
-            position="right"
+            position="top"
             overlayProps={{ backgroundOpacity: 0.5, blur: 4 }}
             closeButtonProps={{
               icon: <IconX size={40} stroke={2} />,
