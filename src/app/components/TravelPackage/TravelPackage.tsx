@@ -5,8 +5,12 @@ import {
     DateRange, Services
 } from "@/app/shared/models/travelPackageDto";
 import {Carousel} from "@mantine/carousel";
-import {Flex, Text, Button, Badge, NumberFormatter} from "@mantine/core";
-import {IconCheck, IconX} from "@tabler/icons-react";
+import {Flex, Text, Button, Badge, NumberFormatter, rem} from "@mantine/core";
+import {
+    IconCheck, IconCircleArrowLeftFilled, IconCircleArrowRightFilled,
+    IconX
+} from "@tabler/icons-react";
+import "./TravelPackage.scss";
 
 interface TravelPackageProps {
     travelPackage: TravelCountryPackages;
@@ -47,8 +51,20 @@ const TravelPackage = ({travelPackage}: TravelPackageProps) => {
                                 lg: index % 2 === 0 ? "row" : "row-reverse"
                             }}
                         >
-                            <div style={{flex: 1}}>
-                                <Carousel slideSize="100%" slideGap="md" align="center" loop>
+                            <div className="carousel-container" style={{flex: 1}}>
+                                <Carousel slideSize="100%" slideGap="lg" align="center" loop height="100%"
+                                          nextControlIcon={<IconCircleArrowRightFilled
+                                              style={{
+                                                  width: rem(24),
+                                                  height: rem(24),
+                                                  color: "white"
+                                              }}/>}
+                                          previousControlIcon={<IconCircleArrowLeftFilled
+                                              style={{
+                                                  width: rem(24),
+                                                  height: rem(24),
+                                                  color: "white"
+                                              }}/>}>
                                     {t.imageUrls.map((img, index) => {
                                         return (
                                             <Carousel.Slide key={index}>
@@ -79,7 +95,7 @@ const TravelPackage = ({travelPackage}: TravelPackageProps) => {
                                             {t.inclusions.map((inclusion, index) => {
                                                 return (
                                                     <Flex key={index} gap={"sm"}>
-                                                        <IconCheck stroke={2}/>
+                                                        <IconCheck stroke={3}/>
                                                         <Text>{`${getValueOfEnumService(inclusion)}`}</Text>
                                                     </Flex>
                                                 );
@@ -89,7 +105,7 @@ const TravelPackage = ({travelPackage}: TravelPackageProps) => {
                                             {t.exclusions.map((exclusion, index) => {
                                                 return (
                                                     <Flex key={index} gap={"sm"}>
-                                                        <IconX stroke={2}/>
+                                                        <IconX stroke={3}/>
                                                         <Text>{`${(getValueOfEnumService(exclusion))}`}</Text>
                                                     </Flex>
                                                 );

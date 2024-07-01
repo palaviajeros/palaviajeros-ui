@@ -3,7 +3,7 @@
 import {useState} from "react";
 import {Tabs} from "@mantine/core";
 import {TravelCountryPackages} from "@/app/shared/models/travelPackageDto";
-import TravelPackage from "../components/TravelPackage";
+import TravelPackage from "../components/TravelPackage/TravelPackage";
 
 interface TravelTabsProps {
     packages: TravelCountryPackages[];
