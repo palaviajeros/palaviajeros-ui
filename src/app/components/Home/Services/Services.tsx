@@ -35,7 +35,7 @@ const mockdata = [
 ];
 
 const Services: React.FC = () => {
-  const theme = useMantineTheme();
+  // const theme = useMantineTheme(); // waiting for config file
   const features = mockdata.map((feature) => (
     <Card
       key={feature.title}
@@ -47,7 +47,7 @@ const Services: React.FC = () => {
       <feature.icon
         style={{ width: rem(50), height: rem(50) }}
         stroke={2}
-        color={theme.colors.blue[6]}
+        // color={theme.colors.blue[6]} //waiting for config file
       />
       <Text fz="lg" fw={500} className={classes.cardTitle} mt="md">
         {feature.title}
@@ -61,7 +61,7 @@ const Services: React.FC = () => {
     <Container size="lg" py="xl">
       <Group justify="center">
         <Badge variant="filled" size="lg">
-          Best company ever
+          Our Services
         </Badge>
       </Group>
 
@@ -70,8 +70,8 @@ const Services: React.FC = () => {
       </Title>
 
       <Text c="dimmed" className={classes.description} ta="center" mt="md">
-        Every once in a while, you’ll see a Golbat that’s missing some fangs.
-        This happens when hunger drives it to try biting a Steel-type Pokémon.
+        {/* Every once in a while, you’ll see a Golbat that’s missing some fangs.
+        This happens when hunger drives it to try biting a Steel-type Pokémon. */}
       </Text>
 
       <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl" mt={50}>
