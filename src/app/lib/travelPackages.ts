@@ -1,4 +1,4 @@
-import {Services, TravelCountryPackages, TravelPackageDto} from "@/app/shared/models/travelPackageDto";
+import {TravelCountryPackages, TravelPackageDto} from "@/app/shared/models/travelPackageDto";
 
 import fs from "fs";
 
@@ -6,7 +6,7 @@ const baseFolder = './public';
 const getImages = (fetchedPackages: TravelPackageDto, country: TravelCountryPackages): string[] => {
 
     let result: string[] = [];
-    const imagePath = `/packages/${country.countryCode}/${fetchedPackages.packageId.toLowerCase()}/`;
+    const imagePath = `/packages/${country.countryCode}/${fetchedPackages.code.toLowerCase()}/`;
 
     try {
         let files: string[] = fs.readdirSync(`${baseFolder}${imagePath}`);
