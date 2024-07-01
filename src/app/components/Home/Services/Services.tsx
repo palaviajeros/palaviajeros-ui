@@ -8,10 +8,9 @@ import {
   SimpleGrid,
   Container,
   rem,
-  useMantineTheme,
 } from "@mantine/core";
 import { IconGauge, IconUser, IconCookie } from "@tabler/icons-react";
-import classes from "@/app/components/Home/Services/Services.module.scss";
+import classes from "@/app/components/Home/Services/Services.module.css";
 
 const mockdata = [
   {
@@ -35,7 +34,6 @@ const mockdata = [
 ];
 
 const Services: React.FC = () => {
-  // const theme = useMantineTheme(); // waiting for config file
   const features = mockdata.map((feature) => (
     <Card
       key={feature.title}
@@ -44,11 +42,7 @@ const Services: React.FC = () => {
       className={classes.card}
       padding="xl"
     >
-      <feature.icon
-        style={{ width: rem(50), height: rem(50) }}
-        stroke={2}
-        // color={theme.colors.blue[6]} //waiting for config file
-      />
+      <feature.icon style={{ width: rem(50), height: rem(50) }} stroke={2} />
       <Text fz="lg" fw={500} className={classes.cardTitle} mt="md">
         {feature.title}
       </Text>
