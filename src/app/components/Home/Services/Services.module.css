@@ -1,0 +1,23 @@
+.title {
+  font-weight: 900;
+  font-size: rem(32px);
+  @media (max-width: $mantine-breakpoint-xs) {
+    font-size: rem(28px);
+  }
+}
+
+.card {
+  border: rem(1px) solid
+    light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-5));
+}
+
+.cardTitle {
+  &::after {
+    content: "";
+    display: block;
+    background-color: var(--mantine-color-red-filled);
+    width: rem(45px);
+    height: rem(2px);
+    margin-top: var(--mantine-spacing-sm);
+  }
+}
