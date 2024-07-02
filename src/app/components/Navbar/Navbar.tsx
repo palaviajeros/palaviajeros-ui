@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import NextImage from "next/image";
 import { Flex, Image as MantineImage } from "@mantine/core";
-import { Group, Burger, Menu } from "@mantine/core";
+import { Group, Burger, Drawer } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import classes from "@/app/components/Navbar/Navbar.module.scss";
 
@@ -53,20 +53,24 @@ const Navbar: React.FC = () => {
         <Group gap={5} visibleFrom="sm">
           {items}
         </Group>
-        <Menu>
-          <Menu.Target>
-            <Burger
-              opened={opened}
-              onClick={toggle}
-              hiddenFrom="sm"
-              size="sm"
-              className={classes.burgermenu}
-            />
-          </Menu.Target>
-          <Menu.Dropdown className={classes.dropdown}>
-            <Menu.Item>{items}</Menu.Item>
-          </Menu.Dropdown>
-        </Menu>
+        <Burger
+          opened={opened}
+          onClick={toggle}
+          hiddenFrom="sm"
+          size="sm"
+          className={classes.burgermenu}
+        />
+        <>
+          <Drawer
+            opened={opened}
+            onClose={toggle}
+            position="top"
+            ta="center"
+            size="25%"
+          >
+            {items}
+          </Drawer>
+        </>
       </Flex>
     </nav>
   );
