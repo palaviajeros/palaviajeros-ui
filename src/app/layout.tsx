@@ -5,7 +5,7 @@ import {
     AppShell,
     AppShellHeader,
     AppShellMain,
-    ColorSchemeScript,
+    ColorSchemeScript, Container,
     createTheme,
     MantineProvider
 } from "@mantine/core";
@@ -19,6 +19,13 @@ export const metadata: Metadata = {
 // palaviajeros logo color: #ff4c5c Todo: to add later
 const palaViajerosTheme = createTheme({
     primaryColor: 'red',
+    breakpoints: {
+        xs: '30em',
+        sm: '48em',
+        md: '64em',
+        lg: '74em',
+        xl: '90em',
+    },
 });
 
 export default function RootLayout({
@@ -38,7 +45,9 @@ export default function RootLayout({
                     <Navbar/>
                 </AppShellHeader>
                 <AppShellMain>
-                    {children}
+                    <Container size="md" mt={"lg"}>
+                        {children}
+                    </Container>
                     <Footer/>
                 </AppShellMain>
             </AppShell>

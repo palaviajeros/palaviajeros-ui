@@ -35,11 +35,14 @@ const Navbar: React.FC = () => {
 
     return (
         <nav className={classes.header}>
-            <Flex className={classes.inner} justify={"space-between"}>
+            <Flex className={classes.inner} justify={{
+                sm: "space-between",
+                xs: "center"
+            }}>
                 <a href={"/"}>
                     <MantineImage component={NextImage} src="/palaviajeros_logo.png" alt="" width={250} height={40}/>
                 </a>
-                <Group gap={5} visibleFrom="xs">
+                <Group gap={5} visibleFrom="sm">
                     {items}
                 </Group>
                 <Menu>
@@ -47,8 +50,9 @@ const Navbar: React.FC = () => {
                         <Burger
                             opened={opened}
                             onClick={toggle}
-                            hiddenFrom="xs"
+                            hiddenFrom="sm"
                             size="sm"
+                            className={classes.burgermenu}
                         />
                     </Menu.Target>
                     <Menu.Dropdown className={classes.dropdown}>
