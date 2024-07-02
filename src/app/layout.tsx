@@ -1,7 +1,14 @@
 import type {Metadata} from "next";
 import "@mantine/core/styles.css";
 import "@mantine/carousel/styles.css";
-import {ColorSchemeScript, createTheme, MantineProvider} from "@mantine/core";
+import {
+    AppShell,
+    AppShellHeader,
+    AppShellMain,
+    ColorSchemeScript,
+    createTheme,
+    MantineProvider
+} from "@mantine/core";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 
@@ -26,9 +33,15 @@ export default function RootLayout({
         </head>
         <body>
         <MantineProvider theme={palaViajerosTheme}>
-            <Navbar/>
-            {children}
-            <Footer/>
+            <AppShell header={{height: {base: 36, sm: 48, lg: 60}}}>
+                <AppShellHeader>
+                    <Navbar/>
+                </AppShellHeader>
+                <AppShellMain>
+                    {children}
+                    <Footer/>
+                </AppShellMain>
+            </AppShell>
         </MantineProvider>
         </body>
         </html>
