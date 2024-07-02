@@ -45,7 +45,7 @@ export default function RootLayout({
                     <Navbar/>
                 </AppShellHeader>
                 <AppShellMain>
-                    <Container size="xl" mt={"lg"}>
+                    <Container size="lg" mt={"xl"}>
                         {children}
                     </Container>
                     <Footer/>
