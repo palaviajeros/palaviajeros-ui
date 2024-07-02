@@ -3,9 +3,9 @@
 import React from "react";
 import Link from "next/link";
 import NextImage from 'next/image';
-import {Image as MantineImage} from '@mantine/core';
+import {Flex, Image as MantineImage} from '@mantine/core';
 import {useState} from "react";
-import {Container, Group, Burger, Menu} from "@mantine/core";
+import {Group, Burger, Menu} from "@mantine/core";
 import {useDisclosure} from "@mantine/hooks";
 import classes from "@/app/components/Navbar/Navbar.module.scss";
 
@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
             href={link.link}
             className={classes.link}
             data-active={active === link.link || undefined}
-            onClick={(event) => {
+            onClick={(_) => {
                 setActive(link.link);
             }}
         >
@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
 
     return (
         <nav className={classes.header}>
-            <Container size="md" className={classes.inner}>
+            <Flex className={classes.inner} justify={"space-between"}>
                 <a href={"/"}>
                     <MantineImage component={NextImage} src="/palaviajeros_logo.png" alt="" width={250} height={40}/>
                 </a>
@@ -55,7 +55,7 @@ const Navbar: React.FC = () => {
                         <Menu.Item>{items}</Menu.Item>
                     </Menu.Dropdown>
                 </Menu>
-            </Container>
+            </Flex>
         </nav>
     );
 };
