@@ -4,7 +4,7 @@ import classes from "./Header.module.css";
 
 export default function Header() {
   return (
-    <Container size="md">
+    <Container size="lg">
       <Flex
         gap="md"
         align="center"
