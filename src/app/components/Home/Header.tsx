@@ -1,7 +1,6 @@
 import {Image, Container, Title, Button, Text, Flex} from "@mantine/core";
 import image from "@/../public/images/header/image.svg";
 import classes from "./Header.module.scss";
-import NextImage from "next/image";
 import React from "react";
 
 export default function Header() {
@@ -32,7 +31,7 @@ export default function Header() {
                     </Button>
                 </div>
                 <div>
-                    <Image component={NextImage} src={image.src} alt="" width={250} height={40}/>
+                    <Image src={image.src}/>
                 </div>
             </Flex>
         </Container>
