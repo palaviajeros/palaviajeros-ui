@@ -1,14 +1,5 @@
 import React, { FC } from "react";
-import {
-  Badge,
-  Group,
-  Title,
-  Text,
-  Card,
-  SimpleGrid,
-  Container,
-  rem,
-} from "@mantine/core";
+import { Title, Text, Card, SimpleGrid, Container, rem } from "@mantine/core";
 import {
   IconGauge,
   IconUser,
@@ -62,17 +53,10 @@ const Services: React.FC = () => {
     </Card>
   ));
   return (
-    <Container size="lg" py="xl">
-      <Group justify="center">
-        <Badge variant="filled" size="lg">
-          Our Services
-        </Badge>
-      </Group>
-
+    <Container size="lg" py="xl" mt="xl">
       <Title order={2} className={classes.title} ta="center" mt="sm">
-        Integrate effortlessly with any technology stack
+        Our Services
       </Title>
-
       <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl" mt={50}>
         {features}
       </SimpleGrid>

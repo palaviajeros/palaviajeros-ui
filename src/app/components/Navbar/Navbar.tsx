@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { Container, Group, Burger, Menu } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import classes from "@/app/components/Navbar/Navbar.module.scss";
+import classes from "./Navbar.module.css";
 
 const links = [
   { link: "/", label: "Home" },
@@ -35,8 +35,13 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className={classes.header}>
-      <Container size="md" className={classes.inner}>
-        <Image src="/palaviajeros_logo.png" alt="" width={200} height={100} />
+      <Container size="lg" className={classes.inner}>
+        <Image
+          src="/palaviajeros_logo.png"
+          alt="logo"
+          width={200}
+          height={100}
+        />
         <Group gap={5} visibleFrom="xs">
           {items}
         </Group>
