@@ -6,14 +6,11 @@ import {
     IconBrandInstagram,
 } from "@tabler/icons-react";
 import classes from "@/app/components/Footer/Footer.module.scss";
-import NextImage from 'next/image';
-import {Image as MantineImage} from '@mantine/core';
 
 export default function Footer() {
     return (
         <footer className={classes.footer}>
             <Container className={classes.inner}>
-                <MantineImage component={NextImage} src="/palaviajeros_logo.png" alt="" width={250} height={40}/>
                 <Group
                     gap={0}
                     className={classes.links}
