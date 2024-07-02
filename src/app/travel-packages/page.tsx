@@ -2,7 +2,7 @@ import "./styles.travel-packages.scss";
 import {TravelCountryPackages} from "@/app/shared/models/travelPackageDto";
 import getTravelPackages from "@/app/lib/travelPackages";
 import TravelTabs from "./TravelTabs";
-import {Container} from "@mantine/core";
+import React from "react";
 
 const TravelPackagesPage = () => {
     const packages: TravelCountryPackages[] = getTravelPackages();
