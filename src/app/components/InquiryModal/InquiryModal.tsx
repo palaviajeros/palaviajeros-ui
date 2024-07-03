@@ -40,9 +40,9 @@ const InquiryModalButton = ({travelPackage, children, variant}: InquiryModalProp
             id: 'inquiry-notif',
             withCloseButton: true,
             title: `Inquiry Sent: ${travelPackage.name}`,
-            message: `Hey there, we received your inquiry about ${travelPackage.name} and we will respond to you soon!`,
+            message: `Hey there, we received your inquiry for ${travelPackage.name} on ${form.values.travelDates} and we will respond to you shortly! Thank you for your patience!`,
             color: 'green',
-            autoClose: 3000,
+            autoClose: 10000,
         });
         // save values here
         form.reset();
