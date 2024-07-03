@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useState } from "react";
 import Link from "next/link";
 import NextImage from "next/image";
 import { Flex, Image as MantineImage } from "@mantine/core";
@@ -16,18 +15,9 @@ const links = [
 
 const Navbar: React.FC = () => {
   const [opened, { toggle }] = useDisclosure(false);
-  const [active, setActive] = useState(links[0].link);
 
   const items = links.map((link) => (
-    <Link
-      key={link.label}
-      href={link.link}
-      className={classes.link}
-      data-active={active === link.link || undefined}
-      onClick={(_) => {
-        setActive(link.link);
-      }}
-    >
+    <Link key={link.label} href={link.link} className={classes.link}>
       {link.label}
     </Link>
   ));
