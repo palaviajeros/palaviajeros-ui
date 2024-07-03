@@ -63,21 +63,19 @@ const About: React.FC = () => {
     ];
     return (
         <>
-            <Container>
-                <Title ta="center">About Us</Title>
-                <Space h="xl"/>
-                <Flex direction="column" gap="xl">
-                    {contents.map((content, index) => (
-                        <ContentBlock
-                            key={index}
-                            title={content.title}
-                            text={content.text}
-                            imageUrl={content.imageUrl}
-                            reverse={index % 2 === 1}
-                        />
-                    ))}
-                </Flex>
-            </Container>
+            <Title ta="center">About Us</Title>
+            <Space h="xl"/>
+            <Flex direction="column" gap="xl">
+                {contents.map((content, index) => (
+                    <ContentBlock
+                        key={index}
+                        title={content.title}
+                        text={content.text}
+                        imageUrl={content.imageUrl}
+                        reverse={index % 2 === 1}
+                    />
+                ))}
+            </Flex>
         </>
     );
 };

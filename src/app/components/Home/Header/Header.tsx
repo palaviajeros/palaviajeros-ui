@@ -18,7 +18,7 @@ export default function Header() {
                     Buckle up!
                 </Title>
                 <Title mt="sm" order={2} c="yellow.6">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Palaviajeros got your travel plans covered!
                 </Title>
 
                 <Text mt="md" fw={500} c="gray.8" className={classes.text}>
@@ -31,7 +31,7 @@ export default function Header() {
                 </Button>
             </div>
             <div>
-                <Image src={image.src}/>
+                <Image src={image.src} alt={"header-image"}/>
             </div>
         </Flex>
     );
