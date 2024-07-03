@@ -62,6 +62,7 @@ export default function CardBestSellers({ card }: CardBestSellersProps) {
                     radius="lg"
                     size="xs"
                     maw={150}
+                    ml="auto"
                   >
                     Request a Quote
                   </Button>
