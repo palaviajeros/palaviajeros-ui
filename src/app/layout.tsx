@@ -1,6 +1,8 @@
 import type {Metadata} from "next";
 import "@mantine/core/styles.css";
 import "@mantine/carousel/styles.css";
+import '@mantine/notifications/styles.css';
+
 import {
     AppShell,
     AppShellHeader,
@@ -11,6 +13,7 @@ import {
 } from "@mantine/core";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import {Notifications} from "@mantine/notifications";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -40,6 +43,7 @@ export default function RootLayout({
         </head>
         <body>
         <MantineProvider theme={palaViajerosTheme}>
+            <Notifications/>
             <AppShell header={{height: {base: 36, sm: 48, lg: 60}}}>
                 <AppShellHeader>
                     <Navbar/>
