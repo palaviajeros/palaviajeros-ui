@@ -1,6 +1,6 @@
 import {TravelPackageDto} from "@/app/shared/models/travelPackageDto";
-import {useDisclosure, useCounter} from '@mantine/hooks';
-import {Modal, Button, Group, Text, Badge, ButtonVariant, TextInput, Checkbox, Select, Textarea} from '@mantine/core';
+import {useDisclosure} from '@mantine/hooks';
+import {Modal, Button, Group, ButtonVariant, TextInput, Select, Textarea} from '@mantine/core';
 import React from "react";
 import {isEmail, isNotEmpty, useForm} from "@mantine/form";
 import {formatDateRange} from "@/app/util/Helpers";
@@ -43,6 +43,8 @@ const InquiryModalButton = ({travelPackage, children, variant}: InquiryModalProp
             color: 'green',
             autoClose: 3000,
         });
+        // save values here
+        form.reset();
         close();
     })}>
         <TextInput
