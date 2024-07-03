@@ -14,10 +14,15 @@ const links = [
 ];
 
 const Navbar: React.FC = () => {
-  const [opened, { toggle }] = useDisclosure(false);
+  const [opened, { toggle, close }] = useDisclosure(false);
 
   const items = links.map((link) => (
-    <Link key={link.label} href={link.link} className={classes.link}>
+    <Link
+      key={link.label}
+      href={link.link}
+      className={classes.link}
+      onClick={close}
+    >
       {link.label}
     </Link>
   ));
@@ -48,15 +53,18 @@ const Navbar: React.FC = () => {
           onClick={toggle}
           hiddenFrom="sm"
           size="sm"
-          className={classes.burgermenu}
+          className={classes.burgerbutton}
         />
         <>
           <Drawer
             opened={opened}
             onClose={toggle}
             position="top"
+            // offset={50}
+            overlayProps={{ backgroundOpacity: 0.2 }}
             ta="center"
             size="25%"
+            hiddenFrom="sm"
           >
             {items}
           </Drawer>

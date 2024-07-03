@@ -15,23 +15,15 @@
   padding: 8px 12px;
   text-decoration: none;
   color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
-  font-size: var(--mantine-font-size-sm);
+  font-size: var(--mantine-font-size-xl);
   font-weight: 500;
 }
 .link:hover {
   color: var(--mantine-primary-color-7);
 }
 
-.dropdown {
-  display: block;
-}
-
-.dropdown .none {
-  display: none;
-}
-
-.burgermenu {
-  position: fixed !important;
+.burgerbutton {
+  position: fixed;
   right: 0;
   padding-right: 35px;
 }
