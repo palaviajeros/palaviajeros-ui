@@ -11,8 +11,14 @@
           "Enjoy the pristine white sand beaches in one of the best islands in the country!",
           "Test, na may, comma"
         ],
-        "inclusions": ["ACCOMMODATION", "FLIGHT"],
-        "exclusions": ["MEALS", "TRANSFERS"],
+        "inclusions": [
+          "ACCOMMODATION",
+          "FLIGHT"
+        ],
+        "exclusions": [
+          "MEALS",
+          "TRANSFERS"
+        ],
         "travelDates": [
           {
             "startDate": "2024-09-10T00:00:00",
@@ -43,11 +49,18 @@
           },
           {
             "dayNo": 2,
-            "activities": ["talipapa", "dinner at the beach", "barhopping"]
+            "activities": [
+              "talipapa",
+              "dinner at the beach",
+              "barhopping"
+            ]
           },
           {
             "dayNo": 3,
-            "activities": ["souvenir buying", "flight back"]
+            "activities": [
+              "souvenir buying",
+              "flight back"
+            ]
           }
         ],
         "price": 2099
@@ -58,8 +71,14 @@
         "description": [
           "Enjoy the pristine white sand beaches in one of the best islands in the country!"
         ],
-        "inclusions": ["ACCOMMODATION", "FLIGHT"],
-        "exclusions": ["MEALS", "TRANSFERS"],
+        "inclusions": [
+          "ACCOMMODATION",
+          "FLIGHT"
+        ],
+        "exclusions": [
+          "MEALS",
+          "TRANSFERS"
+        ],
         "travelDates": [
           {
             "startDate": "2024-09-10T00:00:00",
@@ -85,15 +104,24 @@
         "itinerary": [
           {
             "dayNo": 1,
-            "activities": ["land at caticlan"]
+            "activities": [
+              "land at caticlan"
+            ]
           },
           {
             "dayNo": 2,
-            "activities": ["talipapa", "dinner at the beach", "barhopping"]
+            "activities": [
+              "talipapa",
+              "dinner at the beach",
+              "barhopping"
+            ]
           },
           {
             "dayNo": 3,
-            "activities": ["souvenir buying", "flight back"]
+            "activities": [
+              "souvenir buying",
+              "flight back"
+            ]
           }
         ],
         "price": 1999
@@ -106,13 +134,18 @@
     "description": "",
     "packages": [
       {
-        "code": "Barcelona",
+        "code": "barcelona",
         "name": "Barcelona EU Tour",
         "description": [
           "Barcelona is a major cultural, economic, and financial centre in southwestern Europe"
         ],
-        "inclusions": ["FLIGHT", "ACCOMMODATION"],
-        "exclusions": ["TRANSFERS"],
+        "inclusions": [
+          "FLIGHT",
+          "ACCOMMODATION"
+        ],
+        "exclusions": [
+          "TRANSFERS"
+        ],
         "travelDates": [
           {
             "startDate": "2024-09-01",
@@ -126,27 +159,42 @@
         "itinerary": [
           {
             "dayNo": 1,
-            "activities": ["land airport", "checkin hotel", "museum visit"]
+            "activities": [
+              "land airport",
+              "checkin hotel",
+              "museum visit"
+            ]
           },
           {
             "dayNo": 2,
-            "activities": ["Ciutadella park", "tapas bar hopping"]
+            "activities": [
+              "Ciutadella park",
+              "tapas bar hopping"
+            ]
           },
           {
             "dayNo": 3,
-            "activities": ["souvenir buying", "flight back"]
+            "activities": [
+              "souvenir buying",
+              "flight back"
+            ]
           }
         ],
         "price": 2099
       },
       {
-        "code": "Madrid",
+        "code": "madrid",
         "name": "Madrid EU Tour",
         "description": [
           "Madrid is the capital of Spain and lies in the center of the Iberian Peninsula."
         ],
-        "inclusions": ["FLIGHT", "ACCOMMODATION"],
-        "exclusions": ["TRANSFERS"],
+        "inclusions": [
+          "FLIGHT",
+          "ACCOMMODATION"
+        ],
+        "exclusions": [
+          "TRANSFERS"
+        ],
         "travelDates": [
           {
             "startDate": "2024-11-01",
@@ -160,25 +208,43 @@
         "itinerary": [
           {
             "dayNo": 1,
-            "activities": ["land airport", "checkin hotel", "museum visit"]
+            "activities": [
+              "land airport",
+              "checkin hotel",
+              "museum visit"
+            ]
           },
           {
             "dayNo": 2,
-            "activities": ["Ciutadella park", "tapas bar hopping"]
+            "activities": [
+              "Ciutadella park",
+              "tapas bar hopping"
+            ]
           },
           {
             "dayNo": 3,
-            "activities": ["souvenir buying", "flight back"]
+            "activities": [
+              "souvenir buying",
+              "flight back"
+            ]
           }
         ],
         "price": 2399
       },
       {
-        "code": "Granada",
+        "code": "granada",
         "name": "Granada EU Tour",
-        "description": ["Granada is located at the foot of the Sierra Nevada"],
-        "inclusions": ["ACCOMMODATION", "FLIGHT"],
-        "exclusions": ["MEALS", "TRANSFERS"],
+        "description": [
+          "Granada is located at the foot of the Sierra Nevada"
+        ],
+        "inclusions": [
+          "ACCOMMODATION",
+          "FLIGHT"
+        ],
+        "exclusions": [
+          "MEALS",
+          "TRANSFERS"
+        ],
         "travelDates": [
           {
             "startDate": "2024-08-01",
@@ -192,15 +258,25 @@
         "itinerary": [
           {
             "dayNo": 1,
-            "activities": ["land airport", "checkin hotel", "museum visit"]
+            "activities": [
+              "land airport",
+              "checkin hotel",
+              "museum visit"
+            ]
           },
           {
             "dayNo": 2,
-            "activities": ["Ciutadella park", "tapas bar hopping"]
+            "activities": [
+              "Ciutadella park",
+              "tapas bar hopping"
+            ]
           },
           {
             "dayNo": 3,
-            "activities": ["souvenir buying", "flight back"]
+            "activities": [
+              "souvenir buying",
+              "flight back"
+            ]
           }
         ],
         "price": 2799

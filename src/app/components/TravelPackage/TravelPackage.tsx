@@ -11,32 +11,14 @@ import {
     IconX
 } from "@tabler/icons-react";
 import "./TravelPackage.scss";
+import InquiryModalButton from "@/app/components/InquiryModal/InquiryModal";
+import {formatDateRange, getValueOfEnumService} from "@/app/util/Helpers";
 
 interface TravelPackageProps {
     travelPackage: TravelCountryPackages;
 }
 
 const TravelPackage = ({travelPackage}: TravelPackageProps) => {
-    const formatDateRange = ({startDate, endDate}: DateRange) => {
-        const start = new Date(startDate);
-        const end = new Date(endDate);
-
-        const options: Intl.DateTimeFormatOptions = {
-            day: "2-digit",
-            month: "short"
-        };
-        const startFormatted = start.toLocaleDateString("en-GB", options);
-        const endFormatted = end.toLocaleDateString("en-GB", options);
-
-        const year = start.getFullYear();
-
-        return `${startFormatted} - ${endFormatted} ${year}`;
-    };
-
-    function getValueOfEnumService(service: Services) {
-        return Object.entries(Services).find(([k, _]) => k === service)![1];
-    }
-
     return (
         <>
             {travelPackage.packages.map((t, index) => {
@@ -120,8 +102,9 @@ const TravelPackage = ({travelPackage}: TravelPackageProps) => {
                                         );
                                     })}
                                     <Flex direction="row" align="center" gap={"sm"}>
-                                        <Button>Reserve</Button>
-                                        {/* eslint-disable-next-line react/jsx-no-undef */}
+                                        <InquiryModalButton variant={"primary"} travelPackage={t}>
+                                            Get a Quote
+                                        </InquiryModalButton>
                                         <NumberFormatter prefix="$ " value={t.price} thousandSeparator
                                                          style={{fontWeight: "bold"}}/>
                                     </Flex>

@@ -11,6 +11,7 @@ export default function Header() {
             justify="center"
             direction={{base: "column-reverse", xs: "row"}}
             className={classes.header_wrapper}
+            mt={"xl"}
         >
             <div>
                 <Title order={1} className={classes.title} fw={900}>

@@ -6,7 +6,7 @@ const baseFolder = './public';
 const getImages = (fetchedPackages: TravelPackageDto, country: TravelCountryPackages): string[] => {
 
     let result: string[] = [];
-    const imagePath = `/packages/${country.countryCode}/${fetchedPackages.code.toLowerCase()}/`;
+    const imagePath = `/packages/${country.countryCode}/${fetchedPackages.code}/`;
 
     try {
         let files: string[] = fs.readdirSync(`${baseFolder}${imagePath}`);
