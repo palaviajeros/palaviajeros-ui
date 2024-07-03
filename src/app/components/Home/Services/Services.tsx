@@ -4,7 +4,7 @@ import {
   IconGauge,
   IconUser,
   IconCookie,
-  IconProps,
+  IconProps
 } from "@tabler/icons-react";
 import classes from "@/app/components/Home/Services/Services.module.css";
 
@@ -18,20 +18,20 @@ const mockdata: ServicesCardContent[] = [
     title: "Extreme performance",
     description:
       "This dust is actually a powerful poison that will even make a pro wrestler sick, Regice cloaks itself with frigid air of -328 degrees Fahrenheit",
-    icon: IconGauge,
+    icon: IconGauge
   },
   {
     title: "Privacy focused",
     description:
       "People say it can run at the same speed as lightning striking, Its icy body is so cold, it will not melt even if it is immersed in magma",
-    icon: IconUser,
+    icon: IconUser
   },
   {
     title: "No third parties",
     description:
       "They’re popular, but they’re rare. Trainers who show them off recklessly may be targeted by thieves",
-    icon: IconCookie,
-  },
+    icon: IconCookie
+  }
 ];
 
 const Services: React.FC = () => {
@@ -53,8 +53,8 @@ const Services: React.FC = () => {
     </Card>
   ));
   return (
-    <Container size="lg" py="xl" mt="xl">
-      <Title order={2} className={classes.title} ta="center" mt="sm">
+    <Container mt={{ base: "50px", lg: "70px" }}>
+      <Title order={2} className={classes.title} ta="center">
         Our Services
       </Title>
       <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl" mt={50}>

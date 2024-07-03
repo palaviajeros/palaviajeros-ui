@@ -11,14 +11,8 @@
           "Enjoy the pristine white sand beaches in one of the best islands in the country!",
           "Test, na may, comma"
         ],
-        "inclusions": [
-          "ACCOMMODATION",
-          "FLIGHT"
-        ],
-        "exclusions": [
-          "MEALS",
-          "TRANSFERS"
-        ],
+        "inclusions": ["ACCOMMODATION", "FLIGHT"],
+        "exclusions": ["MEALS", "TRANSFERS"],
         "travelDates": [
           {
             "startDate": "2024-09-10T00:00:00",
@@ -49,18 +43,11 @@
           },
           {
             "dayNo": 2,
-            "activities": [
-              "talipapa",
-              "dinner at the beach",
-              "barhopping"
-            ]
+            "activities": ["talipapa", "dinner at the beach", "barhopping"]
           },
           {
             "dayNo": 3,
-            "activities": [
-              "souvenir buying",
-              "flight back"
-            ]
+            "activities": ["souvenir buying", "flight back"]
           }
         ],
         "price": 2099
@@ -71,14 +58,8 @@
         "description": [
           "Enjoy the pristine white sand beaches in one of the best islands in the country!"
         ],
-        "inclusions": [
-          "ACCOMMODATION",
-          "FLIGHT"
-        ],
-        "exclusions": [
-          "MEALS",
-          "TRANSFERS"
-        ],
+        "inclusions": ["ACCOMMODATION", "FLIGHT"],
+        "exclusions": ["MEALS", "TRANSFERS"],
         "travelDates": [
           {
             "startDate": "2024-09-10T00:00:00",
@@ -104,24 +85,15 @@
         "itinerary": [
           {
             "dayNo": 1,
-            "activities": [
-              "land at caticlan"
-            ]
+            "activities": ["land at caticlan"]
           },
           {
             "dayNo": 2,
-            "activities": [
-              "talipapa",
-              "dinner at the beach",
-              "barhopping"
-            ]
+            "activities": ["talipapa", "dinner at the beach", "barhopping"]
           },
           {
             "dayNo": 3,
-            "activities": [
-              "souvenir buying",
-              "flight back"
-            ]
+            "activities": ["souvenir buying", "flight back"]
           }
         ],
         "price": 1999
@@ -134,152 +106,104 @@
     "description": "",
     "packages": [
       {
-        "code": "barcelona-1",
+        "code": "Barcelona",
         "name": "Barcelona EU Tour",
         "description": [
-          "Barcelona hotdogs are non-existent"
+          "Barcelona is a major cultural, economic, and financial centre in southwestern Europe"
         ],
-        "inclusions": [
-          "FLIGHT",
-          "ACCOMMODATION"
-        ],
-        "exclusions": [
-          "TRANSFERS"
-        ],
+        "inclusions": ["FLIGHT", "ACCOMMODATION"],
+        "exclusions": ["TRANSFERS"],
         "travelDates": [
           {
             "startDate": "2024-09-01",
-            "endDate": "2024-09-12"
+            "endDate": "2024-09-9"
           },
           {
             "startDate": "2024-10-24",
-            "endDate": "2024-10-30"
+            "endDate": "2024-10-28"
           }
         ],
         "itinerary": [
           {
             "dayNo": 1,
-            "activities": [
-              "land airport",
-              "checkin hotel",
-              "museum visit"
-            ]
+            "activities": ["land airport", "checkin hotel", "museum visit"]
           },
           {
             "dayNo": 2,
-            "activities": [
-              "Ciutadella park",
-              "tapas bar hopping"
-            ]
+            "activities": ["Ciutadella park", "tapas bar hopping"]
           },
           {
             "dayNo": 3,
-            "activities": [
-              "souvenir buying",
-              "flight back"
-            ]
+            "activities": ["souvenir buying", "flight back"]
           }
         ],
         "price": 2099
       },
       {
-        "code": "barcelona-1",
-        "name": "Barcelona EU Tour",
+        "code": "Madrid",
+        "name": "Madrid EU Tour",
         "description": [
-          "Barcelona hotdogs are non-existent"
+          "Madrid is the capital of Spain and lies in the center of the Iberian Peninsula."
         ],
-        "inclusions": [
-          "FLIGHT",
-          "ACCOMMODATION"
-        ],
-        "exclusions": [
-          "TRANSFERS"
-        ],
+        "inclusions": ["FLIGHT", "ACCOMMODATION"],
+        "exclusions": ["TRANSFERS"],
         "travelDates": [
           {
-            "startDate": "2024-09-01",
-            "endDate": "2024-09-12"
+            "startDate": "2024-11-01",
+            "endDate": "2024-11-8"
           },
           {
-            "startDate": "2024-10-24",
-            "endDate": "2024-10-30"
+            "startDate": "2024-12-24",
+            "endDate": "2024-12-30"
           }
         ],
         "itinerary": [
           {
             "dayNo": 1,
-            "activities": [
-              "land airport",
-              "checkin hotel",
-              "museum visit"
-            ]
+            "activities": ["land airport", "checkin hotel", "museum visit"]
           },
           {
             "dayNo": 2,
-            "activities": [
-              "Ciutadella park",
-              "tapas bar hopping"
-            ]
+            "activities": ["Ciutadella park", "tapas bar hopping"]
           },
           {
             "dayNo": 3,
-            "activities": [
-              "souvenir buying",
-              "flight back"
-            ]
+            "activities": ["souvenir buying", "flight back"]
           }
         ],
-        "price": 2099
+        "price": 2399
       },
       {
-        "code": "barcelona-1",
-        "name": "Barcelona EU Tour",
-        "description": [
-          "Barcelona hotdogs are non-existent"
-        ],
-        "inclusions": [
-          "ACCOMMODATION",
-          "FLIGHT"
-        ],
-        "exclusions": [
-          "MEALS",
-          "TRANSFERS"
-        ],
+        "code": "Granada",
+        "name": "Granada EU Tour",
+        "description": ["Granada is located at the foot of the Sierra Nevada"],
+        "inclusions": ["ACCOMMODATION", "FLIGHT"],
+        "exclusions": ["MEALS", "TRANSFERS"],
         "travelDates": [
           {
-            "startDate": "2024-09-01",
-            "endDate": "2024-09-12"
+            "startDate": "2024-08-01",
+            "endDate": "2024-08-10"
           },
           {
-            "startDate": "2024-10-24",
-            "endDate": "2024-10-30"
+            "startDate": "2024-11-24",
+            "endDate": "2024-11-27"
           }
         ],
         "itinerary": [
           {
             "dayNo": 1,
-            "activities": [
-              "land airport",
-              "checkin hotel",
-              "museum visit"
-            ]
+            "activities": ["land airport", "checkin hotel", "museum visit"]
           },
           {
             "dayNo": 2,
-            "activities": [
-              "Ciutadella park",
-              "tapas bar hopping"
-            ]
+            "activities": ["Ciutadella park", "tapas bar hopping"]
           },
           {
             "dayNo": 3,
-            "activities": [
-              "souvenir buying",
-              "flight back"
-            ]
+            "activities": ["souvenir buying", "flight back"]
           }
         ],
-        "price": 2099
+        "price": 2799
       }
     ]
   }
