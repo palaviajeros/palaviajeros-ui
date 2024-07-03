@@ -8,7 +8,7 @@ import {notifications} from "@mantine/notifications";
 
 interface InquiryModalProps {
     travelPackage: TravelPackageDto;
-    children?: React.ReactNode;
+    children?: any;
     variant?: string | ButtonVariant
 }
 
@@ -24,6 +24,7 @@ const InquiryModalButton = ({travelPackage, children, variant}: InquiryModalProp
             travelDates: travelDatesOptions[0],
             noOfPax: '',
             message: '',
+            travelPackage: travelPackage.name,
         },
 
         validate: {
@@ -48,6 +49,14 @@ const InquiryModalButton = ({travelPackage, children, variant}: InquiryModalProp
         close();
     })}>
         <TextInput
+            label="Travel Package"
+            key={form.key('travelPackage')}
+            {...form.getInputProps('travelPackage')}
+            readOnly
+        />
+
+        <TextInput
+            mt="sm"
             withAsterisk
             label="Email"
             placeholder="your@email.com"
@@ -99,9 +108,11 @@ const InquiryModalButton = ({travelPackage, children, variant}: InquiryModalProp
             <Button type="submit">Send</Button>
         </Group>
     </form>
+
+    const sendBtn = typeof children == typeof (<Button/>) ? React.cloneElement(children, {onClick: open}) :
+        <Button variant={variant ?? "primary"} onClick={open}>{children}</Button>;
     return (
         <>
-
             <Modal
                 opened={opened}
                 onClose={close}
@@ -112,8 +123,7 @@ const InquiryModalButton = ({travelPackage, children, variant}: InquiryModalProp
             >
                 {inquireUsForm}
             </Modal>
-
-            <Button variant={variant ?? "primary"} onClick={open}>{children}</Button>
+            {sendBtn}
         </>)
 }
 
