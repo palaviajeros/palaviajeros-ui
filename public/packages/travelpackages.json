@@ -8,8 +8,7 @@
         "code": "boracay-1",
         "name": "Boracay Summer Getaway",
         "description": [
-          "Enjoy the pristine white sand beaches in one of the best islands in the country!",
-          "Test, na may, comma"
+          "Enjoy the pristine white sand beaches in one of the best islands in the country!"
         ],
         "inclusions": [
           "ACCOMMODATION",
@@ -17,20 +16,13 @@
         ],
         "exclusions": [
           "MEALS",
-          "TRANSFERS"
+          "TRANSFERS",
+          "TOURS"
         ],
         "travelDates": [
           {
             "startDate": "2024-09-10T00:00:00",
             "endDate": "2024-09-20T00:00:00"
-          },
-          {
-            "startDate": "2024-10-01T00:00:00",
-            "endDate": "2024-10-10T00:00:00"
-          },
-          {
-            "startDate": "2024-10-01T00:00:00",
-            "endDate": "2024-10-10T00:00:00"
           },
           {
             "startDate": "2024-10-01T00:00:00",
@@ -66,14 +58,15 @@
         "price": 2099
       },
       {
-        "code": "boracay-2",
-        "name": "Boracay Summer Getaway",
+        "code": "palawan-1",
+        "name": "Enjoy the Sun in Palawan Tour!",
         "description": [
-          "Enjoy the pristine white sand beaches in one of the best islands in the country!"
+          "It's all you ever wanted and more! Enjoy the white sand beaches and snorkel through the corals underwater in the day and enjoy the vibrant party scene at night! We also offer guided island hopping tours."
         ],
         "inclusions": [
           "ACCOMMODATION",
-          "FLIGHT"
+          "FLIGHT",
+          "TOURS"
         ],
         "exclusions": [
           "MEALS",
@@ -89,42 +82,99 @@
             "endDate": "2024-10-10T00:00:00"
           },
           {
-            "startDate": "2024-10-01T00:00:00",
-            "endDate": "2024-10-10T00:00:00"
-          },
-          {
-            "startDate": "2024-10-01T00:00:00",
-            "endDate": "2024-10-10T00:00:00"
-          },
-          {
-            "startDate": "2024-10-01T00:00:00",
-            "endDate": "2024-10-10T00:00:00"
+            "startDate": "2025-01-06T00:00:00",
+            "endDate": "2025-01-15T00:00:00"
           }
         ],
         "itinerary": [
           {
             "dayNo": 1,
             "activities": [
-              "land at caticlan"
+              "land at el nido airport",
+              "check-in hotel"
             ]
           },
           {
             "dayNo": 2,
             "activities": [
-              "talipapa",
-              "dinner at the beach",
+              "island hopping",
+              "lunch at the island",
               "barhopping"
             ]
           },
           {
             "dayNo": 3,
             "activities": [
-              "souvenir buying",
-              "flight back"
+              "island hopping 2",
+              "lunch at the boat",
+              "clubbing"
             ]
           }
         ],
-        "price": 1999
+        "price": 1395
+      },
+      {
+        "code": "cebu-1",
+        "name": "Cebu sinulog tour",
+        "description": [
+          "Experience the biggest street party in the Philippines! While enjoying the best nature has to offer around Cebu!"
+        ],
+        "inclusions": [
+          "ACCOMMODATION",
+          "FLIGHT",
+          "TOURS"
+        ],
+        "exclusions": [
+          "MEALS",
+          "TRANSFERS"
+        ],
+        "travelDates": [
+          {
+            "startDate": "2025-01-18T00:00:00",
+            "endDate": "2025-01-25T00:00:00"
+          }
+        ],
+        "itinerary": [
+          {
+            "dayNo": 1,
+            "activities": [
+              "land at mactan international airport",
+              "land transfer to hotel",
+              "city tour",
+              "lunch in carcar"
+            ]
+          },
+          {
+            "dayNo": 2,
+            "activities": [
+              "breakfast at hotel",
+              "city tour",
+              "wet market tour",
+              "lunch at cebu city center"
+            ]
+          },
+          {
+            "dayNo": 3,
+            "activities": [
+              "breakfast at hotel",
+              "van ride to south of cebu",
+              "oslob whale shark snorkeling",
+              "moal boal sardine dive",
+              "checkin at hotel in moal boal"
+            ]
+          },
+          {
+            "dayNo": 4,
+            "activities": [
+              "breakfast at hotel",
+              "drive to kawasan falls",
+              "kawasan falls canyoneering",
+              "go back to hotel",
+              "dinner at moal boal"
+            ]
+          }
+        ],
+        "price": 995
       }
     ]
   },

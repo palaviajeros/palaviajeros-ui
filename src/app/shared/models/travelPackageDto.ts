@@ -32,4 +32,5 @@ export enum Services {
     ACCOMMODATION = 'Accommodation',
     MEALS = 'Meals',
     TRANSFERS = 'Transfers',
+    TOURS = 'Tours',
 }
