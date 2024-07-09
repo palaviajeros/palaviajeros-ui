@@ -1,6 +1,6 @@
 .footer {
-  margin-top: 36em;
-  border-top: 1px solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5));
+  border-top: 1px solid
+    light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5));
 }
 
 .inner {
@@ -20,4 +20,4 @@
   .links {
     margin-top: var(--mantine-spacing-md);
   }
-}/*# sourceMappingURL=Footer.module.css.map */
+} /*# sourceMappingURL=Footer.module.css.map */

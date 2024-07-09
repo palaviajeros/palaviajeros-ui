@@ -14,7 +14,6 @@ const Subscribe = () => {
   return (
     <Flex
       direction={"column"}
-      mt={"xl"}
       justify={"center"}
       className={classes.container}
       gap={"xl"}
