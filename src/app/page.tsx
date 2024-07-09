@@ -7,7 +7,7 @@ import Subscribe from "@/app/components/Home/Subscribe/Subscribe";
 export default function Home() {
   return (
     <Flex
-      gap={{ base: "50px", lg: "70px" }}
+      gap={{ base: "90px", sm: "140px", lg: "160px" }}
       direction={"column"}
       justify={"space-evenly"}
     >

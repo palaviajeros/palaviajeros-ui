@@ -1,7 +1,8 @@
-.header_wrapper > div {
-  flex: 1;
+.header-wrapper {
+  div {
+    flex: 1;
+  }
 }
-
 .title {
   color: var(--mantine-color-gray-8);
   font-size: 38px;

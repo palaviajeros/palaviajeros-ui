@@ -1,10 +1,11 @@
-import classes from "./SoftLaunchBanner.module.css";
+import classes from "./SoftLaunchBanner.module.scss";
+import { Box } from "@mantine/core";
 
 export default function SoftLaunchBanner() {
   return (
-    <div className={classes.soft_launch_wrapper}>
+    <Box className={classes["soft-launch-wrapper"]}>
       🎉 Welcome to the soft launch of Palaviajeros — discover your next
       adventure with us!
-    </div>
+    </Box>
   );
 }
