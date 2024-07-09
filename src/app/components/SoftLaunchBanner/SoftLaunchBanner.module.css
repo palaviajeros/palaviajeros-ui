@@ -2,7 +2,8 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: #f6d8cf;
+  background-color: #ffe8e1;
   padding: 10px;
   text-align: center;
+  font-weight: 500;
 }
