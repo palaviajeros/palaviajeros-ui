@@ -53,7 +53,7 @@ export default function RootLayout({
             <AppShellMain>
               <Container
                 size="xl"
-                p={{ base: "0 30px", sm: "0 50px", lg: "0 70px" }}
+                p={{ base: "50px 30px", sm: "50px", lg: "70px" }}
               >
                 {children}
               </Container>

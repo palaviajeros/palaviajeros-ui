@@ -11,7 +11,6 @@ export default function Header() {
       justify="center"
       direction={{ base: "column-reverse", xs: "row" }}
       className={classes.header_wrapper}
-      mt={{ base: "50px", lg: "70px" }}
     >
       <div>
         <Title order={1} className={classes.title} fw={900}>
