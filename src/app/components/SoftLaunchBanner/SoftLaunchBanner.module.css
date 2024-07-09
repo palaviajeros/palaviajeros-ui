@@ -1,0 +1,8 @@
+.soft_launch_wrapper {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #f6d8cf;
+  padding: 10px;
+  text-align: center;
+}
