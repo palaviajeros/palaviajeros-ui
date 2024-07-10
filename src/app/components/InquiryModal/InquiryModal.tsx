@@ -62,7 +62,7 @@ const InquiryModalButton = ({
       travelPackage,
       inquiryDate: Date.now().toString(),
     } as InquiryEmailTemplateProps)
-      .then((obj) =>
+      .then((_) =>
         notifications.show({
           id: "inquiry-notif",
           withCloseButton: true,
