@@ -46,7 +46,7 @@ export default function RootLayout({
       <body>
         <MantineProvider theme={palaViajerosTheme}>
           <Notifications />
-          <AppShell header={{ height: { base: 48, lg: 60 } }}>
+          <AppShell header={{ height: { base: 60 } }}>
             <AppShellHeader>
               <Navbar />
             </AppShellHeader>
