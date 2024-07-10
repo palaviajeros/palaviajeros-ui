@@ -8,6 +8,7 @@ import {
 } from "@/app/components/Email/inquiry-email-template";
 
 // Ask andrei to provide keys and how to set this up
+// Todo: Find a way to share the values for these to everyone
 const resend = new Resend(process.env.RESEND_API_KEY);
 const emailSender = process.env.RESEND_EMAIL_SENDER;
 const emailRecipient = process.env.RESEND_INQUIRY_EMAIL_RECIPIENT;
