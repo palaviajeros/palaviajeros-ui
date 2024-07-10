@@ -1,11 +1,17 @@
-.header_wrapper > div {
-  flex: 1;
+.headerWrapper {
+  div {
+    flex: 1;
+  }
 }
-
 .title {
   color: var(--mantine-color-gray-8);
-  font-size: 44px;
-  @media (max-width: $mantine-breakpoint-xs) {
-    font-size: 28px;
+  font-size: 38px;
+  @media (min-width: $mantine-breakpoint-lg) {
+    font-size: 54px;
   }
+}
+
+.subtitle {
+  color: var(--mantine-color-yellow-6);
+  font-size: 24px;
 }
