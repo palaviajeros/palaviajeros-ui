@@ -15,7 +15,6 @@
   padding: 8px 12px;
   text-decoration: none;
   color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
-  font-size: var(--mantine-font-size-xl);
   font-weight: 500;
 }
 .link:hover {
@@ -26,6 +25,14 @@
   position: fixed;
   right: 0;
   padding-right: 35px;
+}
+
+.navBar {
+  font-size: var(--mantine-font-size-md);
+}
+
+.burgerMenu {
+  font-size: var(--mantine-font-size-xl);
 }
 
 /*# sourceMappingURL=Navbar.module.css.map */
