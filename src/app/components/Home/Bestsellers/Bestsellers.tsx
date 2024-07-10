@@ -2,7 +2,7 @@ import CardBestSellers from "./CardBestSellers";
 import { TravelCountryPackages } from "@/app/shared/models/travelPackageDto";
 import getTravelPackages from "@/app/lib/travelPackages";
 import { Flex, Title } from "@mantine/core";
-import classes from "@/app/components/Home/Services/Services.module.css";
+import classes from "@/app/components/Home/Services/Services.module.scss";
 
 export default function Bestsellers() {
   const packages: TravelCountryPackages[] = getTravelPackages();
