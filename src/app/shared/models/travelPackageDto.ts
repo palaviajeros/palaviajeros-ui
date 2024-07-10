@@ -8,6 +8,7 @@ export interface TravelCountryPackages {
 export interface TravelPackageDto {
     code: string,
     name: string,
+    isFlexible?: boolean,
     description: string[],
     inclusions: Services[],
     exclusions: Services[],
