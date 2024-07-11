@@ -9,12 +9,12 @@ import {
   Select,
   Textarea,
 } from "@mantine/core";
-import { DatePicker } from "@mantine/dates";
-import dayjs from "dayjs";
-import React, { FC, useState } from "react";
-import { isEmail, isNotEmpty, useForm } from "@mantine/form";
+import React from "react";
+import { isEmail, isNotEmpty, matches, useForm } from "@mantine/form";
 import { formatDateRange } from "@/app/util/Helpers";
 import { notifications } from "@mantine/notifications";
+import { sendInquiry } from "@/app/lib/resend/send-inquiry";
+import { InquiryEmailTemplateProps } from "@/app/components/Email/inquiry-email-template";
 
 interface InquiryModalProps {
   travelPackage: TravelPackageDto;
@@ -28,13 +28,15 @@ const InquiryModalButton = ({
   variant,
 }: InquiryModalProps) => {
   const [opened, { close, open }] = useDisclosure(false);
+
   const travelDatesOptions = Array.from(
-    new Set(travelPackage.travelDates.map((td) => formatDateRange(td)))
+    new Set(travelPackage.travelDates.map((td) => formatDateRange(td))),
   );
   const noOfPeopleOptions = new Array(15).fill(null).map((_, i) => `${i + 1}`);
   const form = useForm({
     mode: "uncontrolled",
     initialValues: {
+      name: "",
       email: "",
       contactNo: "",
       travelDates: travelDatesOptions[0],
@@ -45,15 +47,22 @@ const InquiryModalButton = ({
 
     validate: {
       email: isEmail("Invalid email"),
-      contactNo: isNotEmpty(),
+      contactNo: matches(
+        /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/,
+        "Invalid phone number format",
+      ),
       noOfPax: isNotEmpty(),
       message: isNotEmpty(),
     },
   });
 
-  const inquireUsForm = (
-    <form
-      onSubmit={form.onSubmit((values) => {
+  const handleSubmit = async (values: typeof form.values) => {
+    await sendInquiry({
+      ...values,
+      travelPackage,
+      inquiryDate: Date.now().toString(),
+    } as InquiryEmailTemplateProps)
+      .then((_) =>
         notifications.show({
           id: "inquiry-notif",
           withCloseButton: true,
@@ -61,17 +70,39 @@ const InquiryModalButton = ({
           message: `Hey there, we received your inquiry for ${travelPackage.name} on ${form.values.travelDates} and we will respond to you shortly! Thank you for your patience!`,
           color: "green",
           autoClose: 10000,
-        });
-        // save values here
-        form.reset();
-        close();
-      })}
-    >
+        }),
+      )
+      .catch((_) =>
+        notifications.show({
+          id: "inquiry-notif-error",
+          withCloseButton: true,
+          title: `Inquiry Sent: ${travelPackage.name}`,
+          message: `Hey there, we attempted to send your inquiry but an unexpected error occurred. Please try again shortly`,
+          color: "red",
+          autoClose: 10000,
+        }),
+      );
+    // save values here
+    form.reset();
+    close();
+  };
+
+  const inquireUsForm = (
+    <form onSubmit={form.onSubmit(handleSubmit)}>
       <TextInput
         label="Travel Package"
         key={form.key("travelPackage")}
         {...form.getInputProps("travelPackage")}
         readOnly
+      />
+
+      <TextInput
+        mt="sm"
+        withAsterisk
+        label="Name"
+        placeholder="How do you want us to address you?"
+        key={form.key("name")}
+        {...form.getInputProps("name")}
       />
 
       <TextInput
@@ -101,6 +132,7 @@ const InquiryModalButton = ({
         {...form.getInputProps("travelDates")}
         required
       />
+
       <Select
         mt="sm"
         withAsterisk

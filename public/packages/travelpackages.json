@@ -7,6 +7,7 @@
       {
         "code": "boracay-1",
         "name": "Boracay Summer Getaway",
+        "isFlexible": true,
         "description": [
           "Enjoy the pristine white sand beaches in one of the best islands in the country!"
         ],
@@ -116,6 +117,7 @@
       {
         "code": "cebu-1",
         "name": "Cebu sinulog tour",
+        "isFlexible": false,
         "description": [
           "Experience the biggest street party in the Philippines! While enjoying the best nature has to offer around Cebu!"
         ],
@@ -186,6 +188,7 @@
       {
         "code": "barcelona",
         "name": "Barcelona EU Tour",
+        "isFlexible": false,
         "description": [
           "Barcelona is a major cultural, economic, and financial centre in southwestern Europe"
         ],
@@ -235,6 +238,7 @@
       {
         "code": "madrid",
         "name": "Madrid EU Tour",
+        "isFlexible": false,
         "description": [
           "Madrid is the capital of Spain and lies in the center of the Iberian Peninsula."
         ],
@@ -284,6 +288,7 @@
       {
         "code": "granada",
         "name": "Granada EU Tour",
+        "isFlexible": true,
         "description": [
           "Granada is located at the foot of the Sierra Nevada"
         ],

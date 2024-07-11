@@ -6,15 +6,16 @@ export interface TravelCountryPackages {
 }
 
 export interface TravelPackageDto {
-  code: string;
-  name: string;
-  description: string[];
-  inclusions: Services[];
-  exclusions: Services[];
-  travelDates: DateRange[];
-  itinerary: DayPlan[];
-  imageUrls: string[];
-  price: number;
+    code: string,
+    name: string,
+    isFlexible?: boolean,
+    description: string[],
+    inclusions: Services[],
+    exclusions: Services[],
+    travelDates: DateRange[],
+    itinerary: DayPlan[],
+    imageUrls: string[],
+    price: number,
 }
 
 export interface DayPlan {
