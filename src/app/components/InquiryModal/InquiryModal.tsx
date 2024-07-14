@@ -13,15 +13,15 @@ import {
   rem,
 } from "@mantine/core";
 import { DatePickerInput } from "@mantine/dates";
-import "@mantine/dates/styles.css"; //to get DatePickerInput's calender style
-import dayjs from "dayjs";
+import "@mantine/dates/styles.css";
 import { IconCalendar } from "@tabler/icons-react";
 import React, { useState } from "react";
 import { isEmail, isNotEmpty, matches, useForm } from "@mantine/form";
-import { formatDateRange } from "@/app/util/Helpers";
+import { formatDateRange, getDateDifference } from "@/app/util/Helpers";
 import { notifications } from "@mantine/notifications";
 import { sendInquiry } from "@/app/lib/resend/send-inquiry";
 import { InquiryEmailTemplateProps } from "@/app/components/Email/inquiry-email-template";
+import { format, startOfToday, addDays } from "date-fns";
 
 interface InquiryModalProps {
   travelPackage: TravelPackageDto;
@@ -35,11 +35,16 @@ const InquiryModalButton = ({
   variant,
 }: InquiryModalProps) => {
   const [opened, { close, open }] = useDisclosure(false);
+  // check if checkbox is clicked
+  const [checked, setChecked] = useState(false);
+  // value of DatePickerInput
+  const [value, setValue] = useState<Date | null>(null);
 
   const travelDatesOptions = Array.from(
     new Set(travelPackage.travelDates.map((td) => formatDateRange(td)))
   );
   const noOfPeopleOptions = new Array(15).fill(null).map((_, i) => `${i + 1}`);
+
   const form = useForm({
     mode: "uncontrolled",
     initialValues: {
@@ -94,14 +99,6 @@ const InquiryModalButton = ({
     close();
   };
 
-  /* for DatePickerInput*/
-  const [checked, setChecked] = useState(false); //to check if the checkbox is clicked
-  const [value, setValue] = useState<Date | null>(null); //DatePickerInput value
-  const endDate = value ? dayjs(value).add(3, "day").toDate() : null; //to get the clicked date and calculate the last date
-  const icon = (
-    <IconCalendar style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
-  ); //DatePickerInput placeholder
-
   const inquireUsForm = (
     <form onSubmit={form.onSubmit(handleSubmit)}>
       <TextInput
@@ -146,7 +143,7 @@ const InquiryModalButton = ({
         key={form.key("travelDates")}
         {...form.getInputProps("travelDates")}
         required
-        disabled={checked ? true : false} //when custom date checked, the select box turn to disabled
+        disabled={checked ? true : false}
       />
       <Checkbox
         mt="sm"
@@ -161,13 +158,23 @@ const InquiryModalButton = ({
           placeholder="Pick start date"
           value={value}
           onChange={setValue}
-          defaultValue={new Date()}
-          leftSection={icon}
+          leftSection={
+            <IconCalendar
+              style={{ width: rem(18), height: rem(18) }}
+              stroke={1.5}
+            />
+          }
+          clearable
+          minDate={startOfToday()}
         />
-        {endDate && (
-          <Text size="sm" c="var(--mantine-color-indigo-7)">
-            Travel schedule: {dayjs(value).format("YYYY-MM-DD")} to{" "}
-            {dayjs(endDate).format("YYYY-MM-DD")}
+
+        {value && (
+          <Text mt="md" size="sm" c="var(--mantine-color-indigo-7)">
+            Travel schedule: {format(value, "dd MMM yyyy")} -
+            {format(
+              addDays(value, getDateDifference(form.values.travelDates)),
+              "dd MMM yyyy"
+            )}
           </Text>
         )}
       </Group>
