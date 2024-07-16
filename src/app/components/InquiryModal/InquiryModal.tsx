@@ -38,7 +38,7 @@ const InquiryModalButton = ({
   // check if checkbox is clicked
   const [checked, setChecked] = useState(false);
   // value of DatePickerInput
-  const [value, setValue] = useState<Date | null>(null);
+  const [customDate, setCustomDate] = useState<Date | null>(null);
 
   const travelDatesOptions = Array.from(
     new Set(travelPackage.travelDates.map((td) => formatDateRange(td)))
@@ -56,7 +56,6 @@ const InquiryModalButton = ({
       message: "",
       travelPackage: travelPackage.name,
     },
-
     validate: {
       email: isEmail("Invalid email"),
       contactNo: matches(
@@ -68,12 +67,26 @@ const InquiryModalButton = ({
     },
   });
 
+  // custom travel dates formatted as "start date - end date"
+  const customTravelDates = customDate
+    ? `${format(customDate, "dd MMM yyyy")} - ${format(
+        addDays(customDate, getDateDifference(form.values.travelDates)),
+        "dd MMM yyyy"
+      )}`
+    : "";
+
   const handleSubmit = async (values: typeof form.values) => {
-    await sendInquiry({
+    const selectedTravelDates = customDate
+      ? customTravelDates
+      : form.values.travelDates;
+    let emailTemplateProps = {
       ...values,
       travelPackage,
       inquiryDate: Date.now().toString(),
-    } as InquiryEmailTemplateProps)
+      travelDates: selectedTravelDates,
+    } as InquiryEmailTemplateProps;
+
+    emailTemplateProps.travelDates = await sendInquiry(emailTemplateProps)
       .then((_) =>
         notifications.show({
           id: "inquiry-notif",
@@ -146,18 +159,18 @@ const InquiryModalButton = ({
         disabled={checked ? true : false}
       />
       <Checkbox
-        mt="sm"
+        mt="xs"
         checked={checked}
         onChange={(event) => setChecked(event.currentTarget.checked)}
-        label="Select custom start date"
+        label="Choose Your Custom Date"
         display={travelPackage.isFlexible ? "block" : "none"}
       />
       <Group display={checked ? "block" : "none"}>
         <DatePickerInput
-          mt="sm"
+          mt="xs"
           placeholder="Pick start date"
-          value={value}
-          onChange={setValue}
+          value={customDate}
+          onChange={setCustomDate}
           leftSection={
             <IconCalendar
               style={{ width: rem(18), height: rem(18) }}
@@ -168,13 +181,10 @@ const InquiryModalButton = ({
           minDate={startOfToday()}
         />
 
-        {value && (
-          <Text mt="md" size="sm" c="var(--mantine-color-indigo-7)">
-            Travel schedule: {format(value, "dd MMM yyyy")} -
-            {format(
-              addDays(value, getDateDifference(form.values.travelDates)),
-              "dd MMM yyyy"
-            )}
+        {customDate && (
+          <Text mt="xs" size="sm" c="var(--mantine-color-indigo-7)">
+            <b>[{getDateDifference(form.values.travelDates)}-day package]:</b>{" "}
+            {customTravelDates}
           </Text>
         )}
       </Group>
