@@ -1,8 +1,8 @@
 export interface TravelCountryPackages {
-    countryCode: string,
-    countryName: string,
-    description: string,
-    packages: TravelPackageDto[],
+  countryCode: string;
+  countryName: string;
+  description: string;
+  packages: TravelPackageDto[];
 }
 
 export interface TravelPackageDto {
@@ -19,19 +19,19 @@ export interface TravelPackageDto {
 }
 
 export interface DayPlan {
-    dayNo: number,
-    activities: string[]
+  dayNo: number;
+  activities: string[];
 }
 
 export interface DateRange {
-    startDate: Date,
-    endDate: Date,
+  startDate: Date;
+  endDate: Date;
 }
 
 export enum Services {
-    FLIGHT = 'Flight',
-    ACCOMMODATION = 'Accommodation',
-    MEALS = 'Meals',
-    TRANSFERS = 'Transfers',
-    TOURS = 'Tours',
+  FLIGHT = "Flight",
+  ACCOMMODATION = "Accommodation",
+  MEALS = "Meals",
+  TRANSFERS = "Transfers",
+  TOURS = "Tours",
 }

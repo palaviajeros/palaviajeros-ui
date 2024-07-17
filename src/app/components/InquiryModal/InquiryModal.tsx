@@ -8,13 +8,20 @@ import {
   TextInput,
   Select,
   Textarea,
+  Checkbox,
+  Text,
+  rem,
 } from "@mantine/core";
-import React from "react";
+import { DatePickerInput } from "@mantine/dates";
+import "@mantine/dates/styles.css";
+import { IconCalendar } from "@tabler/icons-react";
+import React, { useState } from "react";
 import { isEmail, isNotEmpty, matches, useForm } from "@mantine/form";
-import { formatDateRange } from "@/app/util/Helpers";
+import { formatDateRange, getDateDifference } from "@/app/util/Helpers";
 import { notifications } from "@mantine/notifications";
 import { sendInquiry } from "@/app/lib/resend/send-inquiry";
 import { InquiryEmailTemplateProps } from "@/app/components/Email/inquiry-email-template";
+import { format, startOfToday, addDays } from "date-fns";
 
 interface InquiryModalProps {
   travelPackage: TravelPackageDto;
@@ -28,11 +35,16 @@ const InquiryModalButton = ({
   variant,
 }: InquiryModalProps) => {
   const [opened, { close, open }] = useDisclosure(false);
+  // check if checkbox is clicked
+  const [checked, setChecked] = useState(false);
+  // value of DatePickerInput
+  const [customDate, setCustomDate] = useState<Date | null>(null);
 
   const travelDatesOptions = Array.from(
-    new Set(travelPackage.travelDates.map((td) => formatDateRange(td))),
+    new Set(travelPackage.travelDates.map((td) => formatDateRange(td)))
   );
   const noOfPeopleOptions = new Array(15).fill(null).map((_, i) => `${i + 1}`);
+
   const form = useForm({
     mode: "uncontrolled",
     initialValues: {
@@ -44,24 +56,35 @@ const InquiryModalButton = ({
       message: "",
       travelPackage: travelPackage.name,
     },
-
     validate: {
       email: isEmail("Invalid email"),
       contactNo: matches(
         /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/,
-        "Invalid phone number format",
+        "Invalid phone number format"
       ),
       noOfPax: isNotEmpty(),
       message: isNotEmpty(),
     },
   });
 
+  // custom travel dates with the format of
+  const customTravelDates = customDate
+    ? `${format(customDate, "dd MMM yyyy")} - ${format(
+        addDays(customDate, getDateDifference(form.values.travelDates)),
+        "dd MMM yyyy"
+      )}`
+    : "";
+
   const handleSubmit = async (values: typeof form.values) => {
-    await sendInquiry({
+    const selectedTravelDates =
+      checked && customDate ? customTravelDates : form.values.travelDates;
+    let emailTemplateProps = {
       ...values,
       travelPackage,
       inquiryDate: Date.now().toString(),
-    } as InquiryEmailTemplateProps)
+      travelDates: selectedTravelDates,
+    } as InquiryEmailTemplateProps;
+    await sendInquiry(emailTemplateProps)
       .then((_) =>
         notifications.show({
           id: "inquiry-notif",
@@ -70,7 +93,7 @@ const InquiryModalButton = ({
           message: `Hey there, we received your inquiry for ${travelPackage.name} on ${form.values.travelDates} and we will respond to you shortly! Thank you for your patience!`,
           color: "green",
           autoClose: 10000,
-        }),
+        })
       )
       .catch((_) =>
         notifications.show({
@@ -80,7 +103,7 @@ const InquiryModalButton = ({
           message: `Hey there, we attempted to send your inquiry but an unexpected error occurred. Please try again shortly`,
           color: "red",
           autoClose: 10000,
-        }),
+        })
       );
     // save values here
     form.reset();
@@ -131,8 +154,38 @@ const InquiryModalButton = ({
         key={form.key("travelDates")}
         {...form.getInputProps("travelDates")}
         required
+        disabled={checked ? true : false}
       />
+      <Checkbox
+        mt="xs"
+        checked={checked}
+        onChange={(event) => setChecked(event.currentTarget.checked)}
+        label="I want to choose my own travel dates"
+        display={travelPackage.isFlexible ? "block" : "none"}
+      />
+      <Group display={checked ? "block" : "none"}>
+        <DatePickerInput
+          mt="xs"
+          placeholder="Pick start date"
+          value={customDate}
+          onChange={setCustomDate}
+          leftSection={
+            <IconCalendar
+              style={{ width: rem(18), height: rem(18) }}
+              stroke={1.5}
+            />
+          }
+          clearable
+          minDate={startOfToday()}
+        />
 
+        {customDate && (
+          <Text mt="xs" size="sm" c="var(--mantine-color-indigo-7)">
+            <b>[{getDateDifference(form.values.travelDates)}-day package]:</b>{" "}
+            {customTravelDates}
+          </Text>
+        )}
+      </Group>
       <Select
         mt="sm"
         withAsterisk
