@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import NextImage from "next/image";
-import { Flex, Image as MantineImage } from "@mantine/core";
+import logo from "@/../public/palaviajeros_logo.png";
+import { Flex, Image } from "@mantine/core";
 import { Group, Burger, Drawer } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import classes from "@/app/components/Navbar/Navbar.module.scss";
@@ -29,23 +29,16 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className={classes.header}>
-      <Flex
-        className={classes.inner}
-        justify={{
-          sm: "space-between",
-          xs: "center"
-        }}
-        align="center"
-      >
-        <a href={"/"}>
-          <MantineImage
-            component={NextImage}
-            src="/palaviajeros_logo.png"
-            alt=""
-            width={250}
-            height={40}
+      <Flex justify="space-between" align="center" w="100%">
+        <Link href="/">
+          <Image
+            src={logo.src}
+            alt="logo"
+            w={{ base: "200px", xs: "250px" }}
+            h={40}
+            fit="contain"
           />
-        </a>
+        </Link>
         <Group gap={5} visibleFrom="sm" className={classes.navBar}>
           {items}
         </Group>
@@ -61,7 +54,6 @@ const Navbar: React.FC = () => {
             opened={opened}
             onClose={toggle}
             position="top"
-            // offset={50}
             overlayProps={{ backgroundOpacity: 0.2 }}
             ta="center"
             size="25%"
