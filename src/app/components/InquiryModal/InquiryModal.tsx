@@ -67,7 +67,7 @@ const InquiryModalButton = ({
     },
   });
 
-  // custom travel dates formatted as "start date - end date"
+  // custom travel dates with the format of
   const customTravelDates = customDate
     ? `${format(customDate, "dd MMM yyyy")} - ${format(
         addDays(customDate, getDateDifference(form.values.travelDates)),
@@ -76,17 +76,15 @@ const InquiryModalButton = ({
     : "";
 
   const handleSubmit = async (values: typeof form.values) => {
-    const selectedTravelDates = customDate
-      ? customTravelDates
-      : form.values.travelDates;
+    const selectedTravelDates =
+      checked && customDate ? customTravelDates : form.values.travelDates;
     let emailTemplateProps = {
       ...values,
       travelPackage,
       inquiryDate: Date.now().toString(),
       travelDates: selectedTravelDates,
     } as InquiryEmailTemplateProps;
-
-    emailTemplateProps.travelDates = await sendInquiry(emailTemplateProps)
+    await sendInquiry(emailTemplateProps)
       .then((_) =>
         notifications.show({
           id: "inquiry-notif",
