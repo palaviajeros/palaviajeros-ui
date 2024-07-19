@@ -4,11 +4,11 @@ import {
   TravelCountryPackages,
   DateRange,
   Services,
+  TravelPackageDto,
 } from "@/app/shared/models/travelPackageDto";
 import { Carousel } from "@mantine/carousel";
 import {
   Flex,
-  Button,
   Badge,
   NumberFormatter,
   rem,
@@ -89,13 +89,34 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                 </Carousel>
               </div>
               <div style={{ flex: 1 }}>
-                <Title order={3} mb={20} ta={{ base: "center", lg: "left" }}>
-                  {t.name}
-                </Title>
                 <Flex
-                  gap={"sm"}
+                  direction={{ base: "column", lg: "row" }}
+                  justify={{
+                    base: "center",
+                    lg: "space-between",
+                  }}
+                  align="center"
+                  gap={6}
+                  mb={20}
                   wrap="wrap"
-                  justify={{ base: "center", lg: "start" }}
+                >
+                  <Title order={3} ta={{ base: "center", lg: "left" }}>
+                    {t.name}
+                  </Title>
+                  <Badge
+                    variant="dot"
+                    radius="sm"
+                    display={t.isFlexible ? "flex" : "none"}
+                    bd="none"
+                  >
+                    Custom Travel Available
+                  </Badge>
+                </Flex>
+                <Flex
+                  gap={"xs"}
+                  direction={{ base: "column", lg: "row" }}
+                  wrap="wrap"
+                  align={{ base: "center", lg: "start" }}
                 >
                   {t.travelDates.map((d, index) => {
                     return (
@@ -104,6 +125,7 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                         radius="md"
                         variant="light"
                         color="cyan"
+                        bd="none"
                       >
                         {formatDateRange(d)}
                       </Badge>
