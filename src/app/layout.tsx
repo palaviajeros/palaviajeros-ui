@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "@mantine/core/styles.css";
 import "@mantine/carousel/styles.css";
 import "@mantine/notifications/styles.css";
+import Head from "next/head";
 
 import {
   AppShell,
@@ -10,7 +11,7 @@ import {
   ColorSchemeScript,
   Container,
   createTheme,
-  MantineProvider
+  MantineProvider,
 } from "@mantine/core";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -19,7 +20,7 @@ import SoftLaunchBanner from "./components/SoftLaunchBanner/SoftLaunchBanner";
 
 export const metadata: Metadata = {
   title: "Palaviajeros Travel Corp.",
-  description: "Your viajero buddy"
+  description: "Your viajero travel buddy",
 };
 // palaviajeros logo color: #ff4c5c Todo: to add later
 const palaViajerosTheme = createTheme({
@@ -29,20 +30,24 @@ const palaViajerosTheme = createTheme({
     sm: "48em",
     md: "64em",
     lg: "74em",
-    xl: "90em"
-  }
+    xl: "90em",
+  },
 });
 
 export default function RootLayout({
-  children
+  children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
-      <head>
+      <Head>
         <ColorSchemeScript />
-      </head>
+        <meta
+          name="keywords"
+          content="travel, travel agency, philippines, leisure, travel packages, packages, flights, itineraries, travel itineraries"
+        />
+      </Head>
       <body>
         <MantineProvider theme={palaViajerosTheme}>
           <Notifications />

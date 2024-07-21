@@ -2,6 +2,11 @@ import React from "react";
 import { Title, Text, Image, Space, Flex } from "@mantine/core";
 // import { title } from "process";
 import classes from "@/app/about/about.module.scss";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us | Learn more about Palaviajeros",
+};
 
 interface ContentsProps {
   title: string;
