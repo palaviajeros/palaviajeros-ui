@@ -3,7 +3,7 @@
 import { differenceInCalendarDays } from "date-fns";
 import { TravelCountryPackages } from "@/app/shared/models/travelPackageDto";
 import { Card, Image, Text, Badge, Button, Flex, Anchor } from "@mantine/core";
-import NextImage from "next/legacy/image";
+import NextImage from "next/image";
 import InquiryModal from "@/app/components/InquiryModal/InquiryModal";
 
 interface CardBestSellersProps {
@@ -19,7 +19,7 @@ export default function CardBestSellers({ card }: CardBestSellersProps) {
         gap="lg"
         direction={{
           base: "column",
-          md: "row"
+          md: "row",
         }}
       >
         {/* Default ES: TBD once packages are final */}
