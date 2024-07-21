@@ -122,7 +122,7 @@ const InquiryModalButton = ({
           title: "CAPTCHA Error",
           message: "Failed to complete CAPTCHA. Please try again.",
           color: "red",
-          autoClose: 5000
+          autoClose: 3000
         });
       }
     }
