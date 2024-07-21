@@ -1,52 +1,103 @@
-import {
-    Button,
-    Container,
-    Flex,
-    Group,
-    Text,
-    TextInput,
-    Title
-} from "@mantine/core";
+"use client";
+
+import { Button, Flex, Group, TextInput, Title } from "@mantine/core";
 import classes from "./Subscribe.module.scss";
 import React from "react";
+import { isEmail, useForm } from "@mantine/form";
+import { subscribe } from "@/app/lib/resend/subscribe";
+import { notifications } from "@mantine/notifications";
 
 const Subscribe = () => {
-    return (
-        <Flex
-            direction={"column"}
-            justify={"center"}
-            className={classes.container}
-            gap={"xl"}
-        >
-            <Title ta={"center"} className={classes.title}>
-                Subscribe to get updates from your fellow Palaviajeros!
-            </Title>
-            <Group justify="center" mt="md">
-                <TextInput
-                    size="xl"
-                    radius="md"
-                    inputSize="35"
-                    visibleFrom={"xl"}
-                    placeholder="Your email address"
-                    suppressHydrationWarning
-                />
-                <TextInput
-                    size="md"
-                    radius="md"
-                    inputSize="35"
-                    hiddenFrom={"xl"}
-                    placeholder="Your email address"
-                    suppressHydrationWarning
-                />
-                <Button size="xl" radius="md" visibleFrom={"xl"} suppressHydrationWarning>
-                    Contact Us
-                </Button>
-                <Button size="md" radius="md" hiddenFrom={"xl"} suppressHydrationWarning>
-                    Contact Us
-                </Button>
-            </Group>
-        </Flex>
-    );
+  const form = useForm({
+    mode: "uncontrolled",
+    initialValues: {
+      recipientEmail: "",
+    },
+    validate: {
+      recipientEmail: isEmail(),
+    },
+  });
+
+  const handleSubmit = async (values: typeof form.values) => {
+    subscribe(values.recipientEmail)
+      .then((_) =>
+        notifications.show({
+          id: "inquiry-notif",
+          withCloseButton: true,
+          title: "You are now Subscribed!",
+          message: "Stay tuned for updates from your fellow Palaviajeros!",
+          color: "green",
+          autoClose: 10000,
+        }),
+      )
+      .catch((_) =>
+        notifications.show({
+          id: "inquiry-notif-error",
+          withCloseButton: true,
+          title: `Error`,
+          message: `Unexpected error. Please try again shortly`,
+          color: "red",
+          autoClose: 10000,
+        }),
+      );
+    form.reset();
+  };
+  return (
+    <Flex
+      direction={"column"}
+      justify={"center"}
+      className={classes.container}
+      gap={"xl"}
+    >
+      <form onSubmit={form.onSubmit(handleSubmit)}>
+        <Title ta={"center"} className={classes.title}>
+          Subscribe to get updates from your fellow Palaviajeros!
+        </Title>
+        <Group justify="center" mt="md">
+          <TextInput
+            withAsterisk
+            size="xl"
+            radius="md"
+            inputSize="35"
+            visibleFrom={"xl"}
+            placeholder="Your email address"
+            suppressHydrationWarning
+            key={form.key("recipientEmail")}
+            {...form.getInputProps("recipientEmail")}
+          />
+          <TextInput
+            withAsterisk
+            size="md"
+            radius="md"
+            inputSize="35"
+            hiddenFrom={"xl"}
+            placeholder="Your email address"
+            suppressHydrationWarning
+            key={`${form.key("recipientEmail")}-mobile`}
+            {...form.getInputProps("recipientEmail")}
+          />
+          <Button
+            size="xl"
+            radius="md"
+            visibleFrom={"xl"}
+            type={"submit"}
+            suppressHydrationWarning
+          >
+            Subscribe
+          </Button>
+          <Button
+            size="md"
+            radius="md"
+            hiddenFrom={"xl"}
+            type={"submit"}
+            suppressHydrationWarning
+          >
+            Subscribe
+          </Button>
+        </Group>
+      </form>
+    </Flex>
+  );
 };
 
 export default Subscribe;
