@@ -1,5 +1,5 @@
 import React from "react";
-import NextImage from "next/image";
+import NextImage from "next/legacy/image";
 import { TravelCountryPackages } from "@/app/shared/models/travelPackageDto";
 import { Carousel } from "@mantine/carousel";
 import {
