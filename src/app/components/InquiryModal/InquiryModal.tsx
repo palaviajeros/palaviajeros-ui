@@ -10,18 +10,19 @@ import {
   Textarea,
   Checkbox,
   Text,
-  rem,
+  rem
 } from "@mantine/core";
 import { DatePickerInput } from "@mantine/dates";
 import "@mantine/dates/styles.css";
 import { IconCalendar } from "@tabler/icons-react";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { isEmail, isNotEmpty, matches, useForm } from "@mantine/form";
 import { formatDateRange, getDateDifference } from "@/app/util/Helpers";
 import { notifications } from "@mantine/notifications";
 import { sendInquiry } from "@/app/lib/resend/send-inquiry";
 import { InquiryEmailTemplateProps } from "@/app/components/Email/inquiry-email-template";
 import { format, startOfToday, addDays } from "date-fns";
+import ReCAPTCHA from "react-google-recaptcha";
 
 interface InquiryModalProps {
   travelPackage: TravelPackageDto;
@@ -32,16 +33,17 @@ interface InquiryModalProps {
 const InquiryModalButton = ({
   travelPackage,
   children,
-  variant,
+  variant
 }: InquiryModalProps) => {
   const [opened, { close, open }] = useDisclosure(false);
   // check if checkbox is clicked
   const [checked, setChecked] = useState(false);
   // value of DatePickerInput
   const [customDate, setCustomDate] = useState<Date | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHA | null>(null);
 
   const travelDatesOptions = Array.from(
-    new Set(travelPackage.travelDates.map((td) => formatDateRange(td))),
+    new Set(travelPackage.travelDates.map((td) => formatDateRange(td)))
   );
   const noOfPeopleOptions = new Array(15).fill(null).map((_, i) => `${i + 1}`);
 
@@ -54,60 +56,76 @@ const InquiryModalButton = ({
       travelDates: travelDatesOptions[0],
       noOfPax: "",
       message: "",
-      travelPackage: travelPackage.name,
+      travelPackage: travelPackage.name
     },
     validate: {
       email: isEmail("Invalid email"),
       contactNo: matches(
         /^[+]?[(]?[0-9]{2,3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/,
-        "Invalid phone number format",
+        "Invalid phone number format"
       ),
       noOfPax: isNotEmpty(),
-      message: isNotEmpty(),
-    },
+      message: isNotEmpty()
+    }
   });
 
   // custom travel dates with the format of
   const customTravelDates = customDate
     ? `${format(customDate, "dd MMM yyyy")} - ${format(
         addDays(customDate, getDateDifference(form.values.travelDates)),
-        "dd MMM yyyy",
+        "dd MMM yyyy"
       )}`
     : "";
 
   const handleSubmit = async (values: typeof form.values) => {
-    const selectedTravelDates =
-      checked && customDate ? customTravelDates : form.values.travelDates;
-    let emailTemplateProps = {
-      ...values,
-      travelPackage,
-      inquiryDate: Date.now().toString(),
-      travelDates: selectedTravelDates,
-    } as InquiryEmailTemplateProps;
-    await sendInquiry(emailTemplateProps)
-      .then((_) =>
+    if (recaptchaRef.current) {
+      const token = await recaptchaRef.current.executeAsync();
+      if (token) {
+        const selectedTravelDates =
+          checked && customDate ? customTravelDates : form.values.travelDates;
+        let emailTemplateProps = {
+          ...values,
+          travelPackage,
+          inquiryDate: Date.now().toString(),
+          travelDates: selectedTravelDates
+        } as InquiryEmailTemplateProps;
+        await sendInquiry(emailTemplateProps)
+          .then((_) =>
+            notifications.show({
+              id: "inquiry-notif",
+              withCloseButton: true,
+              title: `Inquiry Sent: ${travelPackage.name}`,
+              message: `Hey there, we received your inquiry for ${travelPackage.name} on ${form.values.travelDates} and we will respond to you shortly! Thank you for your patience!`,
+              color: "green",
+              autoClose: 10000
+            })
+          )
+          .catch((_) =>
+            notifications.show({
+              id: "inquiry-notif-error",
+              withCloseButton: true,
+              title: `Inquiry Sent: ${travelPackage.name}`,
+              message: `Hey there, we attempted to send your inquiry but an unexpected error occurred. Please try again shortly`,
+              color: "red",
+              autoClose: 10000
+            })
+          );
+        // save values here
+        form.reset();
+        close();
+        // Reset captcha token after form submission
+        recaptchaRef.current?.reset();
+      } else {
         notifications.show({
-          id: "inquiry-notif",
+          id: "captcha-error",
           withCloseButton: true,
-          title: `Inquiry Sent: ${travelPackage.name}`,
-          message: `Hey there, we received your inquiry for ${travelPackage.name} on ${form.values.travelDates} and we will respond to you shortly! Thank you for your patience!`,
-          color: "green",
-          autoClose: 10000,
-        }),
-      )
-      .catch((_) =>
-        notifications.show({
-          id: "inquiry-notif-error",
-          withCloseButton: true,
-          title: `Inquiry Sent: ${travelPackage.name}`,
-          message: `Hey there, we attempted to send your inquiry but an unexpected error occurred. Please try again shortly`,
+          title: "CAPTCHA Error",
+          message: "Failed to complete CAPTCHA. Please try again.",
           color: "red",
-          autoClose: 10000,
-        }),
-      );
-    // save values here
-    form.reset();
-    close();
+          autoClose: 3000
+        });
+      }
+    }
   };
 
   const inquireUsForm = (
@@ -233,6 +251,11 @@ const InquiryModalButton = ({
         centered
       >
         {inquireUsForm}
+        <ReCAPTCHA
+          ref={recaptchaRef}
+          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+          size="invisible"
+        />
       </Modal>
       {sendBtn}
     </>
