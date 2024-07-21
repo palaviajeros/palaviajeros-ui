@@ -41,7 +41,7 @@ const InquiryModalButton = ({
   const [customDate, setCustomDate] = useState<Date | null>(null);
 
   const travelDatesOptions = Array.from(
-    new Set(travelPackage.travelDates.map((td) => formatDateRange(td)))
+    new Set(travelPackage.travelDates.map((td) => formatDateRange(td))),
   );
   const noOfPeopleOptions = new Array(15).fill(null).map((_, i) => `${i + 1}`);
 
@@ -59,8 +59,8 @@ const InquiryModalButton = ({
     validate: {
       email: isEmail("Invalid email"),
       contactNo: matches(
-        /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/,
-        "Invalid phone number format"
+        /^[+]?[(]?[0-9]{2,3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/,
+        "Invalid phone number format",
       ),
       noOfPax: isNotEmpty(),
       message: isNotEmpty(),
@@ -71,7 +71,7 @@ const InquiryModalButton = ({
   const customTravelDates = customDate
     ? `${format(customDate, "dd MMM yyyy")} - ${format(
         addDays(customDate, getDateDifference(form.values.travelDates)),
-        "dd MMM yyyy"
+        "dd MMM yyyy",
       )}`
     : "";
 
@@ -93,7 +93,7 @@ const InquiryModalButton = ({
           message: `Hey there, we received your inquiry for ${travelPackage.name} on ${form.values.travelDates} and we will respond to you shortly! Thank you for your patience!`,
           color: "green",
           autoClose: 10000,
-        })
+        }),
       )
       .catch((_) =>
         notifications.show({
@@ -103,7 +103,7 @@ const InquiryModalButton = ({
           message: `Hey there, we attempted to send your inquiry but an unexpected error occurred. Please try again shortly`,
           color: "red",
           autoClose: 10000,
-        })
+        }),
       );
     // save values here
     form.reset();
@@ -141,6 +141,7 @@ const InquiryModalButton = ({
         mt="sm"
         withAsterisk
         label="Contact Number"
+        placeholder="(+XXX) (XXX)-(XXXXXX)"
         key={form.key("contactNo")}
         {...form.getInputProps("contactNo")}
       />
