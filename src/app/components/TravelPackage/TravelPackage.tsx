@@ -105,7 +105,7 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                   <Tooltip
                     label="Flexible dates allowed"
                     color="var(--mantine-color-gray-4)"
-                    position="top-end"
+                    position="top"
                     withArrow
                     arrowOffset={10}
                     arrowSize={6}
