@@ -8,13 +8,12 @@ import {
 import { Carousel } from "@mantine/carousel";
 import {
   Flex,
-  Button,
   Badge,
   NumberFormatter,
   rem,
   Title,
   Text,
-  Center,
+  Tooltip,
 } from "@mantine/core";
 import {
   IconCheck,
@@ -89,13 +88,45 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                 </Carousel>
               </div>
               <div style={{ flex: 1 }}>
-                <Title order={3} mb={20} ta={{ base: "center", lg: "left" }}>
-                  {t.name}
-                </Title>
                 <Flex
-                  gap={"sm"}
+                  direction={{ base: "column", lg: "row" }}
+                  justify={{
+                    base: "center",
+                    lg: "space-between",
+                  }}
+                  align="center"
+                  gap={6}
+                  mb={20}
                   wrap="wrap"
-                  justify={{ base: "center", lg: "start" }}
+                >
+                  <Title order={3} ta={{ base: "center", lg: "left" }}>
+                    {t.name}
+                  </Title>
+                  <Tooltip
+                    label="Flexible dates allowed"
+                    color="var(--mantine-color-gray-4)"
+                    position="top"
+                    withArrow
+                    arrowOffset={10}
+                    arrowSize={6}
+                    arrowRadius={1}
+                    transitionProps={{ transition: "fade-up", duration: 300 }}
+                  >
+                    <Badge
+                      variant="light"
+                      radius="sm"
+                      display={t.isFlexible ? "flex" : "none"}
+                      bd="none"
+                    >
+                      Flexible
+                    </Badge>
+                  </Tooltip>
+                </Flex>
+                <Flex
+                  gap={"xs"}
+                  direction={{ base: "column", lg: "row" }}
+                  wrap="wrap"
+                  align={{ base: "center", lg: "start" }}
                 >
                   {t.travelDates.map((d, index) => {
                     return (
@@ -104,6 +135,7 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                         radius="md"
                         variant="light"
                         color="cyan"
+                        bd="none"
                       >
                         {formatDateRange(d)}
                       </Badge>
@@ -160,7 +192,7 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                             />
                             <Text
                               fz="var(--mantine-font-size-sm)"
-                              color="var(--mantine-color-dark-2)"
+                              c="var(--mantine-color-dark-2)"
                             >{`${getValueOfEnumService(exclusion)}`}</Text>
                           </Flex>
                         );
