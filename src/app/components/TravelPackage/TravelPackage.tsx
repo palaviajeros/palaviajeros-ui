@@ -1,10 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import {
-  TravelCountryPackages,
-  DateRange,
-  Services,
-} from "@/app/shared/models/travelPackageDto";
+import { TravelCountryPackages } from "@/app/shared/models/travelPackageDto";
 import { Carousel } from "@mantine/carousel";
 import {
   Flex,
@@ -176,7 +172,7 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                               color="var(--mantine-color-teal-4)"
                             />
                             <Text fz="var(--mantine-font-size-sm)">{`${getValueOfEnumService(
-                              inclusion
+                              inclusion,
                             )}`}</Text>
                           </Flex>
                         );
