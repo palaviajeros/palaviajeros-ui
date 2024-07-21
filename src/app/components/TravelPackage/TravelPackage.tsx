@@ -4,7 +4,6 @@ import {
   TravelCountryPackages,
   DateRange,
   Services,
-  TravelPackageDto,
 } from "@/app/shared/models/travelPackageDto";
 import { Carousel } from "@mantine/carousel";
 import {
@@ -14,7 +13,7 @@ import {
   rem,
   Title,
   Text,
-  Center,
+  Tooltip,
 } from "@mantine/core";
 import {
   IconCheck,
@@ -103,14 +102,25 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                   <Title order={3} ta={{ base: "center", lg: "left" }}>
                     {t.name}
                   </Title>
-                  <Badge
-                    variant="dot"
-                    radius="sm"
-                    display={t.isFlexible ? "flex" : "none"}
-                    bd="none"
+                  <Tooltip
+                    label="Flexible dates allowed"
+                    color="var(--mantine-color-gray-4)"
+                    position="top-end"
+                    withArrow
+                    arrowOffset={10}
+                    arrowSize={6}
+                    arrowRadius={1}
+                    transitionProps={{ transition: "fade-up", duration: 300 }}
                   >
-                    Custom Travel Available
-                  </Badge>
+                    <Badge
+                      variant="light"
+                      radius="sm"
+                      display={t.isFlexible ? "flex" : "none"}
+                      bd="none"
+                    >
+                      Flexible
+                    </Badge>
+                  </Tooltip>
                 </Flex>
                 <Flex
                   gap={"xs"}
@@ -182,7 +192,7 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                             />
                             <Text
                               fz="var(--mantine-font-size-sm)"
-                              color="var(--mantine-color-dark-2)"
+                              c="var(--mantine-color-dark-2)"
                             >{`${getValueOfEnumService(exclusion)}`}</Text>
                           </Flex>
                         );
