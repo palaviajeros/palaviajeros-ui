@@ -1,8 +1,16 @@
 import React from "react";
-import Image from "next/image";
+import NextImage from "next/image";
 import { TravelCountryPackages } from "@/app/shared/models/travelPackageDto";
 import { Carousel } from "@mantine/carousel";
-import { Flex, Badge, NumberFormatter, rem, Title, Text } from "@mantine/core";
+import {
+  Flex,
+  Badge,
+  NumberFormatter,
+  rem,
+  Title,
+  Text,
+  Image,
+} from "@mantine/core";
 import {
   IconCheck,
   IconCircleArrowLeftFilled,
@@ -39,6 +47,7 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                   align="center"
                   loop
                   height="100%"
+                  mb={10}
                   nextControlIcon={
                     <IconCircleArrowRightFilled
                       style={{
@@ -63,11 +72,14 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                       <Carousel.Slide key={index}>
                         <Image
                           className="package-photo"
+                          component={NextImage}
+                          priority={index == 0}
                           layout="responsive"
                           width={14}
                           height={9}
                           src={img}
                           alt="image"
+                          radius={"md"}
                         />
                       </Carousel.Slide>
                     );
