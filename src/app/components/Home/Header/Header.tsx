@@ -2,6 +2,7 @@ import { Image, Container, Title, Button, Text, Flex } from "@mantine/core";
 import image from "@/../public/images/header/image.svg";
 import classes from "./Header.module.scss";
 import React from "react";
+import Link from "next/link";
 
 export default function Header() {
   return (
@@ -25,9 +26,11 @@ export default function Header() {
           preparing amazing itineraries for you. For now, fasten your seatbelts
           as we taxi through the runway. ;)
         </Text>
-        <Button mt={20} variant="filled" color="red" radius="md">
-          Book now
-        </Button>
+        <Link href="/travel-packages">
+          <Button mt={20} variant="filled" color="red" radius="md">
+            Book now
+          </Button>
+        </Link>
       </div>
       <div>
         <Image src={image.src} alt="header-image" />
