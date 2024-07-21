@@ -1,21 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import {
-  TravelCountryPackages,
-  DateRange,
-  Services,
-} from "@/app/shared/models/travelPackageDto";
+import { TravelCountryPackages } from "@/app/shared/models/travelPackageDto";
 import { Carousel } from "@mantine/carousel";
-import {
-  Flex,
-  Button,
-  Badge,
-  NumberFormatter,
-  rem,
-  Title,
-  Text,
-  Center,
-} from "@mantine/core";
+import { Flex, Badge, NumberFormatter, rem, Title, Text } from "@mantine/core";
 import {
   IconCheck,
   IconCircleArrowLeftFilled,
@@ -25,7 +12,6 @@ import {
 import "./TravelPackage.scss";
 import InquiryModalButton from "@/app/components/InquiryModal/InquiryModal";
 import { formatDateRange, getValueOfEnumService } from "@/app/util/Helpers";
-import { relative } from "path";
 
 interface TravelPackageProps {
   travelPackage: TravelCountryPackages;
@@ -144,7 +130,7 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                               color="var(--mantine-color-teal-4)"
                             />
                             <Text fz="var(--mantine-font-size-sm)">{`${getValueOfEnumService(
-                              inclusion
+                              inclusion,
                             )}`}</Text>
                           </Flex>
                         );
