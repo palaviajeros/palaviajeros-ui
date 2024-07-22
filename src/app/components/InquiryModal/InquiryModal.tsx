@@ -10,7 +10,7 @@ import {
   Textarea,
   Checkbox,
   Text,
-  rem
+  rem,
 } from "@mantine/core";
 import { DatePickerInput } from "@mantine/dates";
 import "@mantine/dates/styles.css";
@@ -33,13 +33,16 @@ interface InquiryModalProps {
 const InquiryModalButton = ({
   travelPackage,
   children,
-  variant
+  variant,
 }: InquiryModalProps) => {
   const [opened, { close, open }] = useDisclosure(false);
   // check if checkbox is clicked
   const [checked, setChecked] = useState(false);
   // value of DatePickerInput
   const [customDate, setCustomDate] = useState<Date | null>(null);
+  const [customDateError, setCustomDateError] = useState<string | undefined>(
+    undefined
+  );
   const recaptchaRef = useRef<ReCAPTCHA | null>(null);
 
   const travelDatesOptions = Array.from(
@@ -56,7 +59,7 @@ const InquiryModalButton = ({
       travelDates: travelDatesOptions[0],
       noOfPax: "",
       message: "",
-      travelPackage: travelPackage.name
+      travelPackage: travelPackage.name,
     },
     validate: {
       email: isEmail("Invalid email"),
@@ -65,8 +68,8 @@ const InquiryModalButton = ({
         "Invalid phone number format"
       ),
       noOfPax: isNotEmpty(),
-      message: isNotEmpty()
-    }
+      message: isNotEmpty(),
+    },
   });
 
   // custom travel dates with the format of
@@ -78,6 +81,11 @@ const InquiryModalButton = ({
     : "";
 
   const handleSubmit = async (values: typeof form.values) => {
+    setCustomDateError(undefined);
+    if (checked && !customDate) {
+      setCustomDateError("Please select a custom date");
+      return;
+    }
     if (recaptchaRef.current) {
       const token = await recaptchaRef.current.executeAsync();
       if (token) {
@@ -87,7 +95,7 @@ const InquiryModalButton = ({
           ...values,
           travelPackage,
           inquiryDate: Date.now().toString(),
-          travelDates: selectedTravelDates
+          travelDates: selectedTravelDates,
         } as InquiryEmailTemplateProps;
         await sendInquiry(emailTemplateProps)
           .then((_) =>
@@ -97,7 +105,7 @@ const InquiryModalButton = ({
               title: `Inquiry Sent: ${travelPackage.name}`,
               message: `Hey there, we received your inquiry for ${travelPackage.name} on ${form.values.travelDates} and we will respond to you shortly! Thank you for your patience!`,
               color: "green",
-              autoClose: 10000
+              autoClose: 10000,
             })
           )
           .catch((_) =>
@@ -107,7 +115,7 @@ const InquiryModalButton = ({
               title: `Inquiry Sent: ${travelPackage.name}`,
               message: `Hey there, we attempted to send your inquiry but an unexpected error occurred. Please try again shortly`,
               color: "red",
-              autoClose: 10000
+              autoClose: 10000,
             })
           );
         // save values here
@@ -122,7 +130,7 @@ const InquiryModalButton = ({
           title: "CAPTCHA Error",
           message: "Failed to complete CAPTCHA. Please try again.",
           color: "red",
-          autoClose: 3000
+          autoClose: 3000,
         });
       }
     }
@@ -196,6 +204,7 @@ const InquiryModalButton = ({
           }
           clearable
           minDate={startOfToday()}
+          error={checked && !customDate ? customDateError : undefined}
         />
 
         {customDate && (
