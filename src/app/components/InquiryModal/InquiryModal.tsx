@@ -204,9 +204,7 @@ const InquiryModalButton = ({
           }
           clearable
           minDate={startOfToday()}
-          error={
-            checked && !customDate ? "Please select a custom date" : undefined
-          }
+          error={checked && !customDate ? customDateError : undefined}
         />
 
         {customDate && (
