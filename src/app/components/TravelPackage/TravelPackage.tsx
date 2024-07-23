@@ -21,7 +21,11 @@ import {
 } from "@tabler/icons-react";
 import "./TravelPackage.scss";
 import InquiryModalButton from "@/app/components/InquiryModal/InquiryModal";
-import { formatDateRange, getValueOfEnumService } from "@/app/util/Helpers";
+import {
+  formatDateRange,
+  getDateDifference,
+  getValueOfEnumService,
+} from "@/app/util/Helpers";
 import { relative } from "path";
 
 interface TravelPackageProps {
@@ -135,7 +139,7 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                     leftSection={<IconCalendarPlus stroke={2} width={18} />}
                     color="cyan"
                   >
-                    10 days
+                    {getDateDifference(formatDateRange(t.travelDates[0]))} days
                   </Badge>
                   {t.travelDates.map((d, index) => {
                     return (
