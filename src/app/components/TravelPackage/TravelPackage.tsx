@@ -17,6 +17,7 @@ import {
   IconCircleArrowLeftFilled,
   IconCircleArrowRightFilled,
   IconX,
+  IconCalendarPlus,
 } from "@tabler/icons-react";
 import "./TravelPackage.scss";
 import InquiryModalButton from "@/app/components/InquiryModal/InquiryModal";
@@ -129,6 +130,13 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                   wrap="wrap"
                   align={{ base: "center", lg: "start" }}
                 >
+                  <Badge
+                    radius="md"
+                    leftSection={<IconCalendarPlus stroke={2} width={18} />}
+                    color="cyan"
+                  >
+                    10 days
+                  </Badge>
                   {t.travelDates.map((d, index) => {
                     return (
                       <Badge
@@ -177,7 +185,7 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                               color="var(--mantine-color-teal-4)"
                             />
                             <Text fz="var(--mantine-font-size-sm)">{`${getValueOfEnumService(
-                              inclusion,
+                              inclusion
                             )}`}</Text>
                           </Flex>
                         );
