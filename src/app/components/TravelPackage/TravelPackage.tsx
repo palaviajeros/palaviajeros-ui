@@ -17,10 +17,15 @@ import {
   IconCircleArrowLeftFilled,
   IconCircleArrowRightFilled,
   IconX,
+  IconCalendarPlus,
 } from "@tabler/icons-react";
 import "./TravelPackage.scss";
 import InquiryModalButton from "@/app/components/InquiryModal/InquiryModal";
-import { formatDateRange, getValueOfEnumService } from "@/app/util/Helpers";
+import {
+  formatDateRange,
+  getDateDifference,
+  getValueOfEnumService,
+} from "@/app/util/Helpers";
 import { relative } from "path";
 
 interface TravelPackageProps {
@@ -129,6 +134,13 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                   wrap="wrap"
                   align={{ base: "center", lg: "start" }}
                 >
+                  <Badge
+                    radius="md"
+                    leftSection={<IconCalendarPlus stroke={2} width={18} />}
+                    color="cyan"
+                  >
+                    {getDateDifference(formatDateRange(t.travelDates[0]))} days
+                  </Badge>
                   {t.travelDates.map((d, index) => {
                     return (
                       <Badge
@@ -177,7 +189,7 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                               color="var(--mantine-color-teal-4)"
                             />
                             <Text fz="var(--mantine-font-size-sm)">{`${getValueOfEnumService(
-                              inclusion,
+                              inclusion
                             )}`}</Text>
                           </Flex>
                         );

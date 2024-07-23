@@ -18,7 +18,7 @@ export function formatDateRange({ startDate, endDate }: DateRange) {
 }
 
 // prettier-ignore
-export function getDateDifference (dateString: string) {
+export function getDateDifference (dateString: string ) {
     const [startDateString, endDateString] = dateString.split(' - ').map(date => date.trim());
 
     const startDate = getDate(format(new Date(startDateString),'MM.dd.yyyy'))
