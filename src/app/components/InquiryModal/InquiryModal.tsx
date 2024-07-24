@@ -68,6 +68,7 @@ const InquiryModalButton = ({
         );
       } else {
         setCustomDate("");
+        form.setFieldValue("customDates", undefined);
       }
     },
     validate: {
@@ -182,9 +183,7 @@ const InquiryModalButton = ({
       <Checkbox
         mt="xs"
         checked={checked}
-        onChange={(event) => {
-          setChecked(event.currentTarget.checked);
-        }}
+        onChange={(event) => setChecked(event.currentTarget.checked)}
         label="I want to choose my own travel dates"
         display={travelPackage.isFlexible ? "block" : "none"}
       />
@@ -204,13 +203,11 @@ const InquiryModalButton = ({
           {...form.getInputProps("customDates")}
           key={form.key("customDates")}
         />
-        {customDate ? (
+        {customDate && (
           <Text mt="xs" size="sm" c="var(--mantine-color-indigo-7)">
             <b>[{getDateDifference(travelDatesOptions[0])}-day package]:</b>{" "}
             {customDate}
           </Text>
-        ) : (
-          ""
         )}
       </Group>
       <Select
