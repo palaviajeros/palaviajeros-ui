@@ -10,7 +10,7 @@ import {
   Textarea,
   Checkbox,
   Text,
-  rem,
+  rem
 } from "@mantine/core";
 import { DatePickerInput } from "@mantine/dates";
 import "@mantine/dates/styles.css";
@@ -33,16 +33,14 @@ interface InquiryModalProps {
 const InquiryModalButton = ({
   travelPackage,
   children,
-  variant,
+  variant
 }: InquiryModalProps) => {
   const [opened, { close, open }] = useDisclosure(false);
   // check if checkbox is clicked
   const [checked, setChecked] = useState(false);
   // value of DatePickerInput
-  const [customDate, setCustomDate] = useState<Date | null>(null);
-  const [customDateError, setCustomDateError] = useState<string | undefined>(
-    undefined
-  );
+  const [customDate, setCustomDate] = useState<string | undefined>();
+
   const recaptchaRef = useRef<ReCAPTCHA | null>(null);
 
   const travelDatesOptions = Array.from(
@@ -57,9 +55,21 @@ const InquiryModalButton = ({
       email: "",
       contactNo: "",
       travelDates: travelDatesOptions[0],
+      customDates: customDate,
       noOfPax: "",
       message: "",
-      travelPackage: travelPackage.name,
+      travelPackage: travelPackage.name
+    },
+    onValuesChange: (values) => {
+      // update custom date format after user has selected a custom date
+      if (checked && values.customDates) {
+        setCustomDate(
+          `${format(values.customDates, "dd MMM yyyy")} - ${format(addDays(values.customDates, getDateDifference(travelDatesOptions[0])), "dd MMM yyyy")}`
+        );
+      } else {
+        setCustomDate("");
+        form.setFieldValue("customDates", undefined);
+      }
     },
     validate: {
       email: isEmail("Invalid email"),
@@ -69,33 +79,20 @@ const InquiryModalButton = ({
       ),
       noOfPax: isNotEmpty(),
       message: isNotEmpty(),
-    },
+      travelDates: !customDate ? isNotEmpty() : undefined,
+      customDates: checked ? isNotEmpty() : undefined
+    }
   });
 
-  // custom travel dates with the format of
-  const customTravelDates = customDate
-    ? `${format(customDate, "dd MMM yyyy")} - ${format(
-        addDays(customDate, getDateDifference(form.values.travelDates)),
-        "dd MMM yyyy"
-      )}`
-    : "";
-
   const handleSubmit = async (values: typeof form.values) => {
-    setCustomDateError(undefined);
-    if (checked && !customDate) {
-      setCustomDateError("Please select a custom date");
-      return;
-    }
     if (recaptchaRef.current) {
       const token = await recaptchaRef.current.executeAsync();
       if (token) {
-        const selectedTravelDates =
-          checked && customDate ? customTravelDates : form.values.travelDates;
         let emailTemplateProps = {
           ...values,
           travelPackage,
           inquiryDate: Date.now().toString(),
-          travelDates: selectedTravelDates,
+          travelDates: customDate ? customDate : form.getValues().travelDates
         } as InquiryEmailTemplateProps;
         await sendInquiry(emailTemplateProps)
           .then((_) =>
@@ -103,9 +100,9 @@ const InquiryModalButton = ({
               id: "inquiry-notif",
               withCloseButton: true,
               title: `Inquiry Sent: ${travelPackage.name}`,
-              message: `Hey there, we received your inquiry for ${travelPackage.name} on ${form.values.travelDates} and we will respond to you shortly! Thank you for your patience!`,
+              message: `Hey there, we received your inquiry for ${travelPackage.name} on ${customDate ? customDate : form.getValues().travelDates} and we will respond to you shortly! Thank you for your patience!`,
               color: "green",
-              autoClose: 10000,
+              autoClose: 10000
             })
           )
           .catch((_) =>
@@ -115,7 +112,7 @@ const InquiryModalButton = ({
               title: `Inquiry Sent: ${travelPackage.name}`,
               message: `Hey there, we attempted to send your inquiry but an unexpected error occurred. Please try again shortly`,
               color: "red",
-              autoClose: 10000,
+              autoClose: 10000
             })
           );
         // save values here
@@ -130,7 +127,7 @@ const InquiryModalButton = ({
           title: "CAPTCHA Error",
           message: "Failed to complete CAPTCHA. Please try again.",
           color: "red",
-          autoClose: 3000,
+          autoClose: 3000
         });
       }
     }
@@ -194,8 +191,6 @@ const InquiryModalButton = ({
         <DatePickerInput
           mt="xs"
           placeholder="Pick start date"
-          value={customDate}
-          onChange={setCustomDate}
           leftSection={
             <IconCalendar
               style={{ width: rem(18), height: rem(18) }}
@@ -204,13 +199,14 @@ const InquiryModalButton = ({
           }
           clearable
           minDate={startOfToday()}
-          error={checked && !customDate ? customDateError : undefined}
+          required
+          {...form.getInputProps("customDates")}
+          key={form.key("customDates")}
         />
-
         {customDate && (
           <Text mt="xs" size="sm" c="var(--mantine-color-indigo-7)">
-            <b>[{getDateDifference(form.values.travelDates)}-day package]:</b>{" "}
-            {customTravelDates}
+            <b>[{getDateDifference(travelDatesOptions[0])}-day package]:</b>{" "}
+            {customDate}
           </Text>
         )}
       </Group>
