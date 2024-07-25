@@ -23,6 +23,7 @@ import { sendInquiry } from "@/app/lib/resend/send-inquiry";
 import { InquiryEmailTemplateProps } from "@/app/components/Email/inquiry-email-template";
 import { format, startOfToday, addDays } from "date-fns";
 import ReCAPTCHA from "react-google-recaptcha";
+import { handleCaptchaSubmission } from "@/app/lib/recaptcha/verifyRecaptcha";
 
 interface InquiryModalProps {
   travelPackage: TravelPackageDto;
@@ -260,6 +261,7 @@ const InquiryModalButton = ({
           ref={recaptchaRef}
           sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
           size="invisible"
+          onChange={handleCaptchaSubmission}
         />
       </Modal>
       {sendBtn}
