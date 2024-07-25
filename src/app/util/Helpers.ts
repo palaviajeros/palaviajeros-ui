@@ -5,24 +5,20 @@ export function formatDateRange({ startDate, endDate }: DateRange) {
   const start = new Date(startDate);
   const end = new Date(endDate);
 
-  const options: Intl.DateTimeFormatOptions = {
-    day: "2-digit",
-    month: "short",
-  };
-  const startFormatted = start.toLocaleDateString("en-GB", options);
-  const endFormatted = end.toLocaleDateString("en-GB", options);
+  //   const startFormatted = start.toLocaleDateString("en-GB",);
+  //   const endFormatted = end.toLocaleDateString("en-GB",);
 
-  const year = start.getFullYear();
+  //   const year = start.getFullYear();
 
-  return `${startFormatted} ${year} - ${endFormatted} ${year}`;
+  return `${format(start, "dd MMM yyyy")} - ${format(end, "dd MMM yyyy")}`;
 }
 
 // prettier-ignore
 export function getDateDifference (dateString: string ) {
     const [startDateString, endDateString] = dateString.split(' - ').map(date => date.trim());
 
-    const startDate = getDate(format(new Date(startDateString),'MM.dd.yyyy'))
-    const endDate = getDate(format(new Date(endDateString),'MM.dd.yyyy'))
+    const startDate = getDate(new Date(startDateString))
+    const endDate = getDate(new Date(endDateString))
 
     return endDate - startDate;
 }
