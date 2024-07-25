@@ -16,10 +16,11 @@ export async function verifyCaptcha(token: string | null) {
 }
 
 export async function handleCaptchaSubmission(token: string | null) {
-  try {
-    await verifyCaptcha(token);
+  let verified = await verifyCaptcha(token);
+
+  if (verified) {
     console.log("Recaptcha verified!");
-  } catch (error) {
-    console.log("Recaptcha not verified!");
+  } else {
+    throw new Error("Recaptcha not verified!");
   }
 }

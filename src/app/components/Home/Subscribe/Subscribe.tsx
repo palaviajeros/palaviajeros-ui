@@ -48,6 +48,15 @@ const Subscribe = () => {
             })
           );
         form.reset();
+      } else {
+        notifications.show({
+          id: "captcha-error",
+          withCloseButton: true,
+          title: "CAPTCHA Error",
+          message: "Failed to complete CAPTCHA. Please try again.",
+          color: "red",
+          autoClose: 3000
+        });
       }
     }
   };
