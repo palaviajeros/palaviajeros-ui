@@ -5,11 +5,6 @@ export function formatDateRange({ startDate, endDate }: DateRange) {
   const start = new Date(startDate);
   const end = new Date(endDate);
 
-  //   const startFormatted = start.toLocaleDateString("en-GB",);
-  //   const endFormatted = end.toLocaleDateString("en-GB",);
-
-  //   const year = start.getFullYear();
-
   return `${format(start, "dd MMM yyyy")} - ${format(end, "dd MMM yyyy")}`;
 }
 

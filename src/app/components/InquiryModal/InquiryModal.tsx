@@ -62,12 +62,6 @@ const InquiryModalButton = ({
     },
     onValuesChange: (values) => {
       // update custom date format after user has selected a custom date
-      console.log("firstVal", `${format(values.customDates, "dd MMM yyyy")} -`);
-      console.log(
-        "secondVal",
-        `${format(addDays(values.customDates, 10), "dd MMM yyyy")}`
-      );
-      console.log(getDateDifference(travelDatesOptions[0]));
       if (checked && values.customDates) {
         setCustomDate(
           `${format(values.customDates, "dd MMM yyyy")} - ${format(addDays(values.customDates, getDateDifference(travelDatesOptions[0])), "dd MMM yyyy")}`
