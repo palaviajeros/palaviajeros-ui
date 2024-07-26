@@ -25,12 +25,12 @@ const ContentBlock: React.FC<ContentsProps> = ({
     <Flex
       direction={reverse ? "row-reverse" : "row"}
       wrap={{ base: "wrap", lg: "unset" }}
-      gap="md"
+      gap={50}
       justify="space-evenly"
       miw={300}
     >
-      <Flex flex={1} direction="column" wrap="wrap" p={10}>
-        <Title order={3} mb={10}>
+      <Flex flex={1} direction="column" wrap="wrap">
+        <Title order={2} size="h1" mb={10} ta={{ base: "center", lg: "start" }}>
           {title}
         </Title>
         <Text size="md">{text}</Text>
@@ -42,7 +42,7 @@ const ContentBlock: React.FC<ContentsProps> = ({
         w={{ base: "300", sm: "auto" }}
         fit="contain"
         h="100%"
-        radius="xs"
+        radius="md"
       />
     </Flex>
   );
@@ -51,22 +51,22 @@ const ContentBlock: React.FC<ContentsProps> = ({
 const About: React.FC = () => {
   const contents = [
     {
-      title: "sample 1",
+      title: "Sample",
       text: "This is a sample text that describes the content of the image below. This is a sample text that describes the content of the image below.",
       imageUrl: "/samples/sample1.jpg",
     },
     {
-      title: "sample 2",
+      title: "Sample",
       text: "This is a sample text that describes the content of the image below.This is a sample text that describes the content of the image below. This is a sample text that describes the content of the image below.",
       imageUrl: "/samples/sample2.jpg",
     },
     {
-      title: "sample 3",
+      title: "Sample",
       text: "This is a sample text that describes the content of the image below. This is a sample text that describes the content of the image below. This is a sample text that describes the content of the image below.",
       imageUrl: "/samples/sample3.jpg",
     },
     {
-      title: "sample 4",
+      title: "Sample",
       text: "This is a sample text that describes the content of the image below. This is a sample text that describes the content of the image below. This is a sample text that describes the content of the image below.This is a sample text that describes the content of the image below. This is a sample text that describes the content of the image below.",
       imageUrl: "/samples/sample3.jpg",
     },
@@ -76,7 +76,7 @@ const About: React.FC = () => {
       <Title ta="center" mb={80}>
         About Us
       </Title>
-      <Flex direction="column" gap="xl">
+      <Flex direction="column" gap={{ base: "50", lg: "100" }}>
         {contents.map((content, index) => (
           <ContentBlock
             key={index}
