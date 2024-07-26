@@ -73,7 +73,7 @@ const About: React.FC = () => {
   ];
   return (
     <>
-      <Title ta="center" mb={80}>
+      <Title ta="center" mb={60}>
         About Us
       </Title>
       <Flex direction="column" gap={{ base: "50", lg: "100" }}>
