@@ -1,5 +1,5 @@
 import React from "react";
-import { Title, Text, Image, Space, Flex } from "@mantine/core";
+import { Title, Text, Image, Space, Flex, Box } from "@mantine/core";
 // import { title } from "process";
 import classes from "@/app/about/about.module.scss";
 import { Metadata } from "next";
@@ -24,15 +24,26 @@ const ContentBlock: React.FC<ContentsProps> = ({
   return (
     <Flex
       direction={reverse ? "row-reverse" : "row"}
-      wrap="wrap"
+      wrap={{ base: "wrap", lg: "unset" }}
+      gap={50}
       justify="space-evenly"
-      gap="xl"
+      miw={300}
     >
-      <div className={classes.content_text}>
-        <Title order={3}>{title}</Title>
+      <Flex flex={1} direction="column" wrap="wrap">
+        <Title order={2} size="h1" mb={10} ta={{ base: "center", lg: "start" }}>
+          {title}
+        </Title>
         <Text size="md">{text}</Text>
-      </div>
-      <Image src={imageUrl} alt={title} width={300} height={200} radius="md" />
+      </Flex>
+      <Image
+        flex={1}
+        src={imageUrl}
+        alt={title}
+        w={{ base: "300", sm: "auto" }}
+        fit="contain"
+        h="100%"
+        radius="md"
+      />
     </Flex>
   );
 };
@@ -40,31 +51,32 @@ const ContentBlock: React.FC<ContentsProps> = ({
 const About: React.FC = () => {
   const contents = [
     {
-      title: "sample 1",
-      text: "This is a sample text that describes the content of the image below.",
+      title: "Sample",
+      text: "This is a sample text that describes the content of the image below. This is a sample text that describes the content of the image below.",
       imageUrl: "/samples/sample1.jpg",
     },
     {
-      title: "sample 2",
-      text: "This is a sample text that describes the content of the image below.",
+      title: "Sample",
+      text: "This is a sample text that describes the content of the image below.This is a sample text that describes the content of the image below. This is a sample text that describes the content of the image below.",
       imageUrl: "/samples/sample2.jpg",
     },
     {
-      title: "sample 3",
-      text: "This is a sample text that describes the content of the image below.",
+      title: "Sample",
+      text: "This is a sample text that describes the content of the image below. This is a sample text that describes the content of the image below. This is a sample text that describes the content of the image below.",
       imageUrl: "/samples/sample3.jpg",
     },
     {
-      title: "sample 4",
-      text: "This is a sample text that describes the content of the image below.",
+      title: "Sample",
+      text: "This is a sample text that describes the content of the image below. This is a sample text that describes the content of the image below. This is a sample text that describes the content of the image below.This is a sample text that describes the content of the image below. This is a sample text that describes the content of the image below.",
       imageUrl: "/samples/sample3.jpg",
     },
   ];
   return (
     <>
-      <Title ta="center">About Us</Title>
-      <Space h="xl" />
-      <Flex direction="column" gap="xl">
+      <Title ta="center" mb={60}>
+        About Us
+      </Title>
+      <Flex direction="column" gap={{ base: "50", lg: "100" }}>
         {contents.map((content, index) => (
           <ContentBlock
             key={index}
