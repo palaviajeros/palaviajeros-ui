@@ -10,7 +10,7 @@ import {
   Textarea,
   Checkbox,
   Text,
-  rem
+  rem,
 } from "@mantine/core";
 import { DatePickerInput } from "@mantine/dates";
 import "@mantine/dates/styles.css";
@@ -34,7 +34,7 @@ interface InquiryModalProps {
 const InquiryModalButton = ({
   travelPackage,
   children,
-  variant
+  variant,
 }: InquiryModalProps) => {
   const [opened, { close, open }] = useDisclosure(false);
   // check if checkbox is clicked
@@ -45,7 +45,7 @@ const InquiryModalButton = ({
   const recaptchaRef = useRef<ReCAPTCHA | null>(null);
 
   const travelDatesOptions = Array.from(
-    new Set(travelPackage.travelDates.map((td) => formatDateRange(td)))
+    new Set(travelPackage.travelDates.map((td) => formatDateRange(td))),
   );
   const noOfPeopleOptions = new Array(15).fill(null).map((_, i) => `${i + 1}`);
 
@@ -59,13 +59,13 @@ const InquiryModalButton = ({
       customDates: customDate,
       noOfPax: "",
       message: "",
-      travelPackage: travelPackage.name
+      travelPackage: travelPackage.name,
     },
     onValuesChange: (values) => {
       // update custom date format after user has selected a custom date
       if (checked && values.customDates) {
         setCustomDate(
-          `${format(values.customDates, "dd MMM yyyy")} - ${format(addDays(values.customDates, getDateDifference(travelDatesOptions[0])), "dd MMM yyyy")}`
+          `${format(values.customDates, "dd MMM yyyy")} - ${format(addDays(values.customDates, getDateDifference(travelDatesOptions[0])), "dd MMM yyyy")}`,
         );
       } else {
         setCustomDate("");
@@ -76,13 +76,13 @@ const InquiryModalButton = ({
       email: isEmail("Invalid email"),
       contactNo: matches(
         /^[+]?[(]?[0-9]{2,3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/,
-        "Invalid phone number format"
+        "Invalid phone number format",
       ),
       noOfPax: isNotEmpty(),
       message: isNotEmpty(),
       travelDates: !customDate ? isNotEmpty() : undefined,
-      customDates: checked ? isNotEmpty() : undefined
-    }
+      customDates: checked ? isNotEmpty() : undefined,
+    },
   });
 
   const handleSubmit = async (values: typeof form.values) => {
@@ -93,7 +93,7 @@ const InquiryModalButton = ({
           ...values,
           travelPackage,
           inquiryDate: Date.now().toString(),
-          travelDates: customDate ? customDate : form.getValues().travelDates
+          travelDates: customDate ? customDate : form.getValues().travelDates,
         } as InquiryEmailTemplateProps;
         await sendInquiry(emailTemplateProps)
           .then((_) =>
@@ -103,8 +103,8 @@ const InquiryModalButton = ({
               title: `Inquiry Sent: ${travelPackage.name}`,
               message: `Hey there, we received your inquiry for ${travelPackage.name} on ${customDate ? customDate : form.getValues().travelDates} and we will respond to you shortly! Thank you for your patience!`,
               color: "green",
-              autoClose: 10000
-            })
+              autoClose: 10000,
+            }),
           )
           .catch((_) =>
             notifications.show({
@@ -113,8 +113,8 @@ const InquiryModalButton = ({
               title: `Inquiry Sent: ${travelPackage.name}`,
               message: `Hey there, we attempted to send your inquiry but an unexpected error occurred. Please try again shortly`,
               color: "red",
-              autoClose: 10000
-            })
+              autoClose: 10000,
+            }),
           );
         // save values here
         form.reset();
@@ -128,7 +128,7 @@ const InquiryModalButton = ({
           title: "CAPTCHA Error",
           message: "Failed to complete CAPTCHA. Please try again.",
           color: "red",
-          autoClose: 3000
+          autoClose: 3000,
         });
       }
     }
@@ -179,7 +179,7 @@ const InquiryModalButton = ({
         key={form.key("travelDates")}
         {...form.getInputProps("travelDates")}
         required
-        disabled={checked ? true : false}
+        disabled={checked}
       />
       <Checkbox
         mt="xs"
@@ -242,7 +242,11 @@ const InquiryModalButton = ({
     typeof children == typeof (<Button />) ? (
       React.cloneElement(children, { onClick: open })
     ) : (
-      <Button variant={variant ?? "primary"} onClick={open}>
+      <Button
+        variant={variant ?? "primary"}
+        onClick={open}
+        data-testid="sendBtn"
+      >
         {children}
       </Button>
     );
