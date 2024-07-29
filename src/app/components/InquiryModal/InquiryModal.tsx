@@ -26,13 +26,13 @@ import { TravelPackageDto } from "@/app/shared/models/travelPackageDto";
 interface InquiryModalProps {
   travelPackage: TravelPackageDto;
   isOpen: boolean;
-  onClose: () => void;
+  closeFxn: () => void;
 }
 
 const InquiryModal = ({
   travelPackage,
   isOpen,
-  onClose,
+  closeFxn,
 }: InquiryModalProps) => {
   const [checked, setChecked] = useState(false);
   // value of DatePickerInput
@@ -57,6 +57,7 @@ const InquiryModal = ({
       message: "",
       travelPackage: travelPackage.name,
     },
+
     onValuesChange: (values) => {
       // update custom date format after user has selected a custom date
       if (checked && values.customDates) {
@@ -88,7 +89,7 @@ const InquiryModal = ({
         let emailTemplateProps = {
           ...values,
           travelPackage,
-          inquiryDate: Date.now().toString(),
+          inquiryDate: format(new Date(), "dd MMM yyyy HH:mm:ss"),
           travelDates: customDate ? customDate : form.getValues().travelDates,
         } as InquiryEmailTemplateProps;
         await sendInquiry(emailTemplateProps)
@@ -114,7 +115,7 @@ const InquiryModal = ({
           );
         // save values here
         form.reset();
-        close();
+        closeFxn();
         // Reset captcha token after form submission
         recaptchaRef.current?.reset();
       } else {
@@ -243,7 +244,7 @@ const InquiryModal = ({
   return (
     <Modal
       opened={isOpen}
-      onClose={onClose}
+      onClose={closeFxn}
       title="Book your trip with us!"
       radius={10}
       transitionProps={{ transition: "fade", duration: 200 }}
