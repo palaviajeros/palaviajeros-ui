@@ -187,6 +187,7 @@ const InquiryModalButton = ({
         onChange={(event) => setChecked(event.currentTarget.checked)}
         label="I want to choose my own travel dates"
         display={travelPackage.isFlexible ? "block" : "none"}
+        data-testid="checkBoxFlexible"
       />
       <Group display={checked ? "block" : "none"}>
         <DatePickerInput
