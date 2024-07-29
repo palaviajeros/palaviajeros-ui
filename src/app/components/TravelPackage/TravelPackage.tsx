@@ -20,7 +20,7 @@ import {
   IconCalendarPlus,
 } from "@tabler/icons-react";
 import "./TravelPackage.scss";
-import InquiryModalButton from "@/app/components/InquiryModal/InquiryModal";
+import InquiryModalButton from "@/app/components/InquiryModal/InquiryModalButton";
 import {
   formatDateRange,
   getDateDifference,
@@ -189,7 +189,7 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                               color="var(--mantine-color-teal-4)"
                             />
                             <Text fz="var(--mantine-font-size-sm)">{`${getValueOfEnumService(
-                              inclusion
+                              inclusion,
                             )}`}</Text>
                           </Flex>
                         );

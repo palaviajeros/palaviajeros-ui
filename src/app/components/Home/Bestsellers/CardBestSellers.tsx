@@ -4,7 +4,7 @@ import { differenceInCalendarDays } from "date-fns";
 import { TravelCountryPackages } from "@/app/shared/models/travelPackageDto";
 import { Card, Image, Text, Badge, Button, Flex, Anchor } from "@mantine/core";
 import NextImage from "next/image";
-import InquiryModal from "@/app/components/InquiryModal/InquiryModal";
+import InquiryModal from "@/app/components/InquiryModal/InquiryModalButton";
 
 interface CardBestSellersProps {
   card: TravelCountryPackages;
