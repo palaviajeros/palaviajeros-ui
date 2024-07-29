@@ -1,43 +1,39 @@
-import { TravelPackageDto } from "@/app/shared/models/travelPackageDto";
-import { useDisclosure } from "@mantine/hooks";
 import {
-  Modal,
   Button,
-  Group,
   ButtonVariant,
-  TextInput,
-  Select,
-  Textarea,
   Checkbox,
-  Text,
+  Group,
+  Modal,
   rem,
+  Select,
+  Text,
+  Textarea,
+  TextInput,
 } from "@mantine/core";
-import { DatePickerInput } from "@mantine/dates";
-import "@mantine/dates/styles.css";
-import { IconCalendar } from "@tabler/icons-react";
-import React, { useState, useRef } from "react";
-import { isEmail, isNotEmpty, matches, useForm } from "@mantine/form";
-import { formatDateRange, getDateDifference } from "@/app/util/Helpers";
-import { notifications } from "@mantine/notifications";
-import { sendInquiry } from "@/app/lib/resend/send-inquiry";
-import { InquiryEmailTemplateProps } from "@/app/components/Email/inquiry-email-template";
-import { format, startOfToday, addDays } from "date-fns";
 import ReCAPTCHA from "react-google-recaptcha";
 import { handleCaptchaSubmission } from "@/app/lib/recaptcha/verifyRecaptcha";
+import React, { useRef, useState } from "react";
+import { DatePickerInput } from "@mantine/dates";
+import { IconCalendar } from "@tabler/icons-react";
+import { addDays, format, startOfToday } from "date-fns";
+import { formatDateRange, getDateDifference } from "@/app/util/Helpers";
+import { InquiryEmailTemplateProps } from "@/app/components/Email/inquiry-email-template";
+import { sendInquiry } from "@/app/lib/resend/send-inquiry";
+import { notifications } from "@mantine/notifications";
+import { isEmail, isNotEmpty, matches, useForm } from "@mantine/form";
+import { TravelPackageDto } from "@/app/shared/models/travelPackageDto";
 
 interface InquiryModalProps {
   travelPackage: TravelPackageDto;
-  children?: any;
-  variant?: string | ButtonVariant;
+  isOpen: boolean;
+  onClose: () => void;
 }
 
-const InquiryModalButton = ({
+const InquiryModal = ({
   travelPackage,
-  children,
-  variant,
+  isOpen,
+  onClose,
 }: InquiryModalProps) => {
-  const [opened, { close, open }] = useDisclosure(false);
-  // check if checkbox is clicked
   const [checked, setChecked] = useState(false);
   // value of DatePickerInput
   const [customDate, setCustomDate] = useState<string | undefined>();
@@ -180,38 +176,44 @@ const InquiryModalButton = ({
         {...form.getInputProps("travelDates")}
         required
         disabled={checked}
+        data-testid="selectDates"
       />
-      <Checkbox
-        mt="xs"
-        checked={checked}
-        onChange={(event) => setChecked(event.currentTarget.checked)}
-        label="I want to choose my own travel dates"
-        display={travelPackage.isFlexible ? "block" : "none"}
-        data-testid="checkBoxFlexible"
-      />
-      <Group display={checked ? "block" : "none"}>
-        <DatePickerInput
-          mt="xs"
-          placeholder="Pick start date"
-          leftSection={
-            <IconCalendar
-              style={{ width: rem(18), height: rem(18) }}
-              stroke={1.5}
+      {travelPackage.isFlexible && (
+        <>
+          <Checkbox
+            mt="xs"
+            checked={checked}
+            onChange={(event) => setChecked(event.currentTarget.checked)}
+            label="I want to choose my own travel dates"
+            display="block"
+            data-testid="checkBoxFlexible"
+          />
+
+          <Group display={checked ? "block" : "none"}>
+            <DatePickerInput
+              mt="xs"
+              placeholder="Pick start date"
+              leftSection={
+                <IconCalendar
+                  style={{ width: rem(18), height: rem(18) }}
+                  stroke={1.5}
+                />
+              }
+              clearable
+              minDate={startOfToday()}
+              required
+              {...form.getInputProps("customDates")}
+              key={form.key("customDates")}
             />
-          }
-          clearable
-          minDate={startOfToday()}
-          required
-          {...form.getInputProps("customDates")}
-          key={form.key("customDates")}
-        />
-        {customDate && (
-          <Text mt="xs" size="sm" c="var(--mantine-color-indigo-7)">
-            <b>[{getDateDifference(travelDatesOptions[0])}-day package]:</b>{" "}
-            {customDate}
-          </Text>
-        )}
-      </Group>
+            {customDate && (
+              <Text mt="xs" size="sm" c="var(--mantine-color-indigo-7)">
+                <b>[{getDateDifference(travelDatesOptions[0])}-day package]:</b>{" "}
+                {customDate}
+              </Text>
+            )}
+          </Group>
+        </>
+      )}
       <Select
         mt="sm"
         withAsterisk
@@ -238,40 +240,25 @@ const InquiryModalButton = ({
       </Group>
     </form>
   );
-
-  const sendBtn =
-    typeof children == typeof (<Button />) ? (
-      React.cloneElement(children, { onClick: open })
-    ) : (
-      <Button
-        variant={variant ?? "primary"}
-        onClick={open}
-        data-testid="sendBtn"
-      >
-        {children}
-      </Button>
-    );
   return (
-    <>
-      <Modal
-        opened={opened}
-        onClose={close}
-        title="Book your trip with us!"
-        radius={10}
-        transitionProps={{ transition: "fade", duration: 200 }}
-        centered
-      >
-        {inquireUsForm}
-        <ReCAPTCHA
-          ref={recaptchaRef}
-          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
-          size="invisible"
-          onChange={handleCaptchaSubmission}
-        />
-      </Modal>
-      {sendBtn}
-    </>
+    <Modal
+      opened={isOpen}
+      onClose={onClose}
+      title="Book your trip with us!"
+      radius={10}
+      transitionProps={{ transition: "fade", duration: 200 }}
+      centered
+      data-testid="inquiryModal"
+    >
+      {inquireUsForm}
+      <ReCAPTCHA
+        ref={recaptchaRef}
+        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+        size="invisible"
+        onChange={handleCaptchaSubmission}
+      />
+    </Modal>
   );
 };
 
-export default InquiryModalButton;
+export default InquiryModal;
