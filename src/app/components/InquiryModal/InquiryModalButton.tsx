@@ -36,7 +36,7 @@ const InquiryModalButton = ({
       <InquiryModal
         travelPackage={travelPackage}
         isOpen={opened}
-        onClose={close}
+        closeFxn={close}
       />
       {sendBtn}
     </>

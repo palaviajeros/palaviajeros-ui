@@ -13,7 +13,7 @@ describe("Test contents of Inquiry Modal", () => {
     let tp = testTravelPackage[0].packages[0];
     tp.isFlexible = true;
     const sut = (
-      <InquiryModal travelPackage={tp} isOpen={true} onClose={() => {}} />
+      <InquiryModal travelPackage={tp} isOpen={true} closeFxn={() => {}} />
     );
 
     // Act
@@ -23,6 +23,7 @@ describe("Test contents of Inquiry Modal", () => {
     const inquiryModal = await screen.findByTestId("checkBoxFlexible");
     expect(inquiryModal).toBeInTheDocument();
   });
+
   it("Should not render checkBox if package is not flexible", async () => {
     // Arrange
     // Service Under Test
@@ -30,7 +31,7 @@ describe("Test contents of Inquiry Modal", () => {
     let tp = testTravelPackage[0].packages[0];
     tp.isFlexible = false;
     const sut = (
-      <InquiryModal travelPackage={tp} isOpen={true} onClose={() => {}} />
+      <InquiryModal travelPackage={tp} isOpen={true} closeFxn={() => {}} />
     );
 
     // Act
@@ -42,5 +43,5 @@ describe("Test contents of Inquiry Modal", () => {
     // get and find fails if element is not in screen
     expect(inquiryModal).not.toBeInTheDocument();
   });
-  // Write tests to check if datepicker is displayed when checkbox is ticked
+  //Todo Lea and Sam: Write tests to check if datepicker is displayed when checkbox is ticked
 });
