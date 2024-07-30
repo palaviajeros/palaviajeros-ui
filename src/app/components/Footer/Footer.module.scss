@@ -7,10 +7,18 @@
 .inner {
   padding-top: var(--mantine-spacing-xl);
   padding-bottom: var(--mantine-spacing-xl);
+  display: flex;
+  justify-content: space-between;
 
   @include smaller-than($mantine-breakpoint-xs) {
     flex-direction: column;
   }
+}
+
+.groups {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: min-content;
 }
 
 .links {
