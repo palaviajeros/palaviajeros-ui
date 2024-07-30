@@ -9,6 +9,7 @@ import {
   Text,
   Textarea,
   TextInput,
+  Anchor
 } from "@mantine/core";
 import ReCAPTCHA from "react-google-recaptcha";
 import { handleCaptchaSubmission } from "@/app/lib/recaptcha/verifyRecaptcha";
@@ -32,7 +33,7 @@ interface InquiryModalProps {
 const InquiryModal = ({
   travelPackage,
   isOpen,
-  closeFxn,
+  closeFxn
 }: InquiryModalProps) => {
   const [checked, setChecked] = useState(false);
   // value of DatePickerInput
@@ -41,7 +42,7 @@ const InquiryModal = ({
   const recaptchaRef = useRef<ReCAPTCHA | null>(null);
 
   const travelDatesOptions = Array.from(
-    new Set(travelPackage.travelDates.map((td) => formatDateRange(td))),
+    new Set(travelPackage.travelDates.map((td) => formatDateRange(td)))
   );
   const noOfPeopleOptions = new Array(15).fill(null).map((_, i) => `${i + 1}`);
 
@@ -55,14 +56,14 @@ const InquiryModal = ({
       customDates: customDate,
       noOfPax: "",
       message: "",
-      travelPackage: travelPackage.name,
+      travelPackage: travelPackage.name
     },
 
     onValuesChange: (values) => {
       // update custom date format after user has selected a custom date
       if (checked && values.customDates) {
         setCustomDate(
-          `${format(values.customDates, "dd MMM yyyy")} - ${format(addDays(values.customDates, getDateDifference(travelDatesOptions[0])), "dd MMM yyyy")}`,
+          `${format(values.customDates, "dd MMM yyyy")} - ${format(addDays(values.customDates, getDateDifference(travelDatesOptions[0])), "dd MMM yyyy")}`
         );
       } else {
         setCustomDate("");
@@ -73,13 +74,13 @@ const InquiryModal = ({
       email: isEmail("Invalid email"),
       contactNo: matches(
         /^[+]?[(]?[0-9]{2,3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/,
-        "Invalid phone number format",
+        "Invalid phone number format"
       ),
       noOfPax: isNotEmpty(),
       message: isNotEmpty(),
       travelDates: !customDate ? isNotEmpty() : undefined,
-      customDates: checked ? isNotEmpty() : undefined,
-    },
+      customDates: checked ? isNotEmpty() : undefined
+    }
   });
 
   const handleSubmit = async (values: typeof form.values) => {
@@ -90,7 +91,7 @@ const InquiryModal = ({
           ...values,
           travelPackage,
           inquiryDate: format(new Date(), "dd MMM yyyy HH:mm:ss"),
-          travelDates: customDate ? customDate : form.getValues().travelDates,
+          travelDates: customDate ? customDate : form.getValues().travelDates
         } as InquiryEmailTemplateProps;
         await sendInquiry(emailTemplateProps)
           .then((_) =>
@@ -100,8 +101,8 @@ const InquiryModal = ({
               title: `Inquiry Sent: ${travelPackage.name}`,
               message: `Hey there, we received your inquiry for ${travelPackage.name} on ${customDate ? customDate : form.getValues().travelDates} and we will respond to you shortly! Thank you for your patience!`,
               color: "green",
-              autoClose: 10000,
-            }),
+              autoClose: 10000
+            })
           )
           .catch((_) =>
             notifications.show({
@@ -110,8 +111,8 @@ const InquiryModal = ({
               title: `Inquiry Sent: ${travelPackage.name}`,
               message: `Hey there, we attempted to send your inquiry but an unexpected error occurred. Please try again shortly`,
               color: "red",
-              autoClose: 10000,
-            }),
+              autoClose: 10000
+            })
           );
         // save values here
         form.reset();
@@ -125,7 +126,7 @@ const InquiryModal = ({
           title: "CAPTCHA Error",
           message: "Failed to complete CAPTCHA. Please try again.",
           color: "red",
-          autoClose: 3000,
+          autoClose: 3000
         });
       }
     }
@@ -235,6 +236,27 @@ const InquiryModal = ({
         {...form.getInputProps("message")}
         radius={"sm"}
       />
+      <Text size="10px" c="dimmed" mt="xs">
+        This site is protected by reCAPTCHA and the Google{" "}
+        <Anchor
+          href="https://policies.google.com/privacy"
+          target="_blank"
+          rel="noopener noreferrer"
+          c="blue"
+        >
+          Privacy Policy
+        </Anchor>{" "}
+        and{" "}
+        <Anchor
+          href="https://policies.google.com/terms"
+          target="_blank"
+          rel="noopener noreferrer"
+          c="blue"
+        >
+          Terms of Service
+        </Anchor>{" "}
+        apply.
+      </Text>
 
       <Group justify="flex-end" mt="md">
         <Button type="submit">Send</Button>
