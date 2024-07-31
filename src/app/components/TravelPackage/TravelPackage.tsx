@@ -81,6 +81,7 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                           className="package-photo"
                           component={NextImage}
                           priority
+                          placeholder="blur"
                           layout="responsive"
                           width={14}
                           height={9}
