@@ -2,23 +2,24 @@
 .footer {
   border-top: 1px solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5));
   min-height: 150px;
+  margin-bottom: 100px;
 }
 
-.inner {
-  padding-top: var(--mantine-spacing-xl);
-  padding-bottom: var(--mantine-spacing-xl);
-  display: flex;
-  justify-content: space-between;
+// .inner {
+//   padding-top: var(--mantine-spacing-xl);
+//   padding-bottom: var(--mantine-spacing-xl);
+//   display: flex;
+//   justify-content: space-between;
 
-  @include smaller-than($mantine-breakpoint-xs) {
-    flex-direction: column;
-  }
-}
+//   @include smaller-than($mantine-breakpoint-xs) {
+//     flex-direction: column;
+//   }
+// }
 
 .groups {
   display: flex;
   flex-wrap: wrap;
-  max-width: min-content;
+  // max-width: min-content;
 }
 
 .links {
