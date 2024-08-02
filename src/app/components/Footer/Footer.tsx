@@ -92,7 +92,13 @@ export default function Footer() {
                 stroke={1.5}
               />
             </ActionIcon>
-            <ActionIcon size="lg" color="gray" variant="subtle">
+            <ActionIcon
+              size="lg"
+              color="gray"
+              variant="subtle"
+              component="a"
+              href="mailto:info@palaviajeros.com"
+            >
               <IconMail style={{ width: 24, height: 24 }} stroke={1.5} />
             </ActionIcon>
           </Group>
