@@ -1,6 +1,14 @@
 "use client";
 
-import { Button, Flex, Group, TextInput, Title } from "@mantine/core";
+import {
+  Button,
+  Flex,
+  Group,
+  TextInput,
+  Title,
+  Anchor,
+  Text
+} from "@mantine/core";
 import classes from "./Subscribe.module.scss";
 import React, { useRef } from "react";
 import { isEmail, useForm } from "@mantine/form";
@@ -95,6 +103,7 @@ const Subscribe = () => {
               key={`${form.key("recipientEmail")}-mobile`}
               {...form.getInputProps("recipientEmail")}
             />
+
             <Button
               size="xl"
               radius="md"
@@ -113,15 +122,36 @@ const Subscribe = () => {
             >
               Subscribe
             </Button>
+            <Text size="10px" c="dimmed" ta="center">
+              This site is protected by reCAPTCHA and the Google{" "}
+              <Anchor
+                href="https://policies.google.com/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+                c="blue"
+              >
+                Privacy Policy
+              </Anchor>{" "}
+              and{" "}
+              <Anchor
+                href="https://policies.google.com/terms"
+                target="_blank"
+                rel="noopener noreferrer"
+                c="blue"
+              >
+                Terms of Service
+              </Anchor>{" "}
+              apply.
+            </Text>
           </Group>
         </form>
       </Flex>
+
       <ReCAPTCHA
         ref={recaptchaRef}
         sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
         size="invisible"
         onChange={handleCaptchaSubmission}
-        style={{ display: "none" }}
       />
     </>
   );
