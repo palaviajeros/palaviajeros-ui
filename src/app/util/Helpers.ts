@@ -1,23 +1,21 @@
-import { DateRange, Services } from "@/app/shared/models/travelPackageDto";
-import { getDate, format } from "date-fns";
+import {DateRange} from "@/app/shared/domain/travelPackage";
+import {Services} from "@/app/shared/domain/services";
+import {addDays, format, getDate} from "date-fns";
 
-export function formatDateRange({ startDate, endDate }: DateRange) {
-  const start = new Date(startDate);
-  const end = new Date(endDate);
-
-  return `${format(start, "dd MMM yyyy")} - ${format(end, "dd MMM yyyy")}`;
+export function formatDateRange({startDate, endDate}: DateRange) {
+    return `${format(new Date(startDate), "dd MMM yyyy")} - ${format(new Date(endDate), "dd MMM yyyy")}`;
 }
 
-// prettier-ignore
-export function getDateDifference (dateString: string ) {
-    const [startDateString, endDateString] = dateString.split(' - ').map(date => date.trim());
+export function generateDateRanges(dates: Date[], daysToAdd: number = 0) {
+    return dates.map(date => {
+        return generateDateRange(date, daysToAdd);
+    });
+}
 
-    const startDate = getDate(new Date(startDateString))
-    const endDate = getDate(new Date(endDateString))
-
-    return endDate - startDate;
+export function generateDateRange(date: Date, daysToAdd: number = 0) {
+    return {startDate: date, endDate: addDays(date, daysToAdd)} as DateRange;
 }
 
 export function getValueOfEnumService(service: Services) {
-  return Object.entries(Services).find(([k, _]) => k === service)![1];
+    return Object.entries(Services).find(([k, _]) => k === service)![1];
 }

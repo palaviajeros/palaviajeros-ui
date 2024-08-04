@@ -1,20 +1,20 @@
 import CardBestSellers from "./CardBestSellers";
-import { TravelCountryPackages } from "@/app/shared/models/travelPackageDto";
-import getTravelPackages from "@/app/lib/travelPackages";
-import { Flex, Title } from "@mantine/core";
+import getCountryPackages from "@/app/lib/travelPackagesLoader";
+import {Flex, Title} from "@mantine/core";
 import classes from "@/app/components/Home/Services/Services.module.scss";
+import {TravelCountryPackage} from "@/app/shared/domain/countryPackage";
 
 export default function Bestsellers() {
-  const packages: TravelCountryPackages[] = getTravelPackages();
+    const packages: TravelCountryPackage[] = getCountryPackages();
 
-  return (
-    <Flex direction="column">
-      <Title ta={"center"} order={2} className={classes.title}>
-        Top Destinations
-      </Title>
-      {packages.map((card) => {
-        return <CardBestSellers key={card.countryCode} card={card} />;
-      })}
-    </Flex>
-  );
+    return (
+        <Flex direction="column">
+            <Title ta={"center"} order={2} className={classes.title}>
+                Top Destinations
+            </Title>
+            {packages.map((card) => {
+                return <CardBestSellers key={card.countryCode} card={card}/>;
+            })}
+        </Flex>
+    );
 }
