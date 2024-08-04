@@ -1,9 +1,10 @@
-import {TravelCountryPackages, TravelPackageDto} from "@/app/shared/models/travelPackageDto";
+import {TravelPackage} from "@/app/shared/domain/travelPackage";
 
 import fs from "fs";
+import {TravelCountryPackage} from "@/app/shared/domain/countryPackage";
 
 const baseFolder = './public';
-const getImages = (fetchedPackages: TravelPackageDto, country: TravelCountryPackages): string[] => {
+const getImages = (fetchedPackages: TravelPackage, country: TravelCountryPackage): string[] => {
 
     let result: string[] = [];
     const imagePath = `/packages/${country.countryCode}/${fetchedPackages.code}/`;
@@ -20,9 +21,9 @@ const getImages = (fetchedPackages: TravelPackageDto, country: TravelCountryPack
     return [];
 };
 
-const getTravelPackages = (): TravelCountryPackages[] => {
+const getTravelPackages = (): TravelCountryPackage[] => {
     const data = fs.readFileSync('./public/packages/travelpackages.json', {encoding: 'utf8'});
-    let packagesByCountry: TravelCountryPackages[] = JSON.parse(data);
+    let packagesByCountry: TravelCountryPackage[] = JSON.parse(data);
 
     packagesByCountry.forEach(country =>
         country.packages.forEach(p => p.imageUrls = getImages(p, country)));

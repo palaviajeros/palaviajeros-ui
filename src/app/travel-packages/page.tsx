@@ -1,21 +1,21 @@
 import "./styles.travel-packages.scss";
-import { TravelCountryPackages } from "@/app/shared/models/travelPackageDto";
-import getTravelPackages from "@/app/lib/travelPackages";
+import getTravelPackages from "@/app/lib/travelPackagesLoader";
 import TravelTabs from "./TravelTabs";
 import React from "react";
-import { Metadata } from "next";
+import {Metadata} from "next";
+import {TravelCountryPackage} from "@/app/shared/domain/countryPackage";
 
 export const metadata: Metadata = {
-  title: "Travel Packages | Our offered travel packages",
+    title: "Travel Packages | Our offered travel packages",
 };
 
 const TravelPackagesPage = () => {
-  const packages: TravelCountryPackages[] = getTravelPackages();
+    const packages: TravelCountryPackage[] = getTravelPackages();
 
-  return (
-    <>
-      <TravelTabs packages={packages} />
-    </>
-  );
+    return (
+        <>
+            <TravelTabs packages={packages}/>
+        </>
+    );
 };
 export default TravelPackagesPage;
