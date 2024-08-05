@@ -1,6 +1,13 @@
-// prettier-ignore
 .footer {
   border-top: 1px solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5));
-  min-height: 150px;
-  margin-bottom: 100px;
+  position: relative;
+  bottom: 95px;
+
+  @media (min-width:373px) {
+    bottom: 70px;
+  }
+
+  @media (min-width:672px) {
+    bottom: 45px;
+  }
 }
