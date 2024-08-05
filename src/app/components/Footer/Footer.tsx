@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Container,
+  Flex,
   Group,
   ActionIcon,
   Text,
@@ -20,17 +21,22 @@ import classes from "@/app/components/Footer/Footer.module.scss";
 export default function Footer() {
   return (
     <footer className={classes.footer}>
-      <Container mb={20} mt={10}>
-        <Group justify="space-between" align="flex-start">
+      <Container size="xl" p={{ base: "30px", sm: "50px", lg: "50px 70px" }}>
+        <Flex
+          direction={{ base: "column", md: "row" }}
+          justify="space-between"
+          wrap="wrap"
+          gap="xs"
+        >
           <Anchor href="/">
             <Image src={logo.src} alt="logo" w={200} h={40} fit="contain" />
           </Anchor>
-          <Stack pt={10} gap={0}>
+          <Flex direction="column" gap="xs">
             <Text
               c="dimmed"
               size="sm"
-              ta={{ base: "start", sm: "end" }}
-              maw={400}
+              maw={300}
+              ta={{ base: "start", md: "end" }}
             >
               2605 Entrata Condo, Filinvest, 2609 Civic Dr., Alabang,
               Muntinlupa, 1708 NCR, Philippines
@@ -40,19 +46,24 @@ export default function Footer() {
               target="_blank"
               c="dimmed"
               size="sm"
-              ta={{ base: "start", sm: "end" }}
+              ta={{ base: "start", md: "end" }}
             >
               (+63) 917 889-4426
             </Anchor>
-          </Stack>
-        </Group>
-      </Container>
-      <Container>
-        <Group justify="space-between" align="center">
+          </Flex>
+        </Flex>
+        <Flex
+          direction={{ base: "column-reverse", md: "row" }}
+          justify="space-between"
+          align={{ md: "center" }}
+          wrap="wrap"
+          mt={10}
+          gap={10}
+        >
           <Text c="dimmed" size="sm">
             © 2024 Pala Viajeros. All rights reserved.
           </Text>
-          <Group gap={5} justify="flex-end" wrap="nowrap">
+          <Group>
             <ActionIcon
               size="lg"
               color="gray"
@@ -102,7 +113,7 @@ export default function Footer() {
               <IconMail style={{ width: 24, height: 24 }} stroke={1.5} />
             </ActionIcon>
           </Group>
-        </Group>
+        </Flex>
       </Container>
     </footer>
   );
