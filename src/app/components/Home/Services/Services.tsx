@@ -28,7 +28,7 @@ const mockdata: ServicesCardContent[] = [
   {
     title: "Travel Insurance",
     description:
-      "Some countries require insurance as standard part of a visa application. It is also a wise choice to get travel insurance in cases of unintended emergency. PalaViejeros will look for the best deals on insurance around the world giving you the best insurance coverage that suits your budget.",
+      "Some countries require insurance as standard part of a visa application. It is also a wise choice to get travel insurance in cases of unintended emergency. PalaViajeros will look for the best deals on insurance around the world giving you the best insurance coverage that suits your budget.",
     icon: IconShieldCheck,
     new: false
   },
