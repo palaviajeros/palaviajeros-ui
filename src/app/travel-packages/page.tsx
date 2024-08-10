@@ -9,8 +9,8 @@ export const metadata: Metadata = {
     title: "Travel Packages | Our offered travel packages",
 };
 
-const TravelPackagesPage = () => {
-    const packages: TravelCountryPackage[] = getCountryTravelPackages();
+const TravelPackagesPage = async () => {
+    const packages: TravelCountryPackage[] = await getCountryTravelPackages();
 
     return (
         <>

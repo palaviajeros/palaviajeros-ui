@@ -1,6 +1,8 @@
+"use server";
+
 import {TravelPackage} from "@/app/shared/domain/travelPackage";
 
-import fs from "fs";
+const fs = require('node:fs/promises');
 import {TravelCountryPackage} from "@/app/shared/domain/countryPackage";
 
 const baseFolder = './public';
@@ -21,32 +23,29 @@ const getImages = (fetchedPackages: TravelPackage, country: TravelCountryPackage
     return [];
 };
 
-export const getCountryTravelPackages = (): TravelCountryPackage[] => {
-    const data = fs.readFileSync('./public/packages/travelpackages.json', {encoding: 'utf8'});
-    let packagesByCountry: TravelCountryPackage[] = JSON.parse(data);
+const travelPackagesJsonPath = './public/packages/travelpackages.json';
 
-    packagesByCountry.forEach(country =>
-        country.packages.forEach(p => p.imageUrls = getImages(p, country)));
+export async function getCountryTravelPackages() {
+    try {
+        const data = await fs.readFile(travelPackagesJsonPath, {encoding: 'utf8'});
+        let packagesByCountry: TravelCountryPackage[] = JSON.parse(data);
 
-    return packagesByCountry;
+        packagesByCountry.forEach(country =>
+            country.packages.forEach(p => p.imageUrls = getImages(p, country)));
+
+        return packagesByCountry;
+    } catch (err) {
+        console.log(err);
+        return [];
+    }
 }
 
-export const findPackagesPerCountry = (predicate: (value: TravelPackage, index: number, obj: TravelPackage[]) => boolean): TravelPackage[] => {
-    const data = fs.readFileSync('./public/packages/travelpackages.json', {encoding: 'utf8'});
-    let packagesByCountry: TravelCountryPackage[] = JSON.parse(data);
-
-    packagesByCountry.forEach(country =>
-        country.packages.forEach(p => p.imageUrls = getImages(p, country)));
-
+export async function findPackagesPerCountry(predicate: (value: TravelPackage, index: number, obj: TravelPackage[]) => boolean) {
+    const packagesByCountry = await getCountryTravelPackages();
     return packagesByCountry.flatMap(cp => cp.packages.filter(predicate));
 }
 
-export const filterPackages = (predicate: (value: TravelPackage, index: number, obj: TravelPackage[]) => boolean): TravelPackage[] => {
-    const data = fs.readFileSync('./public/packages/travelpackages.json', {encoding: 'utf8'});
-    let packagesByCountry: TravelCountryPackage[] = JSON.parse(data);
-
-    packagesByCountry.forEach(country =>
-        country.packages.forEach(p => p.imageUrls = getImages(p, country)));
-
+export async function filterPackages(predicate: (value: TravelPackage, index: number, obj: TravelPackage[]) => boolean) {
+    const packagesByCountry = await getCountryTravelPackages();
     return packagesByCountry.flatMap(cp => cp.packages).filter(predicate) && [];
 }
