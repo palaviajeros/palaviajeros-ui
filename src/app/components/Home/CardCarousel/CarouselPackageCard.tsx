@@ -9,7 +9,7 @@ interface CardBestSellersProps {
     travelPackages: TravelPackage[];
 }
 
-export default function CardBestSellers({travelPackages}: CardBestSellersProps) {
+export default function CarouselPackageCard({travelPackages}: CardBestSellersProps) {
     return (
         <Flex
             justify="center"
