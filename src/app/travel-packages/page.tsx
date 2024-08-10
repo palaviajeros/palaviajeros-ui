@@ -1,5 +1,5 @@
 import "./styles.travel-packages.scss";
-import getTravelPackages from "@/app/lib/travelPackagesLoader";
+import {getCountryTravelPackages} from "@/app/actions/travelPackagesLoader";
 import TravelTabs from "./TravelTabs";
 import React from "react";
 import {Metadata} from "next";
@@ -9,8 +9,8 @@ export const metadata: Metadata = {
     title: "Travel Packages | Our offered travel packages",
 };
 
-const TravelPackagesPage = () => {
-    const packages: TravelCountryPackage[] = getTravelPackages();
+const TravelPackagesPage = async () => {
+    const packages: TravelCountryPackage[] = await getCountryTravelPackages();
 
     return (
         <>

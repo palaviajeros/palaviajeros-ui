@@ -1,4 +1,4 @@
-import getTravelPackages from "@/app/lib/travelPackagesLoader";
+import {getCountryTravelPackages} from "@/app/actions/travelPackagesLoader";
 import {screen} from "@testing-library/dom";
 import {render} from "@test-utils/render";
 import InquiryModal from "@/app/components/InquiryModal/InquiryModal";
@@ -9,7 +9,7 @@ describe("Test contents of Inquiry Modal", () => {
     it("Should render checkBox if package is flexible", async () => {
         // Arrange
         // Service Under Test
-        const testTravelPackage = getTravelPackages();
+        const testTravelPackage = await getCountryTravelPackages();
         let tp = testTravelPackage[0].packages[0];
         tp.isFlexible = true;
         const sut = (
@@ -28,7 +28,7 @@ describe("Test contents of Inquiry Modal", () => {
     it("Should not render checkBox if package is not flexible", async () => {
         // Arrange
         // Service Under Test
-        const testTravelPackage = getTravelPackages();
+        const testTravelPackage = await getCountryTravelPackages();
         let tp = testTravelPackage[0].packages[0];
         tp.isFlexible = false;
         const sut = (
