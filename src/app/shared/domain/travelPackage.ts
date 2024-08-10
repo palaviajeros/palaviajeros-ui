@@ -12,6 +12,7 @@ export interface TravelPackage {
     itinerary: DayPlan[],
     imageUrls: string[],
     price: number,
+    tags?: string[],
 }
 
 export interface DayPlan {

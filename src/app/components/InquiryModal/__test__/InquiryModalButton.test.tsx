@@ -1,4 +1,4 @@
-import getTravelPackages from "@/app/lib/travelPackagesLoader";
+import {getCountryTravelPackages} from "@/app/lib/travelPackagesLoader";
 import {fireEvent, screen} from "@testing-library/dom";
 import {render} from "@test-utils/render";
 import InquiryModalButton from "@/app/components/InquiryModal/InquiryModalButton";
@@ -9,7 +9,7 @@ describe("Test InquiryModal Button", () => {
     it("Should render sendBtn", async () => {
         // Arrange
         // Service Under Test
-        const testTravelPackage = getTravelPackages();
+        const testTravelPackage = getCountryTravelPackages();
         let tp = testTravelPackage[0].packages[0];
         const sut = <InquiryModalButton travelPackage={tp}/>;
 
@@ -23,7 +23,7 @@ describe("Test InquiryModal Button", () => {
     it("Should render InquiryModal if SendBtn is clicked", async () => {
         // Arrange
         // Service Under Test
-        const testTravelPackage = getTravelPackages();
+        const testTravelPackage = getCountryTravelPackages();
         let tp = testTravelPackage[0].packages[0];
         tp.isFlexible = true;
         const sut = <InquiryModalButton travelPackage={tp}/>;

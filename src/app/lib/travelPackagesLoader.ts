@@ -21,7 +21,7 @@ const getImages = (fetchedPackages: TravelPackage, country: TravelCountryPackage
     return [];
 };
 
-const getTravelPackages = (): TravelCountryPackage[] => {
+export const getCountryTravelPackages = (): TravelCountryPackage[] => {
     const data = fs.readFileSync('./public/packages/travelpackages.json', {encoding: 'utf8'});
     let packagesByCountry: TravelCountryPackage[] = JSON.parse(data);
 
@@ -31,4 +31,22 @@ const getTravelPackages = (): TravelCountryPackage[] => {
     return packagesByCountry;
 }
 
-export default getTravelPackages;
+export const findPackagesPerCountry = (predicate: (value: TravelPackage, index: number, obj: TravelPackage[]) => boolean): TravelPackage[] => {
+    const data = fs.readFileSync('./public/packages/travelpackages.json', {encoding: 'utf8'});
+    let packagesByCountry: TravelCountryPackage[] = JSON.parse(data);
+
+    packagesByCountry.forEach(country =>
+        country.packages.forEach(p => p.imageUrls = getImages(p, country)));
+
+    return packagesByCountry.flatMap(cp => cp.packages.filter(predicate));
+}
+
+export const filterPackages = (predicate: (value: TravelPackage, index: number, obj: TravelPackage[]) => boolean): TravelPackage[] => {
+    const data = fs.readFileSync('./public/packages/travelpackages.json', {encoding: 'utf8'});
+    let packagesByCountry: TravelCountryPackage[] = JSON.parse(data);
+
+    packagesByCountry.forEach(country =>
+        country.packages.forEach(p => p.imageUrls = getImages(p, country)));
+
+    return packagesByCountry.flatMap(cp => cp.packages).filter(predicate) && [];
+}

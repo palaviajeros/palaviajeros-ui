@@ -1,5 +1,5 @@
 import "./styles.travel-packages.scss";
-import getTravelPackages from "@/app/lib/travelPackagesLoader";
+import {getCountryTravelPackages} from "@/app/lib/travelPackagesLoader";
 import TravelTabs from "./TravelTabs";
 import React from "react";
 import {Metadata} from "next";
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 const TravelPackagesPage = () => {
-    const packages: TravelCountryPackage[] = getTravelPackages();
+    const packages: TravelCountryPackage[] = getCountryTravelPackages();
 
     return (
         <>

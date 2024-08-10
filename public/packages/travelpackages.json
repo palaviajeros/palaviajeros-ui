@@ -8,6 +8,10 @@
         "code": "boracay-1",
         "name": "Boracay Summer Getaway",
         "isFlexible": true,
+        "tags": [
+          "best-seller",
+          "sale"
+        ],
         "description": [
           "Enjoy the pristine white sand beaches in one of the best islands in the country!"
         ],
@@ -56,6 +60,10 @@
       {
         "code": "palawan-1",
         "name": "Enjoy the Sun in Palawan Tour!",
+        "tags": [
+          "best-seller",
+          "sale"
+        ],
         "description": [
           "It's all you ever wanted and more! Enjoy the white sand beaches and snorkel through the corals underwater in the day and enjoy the vibrant party scene at night! We also offer guided island hopping tours."
         ],
@@ -221,6 +229,10 @@
         "code": "madrid",
         "name": "Madrid EU Tour",
         "isFlexible": false,
+        "tags": [
+          "best-seller",
+          "sale"
+        ],
         "description": [
           "Madrid is the capital of Spain and lies in the center of the Iberian Peninsula."
         ],
