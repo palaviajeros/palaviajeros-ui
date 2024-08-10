@@ -1,9 +1,11 @@
 "use server";
 
 import {TravelPackage} from "@/app/shared/domain/travelPackage";
-
-const fs = require('node:fs/promises');
 import {TravelCountryPackage} from "@/app/shared/domain/countryPackage";
+import fs from "node:fs/promises";
+import fsSync from "fs";
+
+const travelPackagesJsonPath = './public/packages/travelpackages.json';
 
 const baseFolder = './public';
 const getImages = (fetchedPackages: TravelPackage, country: TravelCountryPackage): string[] => {
@@ -11,8 +13,9 @@ const getImages = (fetchedPackages: TravelPackage, country: TravelCountryPackage
     let result: string[] = [];
     const imagePath = `/packages/${country.countryCode}/${fetchedPackages.code}/`;
 
+    // Todo Andrei: Convert this read directory call to async
     try {
-        let files: string[] = fs.readdirSync(`${baseFolder}${imagePath}`);
+        let files: string[] = fsSync.readdirSync(`${baseFolder}${imagePath}`);
         files.forEach(file => {
             result.push(`${imagePath}${file}`)
         });
@@ -23,7 +26,6 @@ const getImages = (fetchedPackages: TravelPackage, country: TravelCountryPackage
     return [];
 };
 
-const travelPackagesJsonPath = './public/packages/travelpackages.json';
 
 export async function getCountryTravelPackages() {
     try {

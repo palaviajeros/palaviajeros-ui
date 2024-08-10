@@ -1,7 +1,7 @@
 import CardBestSellers from "./CardBestSellers";
 import {Flex, Title} from "@mantine/core";
 import classes from "@/app/components/Home/Services/Services.module.scss";
-import {findPackagesPerCountry} from "@/app/lib/travelPackagesLoader";
+import {findPackagesPerCountry} from "@/app/actions/travelPackagesLoader";
 import {TravelPackage} from "@/app/shared/domain/travelPackage";
 
 const NO_OF_PACKAGES: number = 3;

@@ -12,14 +12,14 @@ import {
     Anchor
 } from "@mantine/core";
 import ReCAPTCHA from "react-google-recaptcha";
-import {handleCaptchaSubmission} from "@/app/lib/recaptcha/verifyRecaptcha";
+import {handleCaptchaSubmission} from "@/app/actions/recaptcha/verifyRecaptcha";
 import React, {useRef, useState} from "react";
 import {DatePickerInput} from "@mantine/dates";
 import {IconCalendar} from "@tabler/icons-react";
 import {addDays, format, startOfToday} from "date-fns";
 import {formatDateRange, generateDateRanges} from "@/app/util/Helpers";
 import {InquiryEmailTemplateProps} from "@/app/components/Email/inquiry-email-template";
-import {sendInquiry} from "@/app/lib/resend/send-inquiry";
+import {sendInquiry} from "@/app/actions/resend/send-inquiry";
 import {notifications} from "@mantine/notifications";
 import {isEmail, isNotEmpty, matches, useForm} from "@mantine/form";
 import {TravelPackage} from "@/app/shared/domain/travelPackage";

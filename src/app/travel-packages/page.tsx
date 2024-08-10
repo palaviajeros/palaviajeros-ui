@@ -1,5 +1,5 @@
 import "./styles.travel-packages.scss";
-import {getCountryTravelPackages} from "@/app/lib/travelPackagesLoader";
+import {getCountryTravelPackages} from "@/app/actions/travelPackagesLoader";
 import TravelTabs from "./TravelTabs";
 import React from "react";
 import {Metadata} from "next";
