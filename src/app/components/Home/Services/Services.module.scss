@@ -9,6 +9,7 @@
 
 .card {
   border: 1px solid var(--mantine-color-gray-1);
+  z-index: -1;
   @media (min-width: 1024px) {
     max-width: 380px;
     flex: 1 1 30%;

@@ -8,26 +8,14 @@
         "code": "boracay-1",
         "name": "Boracay Summer Getaway",
         "isFlexible": true,
-        "tags": [
-          "sale"
-        ],
+        "tags": ["sale"],
         "description": [
           "Enjoy the pristine white sand beaches in one of the best islands in the country!"
         ],
-        "inclusions": [
-          "ACCOMMODATION",
-          "FLIGHT"
-        ],
-        "exclusions": [
-          "MEALS",
-          "TRANSFERS",
-          "TOURS"
-        ],
+        "inclusions": ["ACCOMMODATION", "FLIGHT"],
+        "exclusions": ["MEALS", "TRANSFERS", "TOURS"],
         "days": 3,
-        "travelDates": [
-          "2024-09-10",
-          "2024-10-01"
-        ],
+        "travelDates": ["2024-09-10", "2024-10-01"],
         "itinerary": [
           {
             "dayNo": 1,
@@ -40,54 +28,31 @@
           },
           {
             "dayNo": 2,
-            "activities": [
-              "talipapa",
-              "dinner at the beach",
-              "barhopping"
-            ]
+            "activities": ["talipapa", "dinner at the beach", "barhopping"]
           },
           {
             "dayNo": 3,
-            "activities": [
-              "souvenir buying",
-              "flight back"
-            ]
+            "activities": ["souvenir buying", "flight back"]
           }
         ],
-        "price": 2099
+        "price": 2099,
+        "salePrice": 1899
       },
       {
         "code": "palawan-1",
         "name": "Enjoy the Sun in Palawan Tour!",
-        "tags": [
-          "best-seller",
-          "featured"
-        ],
+        "tags": ["best-seller", "featured"],
         "description": [
           "It's all you ever wanted and more! Enjoy the white sand beaches and snorkel through the corals underwater in the day and enjoy the vibrant party scene at night! We also offer guided island hopping tours."
         ],
-        "inclusions": [
-          "ACCOMMODATION",
-          "FLIGHT",
-          "TOURS"
-        ],
-        "exclusions": [
-          "MEALS",
-          "TRANSFERS"
-        ],
+        "inclusions": ["ACCOMMODATION", "FLIGHT", "TOURS"],
+        "exclusions": ["MEALS", "TRANSFERS"],
         "days": 3,
-        "travelDates": [
-          "2024-09-10",
-          "2024-10-01",
-          "2025-01-25"
-        ],
+        "travelDates": ["2024-09-10", "2024-10-01", "2025-01-25"],
         "itinerary": [
           {
             "dayNo": 1,
-            "activities": [
-              "land at el nido airport",
-              "check-in hotel"
-            ]
+            "activities": ["land at el nido airport", "check-in hotel"]
           },
           {
             "dayNo": 2,
@@ -99,11 +64,7 @@
           },
           {
             "dayNo": 3,
-            "activities": [
-              "island hopping 2",
-              "lunch at the boat",
-              "clubbing"
-            ]
+            "activities": ["island hopping 2", "lunch at the boat", "clubbing"]
           }
         ],
         "price": 1395
@@ -112,26 +73,14 @@
         "code": "cebu-1",
         "name": "Cebu sinulog tour",
         "isFlexible": false,
-        "tags": [
-          "featured"
-        ],
+        "tags": ["featured"],
         "description": [
           "Experience the biggest street party in the Philippines! While enjoying the best nature has to offer around Cebu!"
         ],
-        "inclusions": [
-          "ACCOMMODATION",
-          "FLIGHT",
-          "TOURS"
-        ],
-        "exclusions": [
-          "MEALS",
-          "TRANSFERS"
-        ],
+        "inclusions": ["ACCOMMODATION", "FLIGHT", "TOURS"],
+        "exclusions": ["MEALS", "TRANSFERS"],
         "days": 4,
-        "travelDates": [
-          "2025-01-18",
-          "2025-01-25"
-        ],
+        "travelDates": ["2025-01-18", "2025-01-25"],
         "itinerary": [
           {
             "dayNo": 1,
@@ -172,7 +121,8 @@
             ]
           }
         ],
-        "price": 995
+        "price": 995,
+        "salePrice": 795
       }
     ]
   },
@@ -185,98 +135,55 @@
         "code": "barcelona",
         "name": "Barcelona EU Tour",
         "isFlexible": false,
-        "tags": [
-          "best-seller",
-          "sale"
-        ],
+        "tags": ["best-seller", "sale"],
         "description": [
           "Barcelona is a major cultural, economic, and financial centre in southwestern Europe"
         ],
-        "inclusions": [
-          "FLIGHT",
-          "ACCOMMODATION"
-        ],
-        "exclusions": [
-          "TRANSFERS"
-        ],
+        "inclusions": ["FLIGHT", "ACCOMMODATION"],
+        "exclusions": ["TRANSFERS"],
         "days": 3,
-        "travelDates": [
-          "2024-12-18",
-          "2025-01-18",
-          "2025-01-25"
-        ],
+        "travelDates": ["2024-12-18", "2025-01-18", "2025-01-25"],
         "itinerary": [
           {
             "dayNo": 1,
-            "activities": [
-              "land airport",
-              "checkin hotel",
-              "museum visit"
-            ]
+            "activities": ["land airport", "checkin hotel", "museum visit"]
           },
           {
             "dayNo": 2,
-            "activities": [
-              "Ciutadella park",
-              "tapas bar hopping"
-            ]
+            "activities": ["Ciutadella park", "tapas bar hopping"]
           },
           {
             "dayNo": 3,
-            "activities": [
-              "souvenir buying",
-              "flight back"
-            ]
+            "activities": ["souvenir buying", "flight back"]
           }
         ],
-        "price": 2099
+        "price": 2099,
+        "salePrice": 1799
       },
       {
         "code": "madrid",
         "name": "Madrid EU Tour",
         "isFlexible": false,
-        "tags": [
-          "best-seller",
-          "sale"
-        ],
+        "tags": ["best-seller", "sale"],
         "description": [
           "Madrid is the capital of Spain and lies in the center of the Iberian Peninsula."
         ],
-        "inclusions": [
-          "FLIGHT",
-          "ACCOMMODATION"
-        ],
-        "exclusions": [
-          "TRANSFERS"
-        ],
+        "inclusions": ["FLIGHT", "ACCOMMODATION"],
+        "exclusions": ["TRANSFERS"],
         "days": 3,
-        "travelDates": [
-          "2024-12-18",
-          "2025-01-18",
-          "2025-01-25"
-        ],
+        "travelDates": ["2024-12-18", "2025-01-18", "2025-01-25"],
         "itinerary": [
           {
             "dayNo": 1,
-            "activities": [
-              "land airport",
-              "checkin hotel",
-              "museum visit"
-            ]
+            "activities": ["land airport", "checkin hotel", "museum visit"]
           },
           {
             "dayNo": 2,
-            "activities": [
-              "Ciutadella park",
-              "tapas bar hopping"
-            ]
+            "activities": ["Ciutadella park", "tapas bar hopping"]
           },
           {
             "dayNo": 3,
-            "activities": [
-              "souvenir buying",
-              "flight back"
-            ]
+            "activities": ["souvenir buying", "flight back"]
           }
         ],
         "price": 2399
@@ -285,50 +192,28 @@
         "code": "granada",
         "name": "Granada EU Tour",
         "isFlexible": true,
-        "tags": [
-          "featured"
-        ],
-        "description": [
-          "Granada is located at the foot of the Sierra Nevada"
-        ],
-        "inclusions": [
-          "ACCOMMODATION",
-          "FLIGHT"
-        ],
-        "exclusions": [
-          "MEALS",
-          "TRANSFERS"
-        ],
+        "tags": ["featured"],
+        "description": ["Granada is located at the foot of the Sierra Nevada"],
+        "inclusions": ["ACCOMMODATION", "FLIGHT"],
+        "exclusions": ["MEALS", "TRANSFERS"],
         "days": 3,
-        "travelDates": [
-          "2024-08-01",
-          "2024-11-24"
-        ],
+        "travelDates": ["2024-08-01", "2024-11-24"],
         "itinerary": [
           {
             "dayNo": 1,
-            "activities": [
-              "land airport",
-              "checkin hotel",
-              "museum visit"
-            ]
+            "activities": ["land airport", "checkin hotel", "museum visit"]
           },
           {
             "dayNo": 2,
-            "activities": [
-              "Ciutadella park",
-              "tapas bar hopping"
-            ]
+            "activities": ["Ciutadella park", "tapas bar hopping"]
           },
           {
             "dayNo": 3,
-            "activities": [
-              "souvenir buying",
-              "flight back"
-            ]
+            "activities": ["souvenir buying", "flight back"]
           }
         ],
-        "price": 2799
+        "price": 2799,
+        "salePrice": 2399
       }
     ]
   }
