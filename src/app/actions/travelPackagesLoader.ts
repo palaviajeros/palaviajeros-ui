@@ -27,13 +27,32 @@ const getImages = (fetchedPackages: TravelPackage, country: TravelCountryPackage
 };
 
 
+function populateImages(packagesByCountry: TravelCountryPackage[]) {
+    packagesByCountry.forEach(country =>
+        country.packages.forEach(p => p.imageUrls = getImages(p, country)));
+}
+
 export async function getCountryTravelPackages() {
     try {
         const data = await fs.readFile(travelPackagesJsonPath, {encoding: 'utf8'});
         let packagesByCountry: TravelCountryPackage[] = JSON.parse(data);
 
-        packagesByCountry.forEach(country =>
-            country.packages.forEach(p => p.imageUrls = getImages(p, country)));
+        populateImages(packagesByCountry);
+
+        return packagesByCountry;
+    } catch (err) {
+        console.log(err);
+        return [];
+    }
+}
+
+export async function findCountryTravelPackages(predicate: (value: TravelCountryPackage, index: number, obj: TravelCountryPackage[]) => boolean) {
+    try {
+        const data = await fs.readFile(travelPackagesJsonPath, {encoding: 'utf8'});
+        let packagesByCountry: TravelCountryPackage[] = JSON.parse(data);
+        packagesByCountry = packagesByCountry.filter(predicate);
+
+        populateImages(packagesByCountry);
 
         return packagesByCountry;
     } catch (err) {
