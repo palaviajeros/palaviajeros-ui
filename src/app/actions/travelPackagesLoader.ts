@@ -46,15 +46,15 @@ export async function getCountryTravelPackages() {
     }
 }
 
-export async function findCountryTravelPackages(predicate: (value: TravelCountryPackage, index: number, obj: TravelCountryPackage[]) => boolean) {
+export async function findCountryPackage(predicate: (value: TravelCountryPackage, index: number, obj: TravelCountryPackage[]) => boolean) {
     try {
         const data = await fs.readFile(travelPackagesJsonPath, {encoding: 'utf8'});
         let packagesByCountry: TravelCountryPackage[] = JSON.parse(data);
-        packagesByCountry = packagesByCountry.filter(predicate);
+        const countryPackage = packagesByCountry.find(predicate);
 
-        populateImages(packagesByCountry);
+        if (countryPackage) populateImages([countryPackage]);
 
-        return packagesByCountry;
+        return countryPackage;
     } catch (err) {
         console.log(err);
         return [];
