@@ -66,7 +66,7 @@ export default function RootLayout({
           <SoftLaunchBanner />
         </MantineProvider>
       </body>
-      <GoogleAnalytics gaId="G-N1BV0K9S6V" />
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS!} />
     </html>
   );
 }
