@@ -2,12 +2,12 @@
   border-top: 1px solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5));
   position: relative;
   bottom: 95px;
-
-  @media (min-width:373px) {
+  margin-top: 50px;
+  @media (min-width: 373px) {
     bottom: 70px;
   }
 
-  @media (min-width:672px) {
+  @media (min-width: 672px) {
     bottom: 45px;
   }
 }
