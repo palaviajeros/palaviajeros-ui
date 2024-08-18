@@ -24,7 +24,7 @@ export default async function Countries() {
           <Link
             key={country.countryCode}
             href={{
-              pathname: `/countries/${country.countryCode}`,
+              pathname: `/packages/countries/${country.countryCode}`,
             }}
             style={{ textDecoration: "none" }}
           >
