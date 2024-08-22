@@ -8,10 +8,8 @@
         "code": "boracay-1",
         "name": "Boracay Summer Getaway",
         "isFlexible": true,
-        "tags": ["sale"],
-        "description": [
-          "Enjoy the pristine white sand beaches in one of the best islands in the country!"
-        ],
+        "tags": ["best-seller", "sale"],
+        "description": ["Enjoy the pristine white sand beaches in one of the best islands in the country!"],
         "inclusions": ["ACCOMMODATION", "FLIGHT"],
         "exclusions": ["MEALS", "TRANSFERS", "TOURS"],
         "days": 3,
@@ -19,12 +17,7 @@
         "itinerary": [
           {
             "dayNo": 1,
-            "activities": [
-              "land at caticlan",
-              "sea transfer",
-              "paragliding",
-              "tour to puka beach"
-            ]
+            "activities": ["land at caticlan", "sea transfer", "paragliding", "tour to puka beach"]
           },
           {
             "dayNo": 2,
@@ -42,9 +35,7 @@
         "code": "palawan-1",
         "name": "Enjoy the Sun in Palawan Tour!",
         "tags": ["best-seller", "featured"],
-        "description": [
-          "It's all you ever wanted and more! Enjoy the white sand beaches and snorkel through the corals underwater in the day and enjoy the vibrant party scene at night! We also offer guided island hopping tours."
-        ],
+        "description": ["It's all you ever wanted and more! Enjoy the white sand beaches and snorkel through the corals underwater in the day and enjoy the vibrant party scene at night! We also offer guided island hopping tours."],
         "inclusions": ["ACCOMMODATION", "FLIGHT", "TOURS"],
         "exclusions": ["MEALS", "TRANSFERS"],
         "days": 3,
@@ -56,11 +47,7 @@
           },
           {
             "dayNo": 2,
-            "activities": [
-              "island hopping",
-              "lunch at the island",
-              "barhopping"
-            ]
+            "activities": ["island hopping", "lunch at the island", "barhopping"]
           },
           {
             "dayNo": 3,
@@ -73,10 +60,8 @@
         "code": "cebu-1",
         "name": "Cebu sinulog tour",
         "isFlexible": false,
-        "tags": ["featured"],
-        "description": [
-          "Experience the biggest street party in the Philippines! While enjoying the best nature has to offer around Cebu!"
-        ],
+        "tags": ["best-seller", "featured"],
+        "description": ["Experience the biggest street party in the Philippines! While enjoying the best nature has to offer around Cebu!"],
         "inclusions": ["ACCOMMODATION", "FLIGHT", "TOURS"],
         "exclusions": ["MEALS", "TRANSFERS"],
         "days": 4,
@@ -84,41 +69,19 @@
         "itinerary": [
           {
             "dayNo": 1,
-            "activities": [
-              "land at mactan international airport",
-              "land transfer to hotel",
-              "city tour",
-              "lunch in carcar"
-            ]
+            "activities": ["land at mactan international airport", "land transfer to hotel", "city tour", "lunch in carcar"]
           },
           {
             "dayNo": 2,
-            "activities": [
-              "breakfast at hotel",
-              "city tour",
-              "wet market tour",
-              "lunch at cebu city center"
-            ]
+            "activities": ["breakfast at hotel", "city tour", "wet market tour", "lunch at cebu city center"]
           },
           {
             "dayNo": 3,
-            "activities": [
-              "breakfast at hotel",
-              "van ride to south of cebu",
-              "oslob whale shark snorkeling",
-              "moal boal sardine dive",
-              "checkin at hotel in moal boal"
-            ]
+            "activities": ["breakfast at hotel", "van ride to south of cebu", "oslob whale shark snorkeling", "moal boal sardine dive", "checkin at hotel in moal boal"]
           },
           {
             "dayNo": 4,
-            "activities": [
-              "breakfast at hotel",
-              "drive to kawasan falls",
-              "kawasan falls canyoneering",
-              "go back to hotel",
-              "dinner at moal boal"
-            ]
+            "activities": ["breakfast at hotel", "drive to kawasan falls", "kawasan falls canyoneering", "go back to hotel", "dinner at moal boal"]
           }
         ],
         "price": 995,
@@ -136,9 +99,7 @@
         "name": "Barcelona EU Tour",
         "isFlexible": false,
         "tags": ["best-seller", "sale"],
-        "description": [
-          "Barcelona is a major cultural, economic, and financial centre in southwestern Europe"
-        ],
+        "description": ["Barcelona is a major cultural, economic, and financial centre in southwestern Europe"],
         "inclusions": ["FLIGHT", "ACCOMMODATION"],
         "exclusions": ["TRANSFERS"],
         "days": 3,
@@ -165,9 +126,7 @@
         "name": "Madrid EU Tour",
         "isFlexible": false,
         "tags": ["best-seller", "sale"],
-        "description": [
-          "Madrid is the capital of Spain and lies in the center of the Iberian Peninsula."
-        ],
+        "description": ["Madrid is the capital of Spain and lies in the center of the Iberian Peninsula."],
         "inclusions": ["FLIGHT", "ACCOMMODATION"],
         "exclusions": ["TRANSFERS"],
         "days": 3,
@@ -192,7 +151,7 @@
         "code": "granada",
         "name": "Granada EU Tour",
         "isFlexible": true,
-        "tags": ["featured"],
+        "tags": ["featured", "sale"],
         "description": ["Granada is located at the foot of the Sierra Nevada"],
         "inclusions": ["ACCOMMODATION", "FLIGHT"],
         "exclusions": ["MEALS", "TRANSFERS"],
