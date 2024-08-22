@@ -1,18 +1,9 @@
 import { getCountryTravelPackages } from "@/app/actions/travelPackagesLoader";
 import Link from "next/link";
-import {
-  Flex,
-  Card,
-  BackgroundImage,
-  Box,
-  Title,
-  Text,
-  Space,
-} from "@mantine/core";
+import { Flex, BackgroundImage, Box, Title, Text, Space } from "@mantine/core";
 
 export default async function Countries() {
   const countries = await getCountryTravelPackages();
-  console.log(countries.map((country) => country.countryCode));
   return (
     <>
       <Title order={1} ta="center">
