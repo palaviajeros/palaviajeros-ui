@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import NextImage from "next/legacy/image";
 import { Carousel } from "@mantine/carousel";
@@ -9,21 +10,21 @@ import {
   Title,
   Text,
   Tooltip,
-  Image
+  Image,
 } from "@mantine/core";
 import {
   IconCheck,
   IconCircleArrowLeftFilled,
   IconCircleArrowRightFilled,
   IconX,
-  IconCalendarPlus
+  IconCalendarPlus,
 } from "@tabler/icons-react";
 import "./TravelPackage.scss";
 import InquiryModalButton from "@/app/components/InquiryModal/InquiryModalButton";
 import {
   formatDateRange,
   generateDateRange,
-  getValueOfEnumService
+  getValueOfEnumService,
 } from "@/app/util/Helpers";
 import { TravelCountryPackage } from "@/app/shared/domain/countryPackage";
 
@@ -43,7 +44,7 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
               mt={"xl"}
               direction={{
                 base: "column",
-                lg: "row"
+                lg: "row",
               }}
             >
               <div className="carousel-container" style={{ flex: 1 }}>
@@ -59,7 +60,7 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                       style={{
                         width: rem(24),
                         height: rem(24),
-                        color: "white"
+                        color: "white",
                       }}
                     />
                   }
@@ -68,7 +69,7 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                       style={{
                         width: rem(24),
                         height: rem(24),
-                        color: "white"
+                        color: "white",
                       }}
                     />
                   }
@@ -97,7 +98,7 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                   direction={{ base: "column", lg: "row" }}
                   justify={{
                     base: "center",
-                    lg: "space-between"
+                    lg: "space-between",
                   }}
                   align="center"
                   gap={6}
@@ -164,7 +165,7 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                       bg="var(--mantine-color-gray-0)"
                       style={{
                         borderRadius: "var(--mantine-radius-md)",
-                        boxShadow: "0 0 10px 5px var(--mantine-color-gray-0)"
+                        boxShadow: "0 0 10px 5px var(--mantine-color-gray-0)",
                       }}
                     >
                       {description}
