@@ -17,6 +17,7 @@ export default function TravelPackageCard({ travelPackage }: TravelPackageCardPr
           alt={travelPackage.code}
           height={300}
           width={400}
+          priority
         />
       </Card.Section>
 

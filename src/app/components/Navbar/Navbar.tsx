@@ -27,7 +27,14 @@ const Navbar: React.FC = () => {
     <nav className={classes.header}>
       <Flex justify="space-between" align="center" w="100%">
         <Link href="/">
-          <Image src={logo.src} alt="logo" width={200} height={40} fit="contain" component={NextImage} />
+          <Image
+            src={logo.src}
+            alt="logo"
+            width={200}
+            height={75}
+            component={NextImage}
+            style={{ width: "100%", height: "auto" }}
+          />
         </Link>
         <Group gap={5} visibleFrom="sm" className={classes.navBar}>
           {items}

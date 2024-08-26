@@ -4,15 +4,16 @@ import { IconBrandInstagram, IconMail, IconBrandFacebook, IconBrandWhatsapp } fr
 import logo from "@/../public/palaviajeros_logo.png";
 import classes from "@/app/components/Footer/Footer.module.scss";
 import NextImage from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
     <footer className={classes.footer}>
       <Container size="xl" p={{ base: "30px", sm: "50px", lg: "50px 70px" }}>
         <Flex direction={{ base: "column", md: "row" }} justify="space-between" wrap="wrap" gap="xs">
-          <Anchor href="/">
-            <Image src={logo.src} component={NextImage} alt="logo" width={200} height={40} fit="contain" />
-          </Anchor>
+          <Link href="/">
+            <Image src={logo.src} component={NextImage} alt="logo" width={150} height={40} fit={"contain"} />
+          </Link>
           <Flex direction="column" gap="xs">
             <Text c="dimmed" size="sm" maw={300} ta={{ base: "start", md: "end" }}>
               2605 Entrata Condo, Filinvest, 2609 Civic Dr., Alabang, Muntinlupa, 1708 NCR, Philippines
