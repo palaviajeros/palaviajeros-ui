@@ -10,7 +10,6 @@ import {
   IconX,
   IconCalendarPlus,
 } from "@tabler/icons-react";
-import "./TravelPackage.scss";
 import InquiryModalButton from "@/app/components/InquiryModal/InquiryModalButton";
 import { formatDateRange, generateDateRange, getValueOfEnumService } from "@/app/util/Helpers";
 import { TravelCountryPackage } from "@/app/shared/domain/countryPackage";
@@ -65,7 +64,6 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                     return (
                       <Carousel.Slide key={index}>
                         <Image
-                          className="package-photo"
                           component={NextImage}
                           priority={index == 0}
                           width={14}
@@ -73,7 +71,11 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                           src={img}
                           alt="image"
                           radius={"md"}
-                          layout="responsive"
+                          sizes="(min-width: 1440px) 574px, (min-width: 1200px) calc(27.27vw + 187px), (min-width: 780px) calc(100vw - 100px), calc(100vw - 60px)"
+                          style={{
+                            width: "auto",
+                            height: "auto",
+                          }}
                         />
                       </Carousel.Slide>
                     );
