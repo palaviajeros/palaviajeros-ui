@@ -17,7 +17,6 @@ export default function TravelPackageCard({ travelPackage }: TravelPackageCardPr
           alt={travelPackage.code}
           height={300}
           width={400}
-          sizes="(min-width: 1440px) 574px, (min-width: 1200px) calc(27.27vw + 187px), (min-width: 780px) calc(100vw - 100px), calc(100vw - 60px)"
         />
       </Card.Section>
 
