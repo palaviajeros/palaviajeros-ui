@@ -2,16 +2,7 @@
 import React from "react";
 import NextImage from "next/legacy/image";
 import { Carousel } from "@mantine/carousel";
-import {
-  Flex,
-  Badge,
-  NumberFormatter,
-  rem,
-  Title,
-  Text,
-  Tooltip,
-  Image,
-} from "@mantine/core";
+import { Flex, Badge, NumberFormatter, rem, Title, Text, Tooltip, Image } from "@mantine/core";
 import {
   IconCheck,
   IconCircleArrowLeftFilled,
@@ -21,11 +12,7 @@ import {
 } from "@tabler/icons-react";
 import "./TravelPackage.scss";
 import InquiryModalButton from "@/app/components/InquiryModal/InquiryModalButton";
-import {
-  formatDateRange,
-  generateDateRange,
-  getValueOfEnumService,
-} from "@/app/util/Helpers";
+import { formatDateRange, generateDateRange, getValueOfEnumService } from "@/app/util/Helpers";
 import { TravelCountryPackage } from "@/app/shared/domain/countryPackage";
 
 interface TravelPackageProps {
@@ -80,13 +67,13 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                         <Image
                           className="package-photo"
                           component={NextImage}
-                          priority
-                          layout="responsive"
+                          priority={index == 0}
                           width={14}
                           height={9}
                           src={img}
                           alt="image"
                           radius={"md"}
+                          layout="responsive"
                         />
                       </Carousel.Slide>
                     );
@@ -118,12 +105,7 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                     arrowRadius={1}
                     transitionProps={{ transition: "fade-up", duration: 300 }}
                   >
-                    <Badge
-                      variant="light"
-                      radius="sm"
-                      display={t.isFlexible ? "flex" : "none"}
-                      bd="none"
-                    >
+                    <Badge variant="light" radius="sm" display={t.isFlexible ? "flex" : "none"} bd="none">
                       Flexible
                     </Badge>
                   </Tooltip>
@@ -134,28 +116,18 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                   wrap="wrap"
                   align={{ base: "center", lg: "start" }}
                 >
-                  <Badge
-                    radius="md"
-                    leftSection={<IconCalendarPlus stroke={2} width={18} />}
-                    color="cyan"
-                  >
+                  <Badge radius="md" leftSection={<IconCalendarPlus stroke={2} width={18} />} color="cyan">
                     {t.days} days
                   </Badge>
                   {t.travelDates.map((d, index) => {
                     return (
-                      <Badge
-                        key={index}
-                        radius="md"
-                        variant="light"
-                        color="cyan"
-                        bd="none"
-                      >
+                      <Badge key={index} radius="md" variant="light" color="cyan" bd="none">
                         {formatDateRange(generateDateRange(d, t.days))}
                       </Badge>
                     );
                   })}
                 </Flex>
-                {t.description.map((description) => {
+                {t.description.map(description => {
                   return (
                     <Text
                       key={`description-${index}`}
@@ -184,13 +156,8 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                       {t.inclusions.map((inclusion, index) => {
                         return (
                           <Flex key={index} align="center" gap={"xs"}>
-                            <IconCheck
-                              stroke={3}
-                              color="var(--mantine-color-teal-4)"
-                            />
-                            <Text fz="var(--mantine-font-size-sm)">{`${getValueOfEnumService(
-                              inclusion
-                            )}`}</Text>
+                            <IconCheck stroke={3} color="var(--mantine-color-teal-4)" />
+                            <Text fz="var(--mantine-font-size-sm)">{`${getValueOfEnumService(inclusion)}`}</Text>
                           </Flex>
                         );
                       })}
@@ -199,10 +166,7 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                       {t.exclusions.map((exclusion, index) => {
                         return (
                           <Flex key={index} gap={"xs"}>
-                            <IconX
-                              stroke={2}
-                              color="var(--mantine-color-dark-2)"
-                            />
+                            <IconX stroke={2} color="var(--mantine-color-dark-2)" />
                             <Text
                               fz="var(--mantine-font-size-sm)"
                               c="var(--mantine-color-dark-2)"
@@ -219,12 +183,7 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                     align="center"
                     gap={{ base: "sm", lg: "lg" }}
                   >
-                    <NumberFormatter
-                      prefix="$ "
-                      value={t.price}
-                      thousandSeparator
-                      style={{ fontWeight: "bold" }}
-                    />
+                    <NumberFormatter prefix="$ " value={t.price} thousandSeparator style={{ fontWeight: "bold" }} />
                     <InquiryModalButton variant={"primary"} travelPackage={t}>
                       Get a Quote
                     </InquiryModalButton>

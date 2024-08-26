@@ -7,9 +7,7 @@ interface TravelPackageCardProps {
   travelPackage: TravelPackage;
 }
 
-export default function TravelPackageCard({
-  travelPackage,
-}: TravelPackageCardProps) {
+export default function TravelPackageCard({ travelPackage }: TravelPackageCardProps) {
   return (
     <Card shadow="sm" padding="lg" radius="md" withBorder h="100%">
       <Card.Section>
@@ -19,6 +17,7 @@ export default function TravelPackageCard({
           alt={travelPackage.code}
           height={300}
           width={400}
+          sizes="(min-width: 1440px) 574px, (min-width: 1200px) calc(27.27vw + 187px), (min-width: 780px) calc(100vw - 100px), calc(100vw - 60px)"
         />
       </Card.Section>
 
@@ -32,11 +31,7 @@ export default function TravelPackageCard({
         {travelPackage.description}
       </Text>
       <Flex align="flex-end" flex={1}>
-        <Text
-          fw="bold"
-          fz="sm"
-          td={travelPackage.salePrice ? "line-through" : "none"}
-        >
+        <Text fw="bold" fz="sm" td={travelPackage.salePrice ? "line-through" : "none"}>
           ₱{travelPackage.price}
         </Text>
         <Text
@@ -49,14 +44,7 @@ export default function TravelPackageCard({
           ₱{travelPackage.salePrice}
         </Text>
         <InquiryModal travelPackage={travelPackage} variant={"default"}>
-          <Button
-            variant="default"
-            mt="md"
-            radius="lg"
-            size="xs"
-            maw={150}
-            ml="auto"
-          >
+          <Button variant="default" mt="md" radius="lg" size="xs" maw={150} ml="auto">
             Request a Quote
           </Button>
         </InquiryModal>
