@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Flex, Group, ActionIcon, Text, Anchor, Image, Stack } from "@mantine/core";
 import { IconBrandInstagram, IconMail, IconBrandFacebook, IconBrandWhatsapp } from "@tabler/icons-react";
-import logo from "@/../public/palaviajeros_logo.png";
+import logo from "@/../public/palaviajeros_logo-min.png";
 import classes from "@/app/components/Footer/Footer.module.scss";
 import NextImage from "next/image";
 import Link from "next/link";
@@ -10,9 +10,22 @@ export default function Footer() {
   return (
     <footer className={classes.footer}>
       <Container size="xl" p={{ base: "30px", sm: "50px", lg: "50px 70px" }}>
-        <Flex direction={{ base: "column", md: "row" }} justify="space-between" wrap="wrap" gap="xs">
+        <Flex
+          direction={{ base: "column", md: "row" }}
+          justify={{ base: "center", md: "space-between" }}
+          align={{ base: "center" }}
+          wrap="wrap"
+          gap="xs"
+        >
           <Link href="/">
-            <Image src={logo.src} component={NextImage} alt="logo" width={150} height={40} fit={"contain"} />
+            <Image
+              src={logo.src}
+              component={NextImage}
+              alt="logo"
+              width={150}
+              height={30}
+              style={{ width: "auto", height: "auto" }}
+            />
           </Link>
           <Flex direction="column" gap="xs">
             <Text c="dimmed" size="sm" maw={300} ta={{ base: "start", md: "end" }}>
@@ -31,8 +44,8 @@ export default function Footer() {
         </Flex>
         <Flex
           direction={{ base: "column-reverse", md: "row" }}
-          justify="space-between"
-          align={{ md: "center" }}
+          justify={{ base: "center", md: "space-between" }}
+          align={{ base: "center" }}
           wrap="wrap"
           mt={10}
           gap={10}

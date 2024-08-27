@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import logo from "@/../public/palaviajeros_logo.png";
+import logo from "@/../public/palaviajeros_logo-min.png";
 import { Flex, Image } from "@mantine/core";
 import { Group, Burger, Drawer } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
@@ -30,10 +30,10 @@ const Navbar: React.FC = () => {
           <Image
             src={logo.src}
             alt="logo"
-            width={200}
-            height={75}
+            width={250}
+            height={50}
             component={NextImage}
-            style={{ width: "100%", height: "auto" }}
+            style={{ width: "auto", height: "auto" }}
           />
         </Link>
         <Group gap={5} visibleFrom="sm" className={classes.navBar}>
