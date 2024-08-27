@@ -7,18 +7,22 @@ interface TravelPackageCardProps {
   travelPackage: TravelPackage;
 }
 
-export default function TravelPackageCard({
-  travelPackage,
-}: TravelPackageCardProps) {
+export default function TravelPackageCard({ travelPackage }: TravelPackageCardProps) {
   return (
     <Card shadow="sm" padding="lg" radius="md" withBorder h="100%">
-      <Card.Section>
+      <Card.Section
+        style={{
+          position: "relative",
+          height: "300px",
+        }}
+      >
         <Image
           component={NextImage}
           src={travelPackage.imageUrls[0]}
           alt={travelPackage.code}
-          height={300}
-          width={400}
+          fill
+          priority
+          sizes="(min-width: 1420px) 381px, (min-width: 1040px) calc(22.22vw + 70px), (min-width: 780px) calc(50vw - 59px), calc(97.17vw - 40px)"
         />
       </Card.Section>
 
@@ -32,11 +36,7 @@ export default function TravelPackageCard({
         {travelPackage.description}
       </Text>
       <Flex align="flex-end" flex={1}>
-        <Text
-          fw="bold"
-          fz="sm"
-          td={travelPackage.salePrice ? "line-through" : "none"}
-        >
+        <Text fw="bold" fz="sm" td={travelPackage.salePrice ? "line-through" : "none"}>
           ₱{travelPackage.price}
         </Text>
         <Text
@@ -49,14 +49,7 @@ export default function TravelPackageCard({
           ₱{travelPackage.salePrice}
         </Text>
         <InquiryModal travelPackage={travelPackage} variant={"default"}>
-          <Button
-            variant="default"
-            mt="md"
-            radius="lg"
-            size="xs"
-            maw={150}
-            ml="auto"
-          >
+          <Button variant="default" mt="md" radius="lg" size="xs" maw={150} ml="auto">
             Request a Quote
           </Button>
         </InquiryModal>
