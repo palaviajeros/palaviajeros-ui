@@ -22,9 +22,10 @@ export default function Footer() {
               src={logo.src}
               component={NextImage}
               alt="logo"
-              width={150}
-              height={30}
+              width={2977}
+              height={516}
               style={{ width: "auto", height: "auto" }}
+              sizes="(min-width: 780px) 200px,(max-width: 780px) 200px"
             />
           </Link>
           <Flex direction="column" gap="xs">

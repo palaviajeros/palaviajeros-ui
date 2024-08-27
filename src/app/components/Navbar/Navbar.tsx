@@ -7,6 +7,7 @@ import { Group, Burger, Drawer } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import classes from "@/app/components/Navbar/Navbar.module.scss";
 import NextImage from "next/image";
+import React from "react";
 
 const links = [
   { link: "/", label: "Home" },
@@ -30,10 +31,11 @@ const Navbar: React.FC = () => {
           <Image
             src={logo.src}
             alt="logo"
-            width={250}
-            height={50}
+            width={2977}
+            height={516}
             component={NextImage}
             style={{ width: "auto", height: "auto" }}
+            sizes="(min-width: 780px) 300px,(max-width: 780px) 300px"
           />
         </Link>
         <Group gap={5} visibleFrom="sm" className={classes.navBar}>
