@@ -10,7 +10,7 @@ import {
   ColorSchemeScript,
   Container,
   createTheme,
-  MantineProvider
+  MantineProvider,
 } from "@mantine/core";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -21,8 +21,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 export const metadata: Metadata = {
   title: "Palaviajeros Travel Corp.",
   description: "Your viajero travel buddy",
-  keywords:
-    "travel, travel agency, philippines, leisure, packages, flights, itineraries"
+  keywords: "travel, travel agency, philippines, leisure, packages, flights, itineraries, holiday",
 };
 // palaviajeros logo color: #ff4c5c Todo: to add later
 const palaViajerosTheme = createTheme({
@@ -32,12 +31,12 @@ const palaViajerosTheme = createTheme({
     sm: "48em",
     md: "64em",
     lg: "74em",
-    xl: "90em"
-  }
+    xl: "90em",
+  },
 });
 
 export default function RootLayout({
-  children
+  children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
@@ -54,10 +53,7 @@ export default function RootLayout({
               <Navbar />
             </AppShellHeader>
             <AppShellMain>
-              <Container
-                size="xl"
-                p={{ base: "50px 30px", sm: "50px", lg: "100px 70px" }}
-              >
+              <Container size="xl" p={{ base: "50px 30px", sm: "50px", lg: "100px 70px" }}>
                 {children}
               </Container>
               <Footer />
