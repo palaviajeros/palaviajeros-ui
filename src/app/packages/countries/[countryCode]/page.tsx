@@ -11,15 +11,13 @@ interface CountryLandingPageProps {
 const CountryPackage = async ({ params }: { params: CountryLandingPageProps }) => {
   const travelCountryPackage = await findCountryPackage(cp => cp.countryCode == params.countryCode);
   const travelPackages: TravelPackageModel[] = travelCountryPackage?.packages || [];
-  if (!travelCountryPackage) {
-    return <>no packages found</>;
-  }
+
   return (
     <>
       <Flex direction="column" gap="lg">
-        <Title order={2} ta="center">
+        {/* <Title order={2} ta="center">
           {travelCountryPackage.countryName}
-        </Title>
+        </Title> */}
 
         <Flex direction={{ base: "column", md: "row" }} gap="md">
           {travelPackages.map((tp: TravelPackageModel) => {
