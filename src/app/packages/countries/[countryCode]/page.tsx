@@ -1,7 +1,7 @@
 import React from "react";
 import { findCountryPackage } from "@/app/actions/travelPackagesLoader";
 import { TravelPackage as TravelPackageModel } from "@/app/shared/domain/travelPackage";
-import { Flex, Title, Card } from "@mantine/core";
+import { Flex, Title } from "@mantine/core";
 import TravelPackageCard from "@/app/components/TravelPackageCard/TravelPackageCard";
 
 interface CountryLandingPageProps {
