@@ -10,29 +10,18 @@ export default async function Countries() {
         Tour Packages
       </Title>
       <Space h="xl" />
-      <Flex justify="space-evenly" wrap="wrap" gap="20px">
-        {countries.map((country) => (
+      <Flex justify="center" wrap="wrap" gap={20}>
+        {countries.map(country => (
           <Link
             key={country.countryCode}
-            href={{
-              pathname: `/packages/countries/${country.countryCode}`,
-            }}
+            href={{ pathname: `/packages/countries/${country.countryCode}` }}
             style={{ textDecoration: "none" }}
           >
             <Box>
-              <BackgroundImage
-                w={400}
-                h={240}
-                src={country.packages[0].imageUrls[0]}
-                radius="md"
-                p={20}
-              >
+              <BackgroundImage w={400} h={240} src={country.packages[0].imageUrls[1]} radius="md" p={20}>
                 <Title order={3} c="var(--mantine-color-white)">
                   {country.countryName}
                 </Title>
-                <Text c="var(--mantine-color-white)">
-                  {country.description}
-                </Text>
               </BackgroundImage>
             </Box>
           </Link>
