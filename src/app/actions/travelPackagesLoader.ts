@@ -8,17 +8,14 @@ import fsSync from "fs";
 const travelPackagesJsonPath = "./public/packages/travelpackages.json";
 
 const baseFolder = "./public";
-const getImages = (
-  fetchedPackages: TravelPackage,
-  country: TravelCountryPackage
-): string[] => {
+const getImages = (fetchedPackages: TravelPackage, country: TravelCountryPackage): string[] => {
   let result: string[] = [];
   const imagePath = `/packages/${country.countryCode}/${fetchedPackages.code}/`;
 
   // Todo Andrei: Convert this read directory call to async
   try {
     let files: string[] = fsSync.readdirSync(`${baseFolder}${imagePath}`);
-    files.forEach((file) => {
+    files.forEach(file => {
       result.push(`${imagePath}${file}`);
     });
     return result;
@@ -29,9 +26,7 @@ const getImages = (
 };
 
 function populateImages(packagesByCountry: TravelCountryPackage[]) {
-  packagesByCountry.forEach((country) =>
-    country.packages.forEach((p) => (p.imageUrls = getImages(p, country)))
-  );
+  packagesByCountry.forEach(country => country.packages.forEach(p => (p.imageUrls = getImages(p, country))));
 }
 
 export async function getCountryTravelPackages() {
@@ -51,11 +46,7 @@ export async function getCountryTravelPackages() {
 }
 
 export async function findCountryPackage(
-  predicate: (
-    value: TravelCountryPackage,
-    index: number,
-    obj: TravelCountryPackage[]
-  ) => boolean
+  predicate: (value: TravelCountryPackage, index: number, obj: TravelCountryPackage[]) => boolean
 ) {
   try {
     const data = await fs.readFile(travelPackagesJsonPath, {
@@ -74,23 +65,15 @@ export async function findCountryPackage(
 }
 
 export async function findPackagesPerCountry(
-  predicate: (
-    value: TravelPackage,
-    index: number,
-    obj: TravelPackage[]
-  ) => boolean
+  filterFunction: (value: TravelPackage, index: number, obj: TravelPackage[]) => boolean
 ) {
   const packagesByCountry = await getCountryTravelPackages();
-  return packagesByCountry.flatMap((cp) => cp.packages.filter(predicate));
+  return packagesByCountry.flatMap(cp => cp.packages.filter(filterFunction));
 }
 
 export async function filterPackages(
-  predicate: (
-    value: TravelPackage,
-    index: number,
-    obj: TravelPackage[]
-  ) => boolean
+  predicate: (value: TravelPackage, index: number, obj: TravelPackage[]) => boolean
 ) {
   const packagesByCountry = await getCountryTravelPackages();
-  return packagesByCountry.flatMap((cp) => cp.packages).filter(predicate) && [];
+  return packagesByCountry.flatMap(cp => cp.packages).filter(predicate) && ([] as TravelPackage[]);
 }
