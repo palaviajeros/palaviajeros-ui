@@ -24,7 +24,7 @@ const ContentBlock: React.FC<ContentsProps> = ({ title, text, imageUrl, reverse 
           {text}
         </Text>
       </Flex>
-      <Image flex={1} src={imageUrl} alt={title} w={{ base: "300", sm: "auto" }} fit="contain" h="100%" radius="md" />
+      <Image flex={1} src={imageUrl} alt={title} w="100%" fit="contain" h="100%" radius="md" />
     </Flex>
   );
 };
