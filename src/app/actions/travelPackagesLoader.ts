@@ -5,8 +5,8 @@ import { TravelCountryPackage } from "@/app/shared/domain/countryPackage";
 import fs from "node:fs/promises";
 import path from "node:path";
 
-const travelPackagesJsonPath = path.join(process.cwd(), "public/packages/travelpackages.json");
 const baseFolder = path.join(process.cwd(), "public");
+const travelPackagesJsonPath = path.join(baseFolder, "/packages/travelpackages.json");
 
 const getImages = async (fetchedPackages: TravelPackage, country: TravelCountryPackage): Promise<string[]> => {
   const imagePath = path.join(baseFolder, "packages", country.countryCode, fetchedPackages.code);
