@@ -3,13 +3,7 @@ import React from "react";
 import NextImage from "next/legacy/image";
 import { Carousel } from "@mantine/carousel";
 import { Flex, Badge, NumberFormatter, rem, Title, Text, Tooltip, Image } from "@mantine/core";
-import {
-  IconCheck,
-  IconCircleArrowLeftFilled,
-  IconCircleArrowRightFilled,
-  IconX,
-  IconCalendarPlus,
-} from "@tabler/icons-react";
+import { IconCheck, IconCircleArrowLeftFilled, IconCircleArrowRightFilled, IconX, IconCalendarPlus } from "@tabler/icons-react";
 import InquiryModalButton from "@/app/components/InquiryModal/InquiryModalButton";
 import { formatDateRange, generateDateRange, getValueOfEnumService } from "@/app/util/Helpers";
 import { TravelCountryPackage } from "@/app/shared/domain/countryPackage";
@@ -112,12 +106,7 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                     </Badge>
                   </Tooltip>
                 </Flex>
-                <Flex
-                  gap={"xs"}
-                  direction={{ base: "column", lg: "row" }}
-                  wrap="wrap"
-                  align={{ base: "center", lg: "start" }}
-                >
+                <Flex gap={"xs"} direction={{ base: "column", lg: "row" }} wrap="wrap" align={{ base: "center", lg: "start" }}>
                   <Badge radius="md" leftSection={<IconCalendarPlus stroke={2} width={18} />} color="cyan">
                     {t.days} days
                   </Badge>
@@ -147,13 +136,7 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                   );
                 })}
                 <div>
-                  <Flex
-                    direction={{ base: "row", lg: "column" }}
-                    gap={{ base: "lg", lg: "xs" }}
-                    mt={"md"}
-                    mb={"lg"}
-                    wrap="wrap"
-                  >
+                  <Flex direction={{ base: "row", lg: "column" }} gap={{ base: "lg", lg: "xs" }} mt={"md"} mb={"lg"} wrap="wrap">
                     <Flex direction="row" gap={"lg"}>
                       {t.inclusions.map((inclusion, index) => {
                         return (
@@ -178,14 +161,13 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                       })}
                     </Flex>
                   </Flex>
-                  <Flex
-                    mt={{ base: "xs", lg: "xl" }}
-                    direction="row"
-                    justify="flex-end"
-                    align="center"
-                    gap={{ base: "sm", lg: "lg" }}
-                  >
-                    <NumberFormatter prefix="$ " value={t.price} thousandSeparator style={{ fontWeight: "bold" }} />
+                  <Flex mt={{ base: "xs", lg: "xl" }} direction="row" justify="flex-end" align="center" gap={{ base: "sm", lg: "sm" }}>
+                    <Text fw="bold" fz="sm" td={t.salePrice ? "line-through" : "none"}>
+                      ₱{t.price}
+                    </Text>
+                    <Text fw="bold" fz="sm" display={t.salePrice ? "block" : "none"} c="var(--mantine-color-red-8)">
+                      ₱{t.salePrice}
+                    </Text>
                     <InquiryModalButton variant={"primary"} travelPackage={t}>
                       Get a Quote
                     </InquiryModalButton>
