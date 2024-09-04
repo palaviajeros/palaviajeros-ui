@@ -1,36 +1,36 @@
-import React from "react";
-import { findCountryPackage } from "@/app/actions/travelPackagesLoader";
-import { TravelPackage as TravelPackageModel } from "@/app/shared/domain/travelPackage";
+import { getCountryTravelPackages } from "@/app/actions/travelPackagesLoader";
 import { Flex, Title } from "@mantine/core";
 import TravelPackageCard from "@/app/components/TravelPackageCard/TravelPackageCard";
+import { TravelCountryPackage } from "@/app/shared/domain/countryPackage";
 
 interface CountryLandingPageProps {
   countryCode: string;
 }
 
 const CountryPackage = async ({ params }: { params: CountryLandingPageProps }) => {
-  const travelCountryPackage = await findCountryPackage(cp => cp.countryCode == params.countryCode);
-  const travelPackages: TravelPackageModel[] = travelCountryPackage?.packages || [];
-  if (!travelCountryPackage) {
-    return <>no packages found</>;
-  }
+  const countryCode = params.countryCode.toUpperCase();
+  const countries: TravelCountryPackage[] = await getCountryTravelPackages();
+  const country = countries.filter(pkg => pkg.countryCode == countryCode);
+
   return (
     <>
-      <Flex direction="column" gap="lg">
-        <Title order={2} ta="center">
-          {travelCountryPackage.countryName}
-        </Title>
+      {country.length >= 1 ? (
+        <Flex direction="column" gap="lg">
+          <Title order={2} ta="center">
+            {country[0].countryName}
+          </Title>
 
-        <Flex direction={{ base: "column", md: "row" }} gap="md">
-          {travelPackages.map((tp: TravelPackageModel) => {
-            return (
-              <div key={tp.code} style={{ flex: 1 }}>
-                <TravelPackageCard travelPackage={tp} />
+          <Flex direction={{ base: "column", md: "row" }} gap="md">
+            {country[0].packages.map(c => (
+              <div key={c.code} style={{ flex: 1 }}>
+                <TravelPackageCard travelPackage={c} />
               </div>
-            );
-          })}
+            ))}
+          </Flex>
         </Flex>
-      </Flex>
+      ) : (
+        <div>No packages found</div>
+      )}
     </>
   );
 };
