@@ -1,17 +1,5 @@
 "use client";
-import {
-  Button,
-  ButtonVariant,
-  Checkbox,
-  Group,
-  Modal,
-  rem,
-  Select,
-  Text,
-  Textarea,
-  TextInput,
-  Anchor,
-} from "@mantine/core";
+import { Button, ButtonVariant, Checkbox, Group, Modal, rem, Select, Text, Textarea, TextInput, Anchor } from "@mantine/core";
 import ReCAPTCHA from "react-google-recaptcha";
 import { handleCaptchaSubmission } from "@/app/actions/recaptcha/verifyRecaptcha";
 import React, { useRef, useState } from "react";
@@ -31,11 +19,7 @@ interface InquiryModalProps {
   closeFxn: () => void;
 }
 
-const InquiryModal = ({
-  travelPackage,
-  isOpen,
-  closeFxn,
-}: InquiryModalProps) => {
+const InquiryModal = ({ travelPackage, isOpen, closeFxn }: InquiryModalProps) => {
   const [checked, setChecked] = useState(false);
   // value of DatePickerInput
   const [customDate, setCustomDate] = useState<string | undefined>();
@@ -43,13 +27,9 @@ const InquiryModal = ({
   const recaptchaRef = useRef<ReCAPTCHA | null>(null);
 
   const travelDatesOptions = Array.from(
-    new Set(
-      generateDateRanges(travelPackage.travelDates, travelPackage.days).map(
-        (dr) => formatDateRange(dr)
-      )
-    )
+    new Set(generateDateRanges(travelPackage.travelDates, travelPackage.days).map(dr => formatDateRange(dr)))
   );
-  const noOfPeopleOptions = new Array(15).fill(null).map((_, i) => `${i + 1}`);
+  const noOfPeopleOptions = new Array(9).fill(null).map((_, i) => `${i + 1}`);
 
   const form = useForm({
     mode: "uncontrolled",
@@ -64,7 +44,7 @@ const InquiryModal = ({
       travelPackage: travelPackage.name,
     },
 
-    onValuesChange: (values) => {
+    onValuesChange: values => {
       // update custom date format after user has selected a custom date
       if (checked && values.customDates) {
         setCustomDate(
@@ -77,10 +57,7 @@ const InquiryModal = ({
     },
     validate: {
       email: isEmail("Invalid email"),
-      contactNo: matches(
-        /^[+]?[(]?[0-9]{2,3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/,
-        "Invalid phone number format"
-      ),
+      contactNo: matches(/^[+]?[(]?[0-9]{2,3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/, "Invalid phone number format"),
       noOfPax: isNotEmpty(),
       message: isNotEmpty(),
       travelDates: !customDate ? isNotEmpty() : undefined,
@@ -99,7 +76,7 @@ const InquiryModal = ({
           travelDates: customDate ? customDate : form.getValues().travelDates,
         } as InquiryEmailTemplateProps;
         await sendInquiry(emailTemplateProps)
-          .then((_) =>
+          .then(_ =>
             notifications.show({
               id: "inquiry-notif",
               withCloseButton: true,
@@ -109,7 +86,7 @@ const InquiryModal = ({
               autoClose: 10000,
             })
           )
-          .catch((_) =>
+          .catch(_ =>
             notifications.show({
               id: "inquiry-notif-error",
               withCloseButton: true,
@@ -139,12 +116,7 @@ const InquiryModal = ({
 
   const inquireUsForm = (
     <form onSubmit={form.onSubmit(handleSubmit)}>
-      <TextInput
-        label="Travel Package"
-        key={form.key("travelPackage")}
-        {...form.getInputProps("travelPackage")}
-        readOnly
-      />
+      <TextInput label="Travel Package" key={form.key("travelPackage")} {...form.getInputProps("travelPackage")} readOnly />
 
       <TextInput
         mt="sm"
@@ -155,14 +127,7 @@ const InquiryModal = ({
         {...form.getInputProps("name")}
       />
 
-      <TextInput
-        mt="sm"
-        withAsterisk
-        label="Email"
-        placeholder="your@email.com"
-        key={form.key("email")}
-        {...form.getInputProps("email")}
-      />
+      <TextInput mt="sm" withAsterisk label="Email" placeholder="your@email.com" key={form.key("email")} {...form.getInputProps("email")} />
 
       <TextInput
         mt="sm"
@@ -190,7 +155,7 @@ const InquiryModal = ({
           <Checkbox
             mt="xs"
             checked={checked}
-            onChange={(event) => setChecked(event.currentTarget.checked)}
+            onChange={event => setChecked(event.currentTarget.checked)}
             label="I want to choose my own travel dates"
             display="block"
             data-testid="checkBoxFlexible"
@@ -200,12 +165,7 @@ const InquiryModal = ({
             <DatePickerInput
               mt="xs"
               placeholder="Pick start date"
-              leftSection={
-                <IconCalendar
-                  style={{ width: rem(18), height: rem(18) }}
-                  stroke={1.5}
-                />
-              }
+              leftSection={<IconCalendar style={{ width: rem(18), height: rem(18) }} stroke={1.5} />}
               clearable
               minDate={startOfToday()}
               required
@@ -242,21 +202,11 @@ const InquiryModal = ({
       />
       <Text size="10px" c="dimmed" mt="xs">
         This site is protected by reCAPTCHA and the Google{" "}
-        <Anchor
-          href="https://policies.google.com/privacy"
-          target="_blank"
-          rel="noopener noreferrer"
-          c="blue"
-        >
+        <Anchor href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" c="blue">
           Privacy Policy
         </Anchor>{" "}
         and{" "}
-        <Anchor
-          href="https://policies.google.com/terms"
-          target="_blank"
-          rel="noopener noreferrer"
-          c="blue"
-        >
+        <Anchor href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" c="blue">
           Terms of Service
         </Anchor>{" "}
         apply.
