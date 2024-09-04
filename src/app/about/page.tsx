@@ -1,7 +1,5 @@
 import React from "react";
-import { Title, Text, Image, Space, Flex, Box } from "@mantine/core";
-// import { title } from "process";
-import classes from "@/app/about/about.module.scss";
+import { Title, Text, Image, Flex, Container } from "@mantine/core";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -12,15 +10,10 @@ interface ContentsProps {
   title: string;
   text: string;
   imageUrl: string;
-  reverse: boolean; //to reverse the flex direction
+  reverse: boolean;
 }
 
-const ContentBlock: React.FC<ContentsProps> = ({
-  title,
-  text,
-  imageUrl,
-  reverse,
-}) => {
+const ContentBlock: React.FC<ContentsProps> = ({ title, text, imageUrl, reverse }) => {
   return (
     <Flex
       direction={reverse ? "row-reverse" : "row"}
@@ -35,15 +28,7 @@ const ContentBlock: React.FC<ContentsProps> = ({
         </Title>
         <Text size="md">{text}</Text>
       </Flex>
-      <Image
-        flex={1}
-        src={imageUrl}
-        alt={title}
-        w={{ base: "300", sm: "auto" }}
-        fit="contain"
-        h="100%"
-        radius="md"
-      />
+      <Image flex={1} src={imageUrl} alt={title} w={{ base: "300", sm: "auto" }} fit="contain" h="100%" radius="md" />
     </Flex>
   );
 };
@@ -72,7 +57,7 @@ const About: React.FC = () => {
     },
   ];
   return (
-    <>
+    <Container size="xl" p={{ base: "50px 30px", sm: "50px", lg: "100px 70px" }}>
       <Title ta="center" mb={60}>
         About Us
       </Title>
@@ -87,7 +72,7 @@ const About: React.FC = () => {
           />
         ))}
       </Flex>
-    </>
+    </Container>
   );
 };
 

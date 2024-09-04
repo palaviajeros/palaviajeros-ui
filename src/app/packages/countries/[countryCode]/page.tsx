@@ -1,5 +1,5 @@
 import { getCountryTravelPackages } from "@/app/actions/travelPackagesLoader";
-import { Flex, Title } from "@mantine/core";
+import { Flex, Title, Container } from "@mantine/core";
 import TravelPackageCard from "@/app/components/TravelPackageCard/TravelPackageCard";
 import { TravelCountryPackage } from "@/app/shared/domain/countryPackage";
 
@@ -13,7 +13,7 @@ const CountryPackage = async ({ params }: { params: CountryLandingPageProps }) =
   const country = countries.filter(pkg => pkg.countryCode == countryCode);
 
   return (
-    <>
+    <Container size="xl" p={{ base: "50px 30px", sm: "50px", lg: "100px 70px" }}>
       {country.length >= 1 ? (
         <Flex direction="column" gap="lg">
           <Title order={2} ta="center">
@@ -31,7 +31,7 @@ const CountryPackage = async ({ params }: { params: CountryLandingPageProps }) =
       ) : (
         <div>No packages found</div>
       )}
-    </>
+    </Container>
   );
 };
 
