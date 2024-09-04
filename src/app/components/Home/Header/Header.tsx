@@ -1,40 +1,34 @@
-import { Image, Container, Title, Button, Text, Flex } from "@mantine/core";
-import image from "@/../public/images/header/image.svg";
+import { Title, Button, Text } from "@mantine/core";
+import image from "@/../public/images/header/header-1.jpg";
 import classes from "./Header.module.scss";
-import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Header() {
   return (
-    <Flex
-      gap="md"
-      align="center"
-      justify="center"
-      direction={{ base: "column-reverse", xs: "row" }}
-      className={classes.headerWrapper}
-    >
-      <div>
-        <Title order={1} className={classes.title} fw={900}>
-          Buckle up!
+    <div className={classes.headerWrapper}>
+      <div className={classes.headerImageWrapper}>
+        <Image src={image} alt="Header Image" layout="fill" objectFit="cover" priority />
+      </div>
+      <div className={classes.headerContent}>
+        <Title order={1} className={classes.title}>
+          Hello Fellow Palaviajero!
         </Title>
         <Title mt="sm" order={3} className={classes.subtitle}>
-          Palaviajeros got your travel plans covered!
+          An adventure of a lifetime awaits you!
         </Title>
 
-        <Text mt="sm" fw={500} c="gray.8" className={classes.text}>
-          Prepare for an adventure like never before! The Palaviajeros team is
-          preparing amazing itineraries for you. For now, fasten your seatbelts
-          as we taxi through the runway. ;)
+        <Text my="sm" fw={500} className={classes.text} maw={{ base: "500px", lg: "700px" }}>
+          Palaviajeros offers a variety of travel styles to accommodate different types of travelers from bespoke to organized group tours.
+          Every tour includes personalized group recommendations from our seasoned travelers. Just let us know what you’re looking for and
+          we will help you!
         </Text>
         <Link href="/travel-packages">
-          <Button mt={20} variant="filled" color="red" radius="md">
-            Book now
+          <Button variant="filled" radius="md" className={classes.headerButton}>
+            Explore now
           </Button>
         </Link>
       </div>
-      <div>
-        <Image src={image.src} alt="header-image" />
-      </div>
-    </Flex>
+    </div>
   );
 }
