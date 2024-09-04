@@ -74,7 +74,7 @@ const About: React.FC = () => {
           In the age of tiktok, we are so consumed by what we see on social media where the measure of us enjoying life is by seeing how
           much time we’re spending offline. Yet we still need to post online to feel connected.
           <Space h="md" /> Experience life with Palaviajeros! Check our our Instagram, facebook and tiktok to see our latest offer. Check
-          new destinations and promotional offers on our social media accounts."
+          new destinations and promotional offers on our social media accounts.
         </>
       ),
       imageUrl: "/samples/sample3.jpg",
