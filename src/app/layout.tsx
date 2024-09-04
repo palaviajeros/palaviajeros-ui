@@ -3,15 +3,7 @@ import "@mantine/core/styles.css";
 import "@mantine/carousel/styles.css";
 import "@mantine/notifications/styles.css";
 import "./styles/globals.scss";
-import {
-  AppShell,
-  AppShellHeader,
-  AppShellMain,
-  ColorSchemeScript,
-  Container,
-  createTheme,
-  MantineProvider,
-} from "@mantine/core";
+import { AppShell, AppShellHeader, AppShellMain, ColorSchemeScript, Container, createTheme, MantineProvider } from "@mantine/core";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import { Notifications } from "@mantine/notifications";
@@ -35,11 +27,7 @@ const palaViajerosTheme = createTheme({
   },
 });
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <head>
@@ -53,9 +41,7 @@ export default function RootLayout({
               <Navbar />
             </AppShellHeader>
             <AppShellMain>
-              <Container size="xl" p={{ base: "50px 30px", sm: "50px", lg: "100px 70px" }}>
-                {children}
-              </Container>
+              <Container size="xl">{children}</Container>
               <Footer />
             </AppShellMain>
           </AppShell>
