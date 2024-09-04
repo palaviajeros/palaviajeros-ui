@@ -9,7 +9,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className={classes.footer}>
-      <Container size="xl" p={{ base: "30px", sm: "50px", lg: "50px 70px" }}>
+      <Container size="xl" p={{ base: "30px 0px", sm: "50px 16px" }}>
         <Flex
           direction={{ base: "column", md: "row" }}
           justify={{ base: "center", md: "space-between" }}
@@ -32,13 +32,7 @@ export default function Footer() {
             <Text c="dimmed" size="sm" maw={300} ta={{ base: "start", md: "end" }}>
               2605 Entrata Condo, Filinvest, 2609 Civic Dr., Alabang, Muntinlupa, 1708 NCR, Philippines
             </Text>
-            <Anchor
-              href="https://wa.me/639178894426"
-              target="_blank"
-              c="dimmed"
-              size="sm"
-              ta={{ base: "start", md: "end" }}
-            >
+            <Anchor href="https://wa.me/639178894426" target="_blank" c="dimmed" size="sm" ta={{ base: "start", md: "end" }}>
               (+63) 917 889-4426
             </Anchor>
           </Flex>
@@ -75,14 +69,7 @@ export default function Footer() {
             >
               <IconBrandInstagram style={{ width: 24, height: 24 }} stroke={1.5} />
             </ActionIcon>
-            <ActionIcon
-              size="lg"
-              color="gray"
-              variant="subtle"
-              component="a"
-              href="https://wa.me/639178894426"
-              target="_blank"
-            >
+            <ActionIcon size="lg" color="gray" variant="subtle" component="a" href="https://wa.me/639178894426" target="_blank">
               <IconBrandWhatsapp style={{ width: 24, height: 24 }} stroke={1.5} />
             </ActionIcon>
             <ActionIcon size="lg" color="gray" variant="subtle" component="a" href="mailto:info@palaviajeros.com">

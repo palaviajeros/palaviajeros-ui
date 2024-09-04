@@ -10,9 +10,10 @@ interface ContentsProps {
   title: string;
   text: React.ReactNode;
   imageUrl: string;
-  reverse: boolean; //to reverse the flex direction
+  reverse: boolean;
 }
 
+const ContentBlock: React.FC<ContentsProps> = ({ title, text, imageUrl, reverse }) => {
 const ContentBlock: React.FC<ContentsProps> = ({ title, text, imageUrl, reverse }) => {
   return (
     <Flex direction={{ base: "column", md: reverse ? "row-reverse" : "row" }} wrap={{ base: "wrap", lg: "unset" }} gap={20}>
@@ -25,6 +26,7 @@ const ContentBlock: React.FC<ContentsProps> = ({ title, text, imageUrl, reverse 
         </Text>
       </Flex>
       <Image flex={1} src={imageUrl} alt={title} w={"100%"} fit="contain" h="100%" radius="md" />
+      <Image flex={1} src={imageUrl} alt={title} w={{ base: "300", sm: "auto" }} fit="contain" h="100%" radius="md" />
     </Flex>
   );
 };
@@ -81,7 +83,7 @@ const About: React.FC = () => {
     },
   ];
   return (
-    <>
+    <Container size="xl" p={{ base: "50px 30px", sm: "50px", lg: "100px 70px" }}>
       <Title ta="center" mb={60}>
         About Us
       </Title>
@@ -90,7 +92,7 @@ const About: React.FC = () => {
           <ContentBlock key={index} title={content.title} text={content.text} imageUrl={content.imageUrl} reverse={index % 2 === 0} />
         ))}
       </Flex>
-    </>
+    </Container>
   );
 };
 
