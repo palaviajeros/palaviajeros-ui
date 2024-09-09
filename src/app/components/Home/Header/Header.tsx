@@ -1,4 +1,4 @@
-import { Title, Button, Text } from "@mantine/core";
+import { Box, Title, Button, Text } from "@mantine/core";
 import image from "@/../public/images/header/header-1.jpg";
 import classes from "./Header.module.scss";
 import Link from "next/link";
@@ -7,9 +7,9 @@ import Image from "next/image";
 export default function Header() {
   return (
     <div className={classes.headerWrapper}>
-      <div className={classes.headerImageWrapper}>
-        <Image src={image} alt="Header Image" layout="fill" objectFit="cover" priority />
-      </div>
+      <Box pos="relative" h="100vh" className={classes.headerImageWrapper}>
+        <Image src={image} alt="Header Image" fill style={{ objectFit: "cover" }} priority />
+      </Box>
       <div className={classes.headerContent}>
         <Title order={1} className={classes.title}>
           Hello Fellow Palaviajero!

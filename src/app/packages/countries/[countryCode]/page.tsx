@@ -2,6 +2,7 @@ import { getCountryTravelPackages } from "@/app/actions/travelPackagesLoader";
 import { Flex, Title, Container } from "@mantine/core";
 import TravelPackageCard from "@/app/components/TravelPackageCard/TravelPackageCard";
 import { TravelCountryPackage } from "@/app/shared/domain/countryPackage";
+import Link from "next/link";
 
 interface CountryLandingPageProps {
   countryCode: string;
@@ -23,7 +24,9 @@ const CountryPackage = async ({ params }: { params: CountryLandingPageProps }) =
           <Flex direction={{ base: "column", md: "row" }} gap="md">
             {country[0].packages.map(c => (
               <div key={c.code} style={{ flex: 1 }}>
-                <TravelPackageCard travelPackage={c} />
+                <Link href={`/packages/${c.code}`} style={{ textDecoration: "none" }}>
+                  <TravelPackageCard travelPackage={c} />
+                </Link>
               </div>
             ))}
           </Flex>
