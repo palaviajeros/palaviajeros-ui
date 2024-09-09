@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import NextImage from "next/legacy/image";
+import Image from "next/image";
 import { Carousel } from "@mantine/carousel";
-import { Flex, Badge, NumberFormatter, rem, Title, Text, Tooltip, Image } from "@mantine/core";
+import { Flex, Badge, rem, Title, Text, Tooltip } from "@mantine/core";
 import { IconCheck, IconCircleArrowLeftFilled, IconCircleArrowRightFilled, IconX, IconCalendarPlus } from "@tabler/icons-react";
 import InquiryModalButton from "@/app/components/InquiryModal/InquiryModalButton";
 import { formatDateRange, generateDateRange, getValueOfEnumService } from "@/app/util/Helpers";
@@ -27,10 +27,10 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                 lg: "row",
               }}
             >
-              <div className="carousel-container" style={{ flex: 1 }}>
+              <div style={{ flex: 1 }}>
                 <Carousel
+                  h={{ base: 250, sm: 400, lg: 350 }}
                   slideSize="100%"
-                  slideGap="lg"
                   align="center"
                   loop
                   height="100%"
@@ -56,20 +56,14 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                 >
                   {t.imageUrls.map((img, index) => {
                     return (
-                      <Carousel.Slide key={index}>
+                      <Carousel.Slide key={index} mr="xs">
                         <Image
-                          component={NextImage}
                           priority={index == 0}
-                          width={14}
-                          height={9}
+                          fill
+                          style={{ objectFit: "cover", borderRadius: "8px" }}
                           src={img}
                           alt="image"
-                          radius={"md"}
-                          sizes="(min-width: 1440px) 574px, (min-width: 1200px) calc(27.27vw + 187px), (min-width: 780px) calc(100vw - 100px), calc(100vw - 60px)"
-                          style={{
-                            width: "auto",
-                            height: "auto",
-                          }}
+                          sizes="(min-width: 1440px) 550px, (min-width: 1200px) calc(27.27vw + 187px), (min-width: 780px) calc(100vw - 100px), calc(100vw - 60px)"
                         />
                       </Carousel.Slide>
                     );
