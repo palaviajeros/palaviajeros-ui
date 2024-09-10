@@ -1,4 +1,4 @@
-import { getCountryTravelPackages } from "@/app/actions/travelPackagesLoader";
+import { getCountryTravelPackages } from "@/app/actions/dataLoader";
 import { Flex, Title, Container } from "@mantine/core";
 import TravelPackageCard from "@/app/components/TravelPackageCard/TravelPackageCard";
 import { TravelCountryPackage } from "@/app/shared/domain/countryPackage";

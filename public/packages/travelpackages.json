@@ -3,29 +3,57 @@
     "countryCode": "PH",
     "countryName": "Philippines",
     "description": "Venture to this beautiful island in the middle of the pacific. Get to experience the warmth of the people and the weather too!",
+    "tours": [],
     "packages": [
       {
         "code": "boracay-1",
         "name": "Boracay Summer Getaway",
         "isFlexible": true,
-        "tags": ["best-seller", "sale"],
-        "description": ["Enjoy the pristine white sand beaches in one of the best islands in the country!"],
-        "inclusions": ["ACCOMMODATION", "FLIGHT"],
-        "exclusions": ["MEALS", "TRANSFERS", "TOURS"],
+        "tags": [
+          "best-seller",
+          "sale"
+        ],
+        "description": [
+          "Enjoy the pristine white sand beaches in one of the best islands in the country!"
+        ],
+        "inclusions": [
+          "ACCOMMODATION",
+          "FLIGHT"
+        ],
+        "exclusions": [
+          "MEALS",
+          "TRANSFERS",
+          "TOURS"
+        ],
         "days": 3,
-        "travelDates": ["2024-09-10", "2024-10-01"],
+        "travelDates": [
+          "2024-09-10",
+          "2024-10-01"
+        ],
         "itinerary": [
           {
             "dayNo": 1,
-            "activities": ["land at caticlan", "sea transfer", "paragliding", "tour to puka beach"]
+            "activities": [
+              "land at caticlan",
+              "sea transfer",
+              "paragliding",
+              "tour to puka beach"
+            ]
           },
           {
             "dayNo": 2,
-            "activities": ["talipapa", "dinner at the beach", "barhopping"]
+            "activities": [
+              "talipapa",
+              "dinner at the beach",
+              "barhopping"
+            ]
           },
           {
             "dayNo": 3,
-            "activities": ["souvenir buying", "flight back"]
+            "activities": [
+              "souvenir buying",
+              "flight back"
+            ]
           }
         ],
         "price": 2099,
@@ -34,24 +62,51 @@
       {
         "code": "palawan-1",
         "name": "Enjoy the Sun in Palawan Tour!",
-        "tags": ["best-seller", "featured"],
-        "description": ["It's all you ever wanted and more! Enjoy the white sand beaches and snorkel through the corals underwater in the day and enjoy the vibrant party scene at night! We also offer guided island hopping tours."],
-        "inclusions": ["ACCOMMODATION", "FLIGHT", "TOURS"],
-        "exclusions": ["MEALS", "TRANSFERS"],
+        "tags": [
+          "best-seller",
+          "featured"
+        ],
+        "description": [
+          "It's all you ever wanted and more! Enjoy the white sand beaches and snorkel through the corals underwater in the day and enjoy the vibrant party scene at night! We also offer guided island hopping tours."
+        ],
+        "inclusions": [
+          "ACCOMMODATION",
+          "FLIGHT",
+          "TOURS"
+        ],
+        "exclusions": [
+          "MEALS",
+          "TRANSFERS"
+        ],
         "days": 3,
-        "travelDates": ["2024-09-10", "2024-10-01", "2025-01-25"],
+        "travelDates": [
+          "2024-09-10",
+          "2024-10-01",
+          "2025-01-25"
+        ],
         "itinerary": [
           {
             "dayNo": 1,
-            "activities": ["land at el nido airport", "check-in hotel"]
+            "activities": [
+              "land at el nido airport",
+              "check-in hotel"
+            ]
           },
           {
             "dayNo": 2,
-            "activities": ["island hopping", "lunch at the island", "barhopping"]
+            "activities": [
+              "island hopping",
+              "lunch at the island",
+              "barhopping"
+            ]
           },
           {
             "dayNo": 3,
-            "activities": ["island hopping 2", "lunch at the boat", "clubbing"]
+            "activities": [
+              "island hopping 2",
+              "lunch at the boat",
+              "clubbing"
+            ]
           }
         ],
         "price": 1395
@@ -60,28 +115,65 @@
         "code": "cebu-1",
         "name": "Cebu sinulog tour",
         "isFlexible": false,
-        "tags": ["best-seller", "featured"],
-        "description": ["Experience the biggest street party in the Philippines! While enjoying the best nature has to offer around Cebu!"],
-        "inclusions": ["ACCOMMODATION", "FLIGHT", "TOURS"],
-        "exclusions": ["MEALS", "TRANSFERS"],
+        "tags": [
+          "best-seller",
+          "featured"
+        ],
+        "description": [
+          "Experience the biggest street party in the Philippines! While enjoying the best nature has to offer around Cebu!"
+        ],
+        "inclusions": [
+          "ACCOMMODATION",
+          "FLIGHT",
+          "TOURS"
+        ],
+        "exclusions": [
+          "MEALS",
+          "TRANSFERS"
+        ],
         "days": 4,
-        "travelDates": ["2025-01-18", "2025-01-25"],
+        "travelDates": [
+          "2025-01-18",
+          "2025-01-25"
+        ],
         "itinerary": [
           {
             "dayNo": 1,
-            "activities": ["land at mactan international airport", "land transfer to hotel", "city tour", "lunch in carcar"]
+            "activities": [
+              "land at mactan international airport",
+              "land transfer to hotel",
+              "city tour",
+              "lunch in carcar"
+            ]
           },
           {
             "dayNo": 2,
-            "activities": ["breakfast at hotel", "city tour", "wet market tour", "lunch at cebu city center"]
+            "activities": [
+              "breakfast at hotel",
+              "city tour",
+              "wet market tour",
+              "lunch at cebu city center"
+            ]
           },
           {
             "dayNo": 3,
-            "activities": ["breakfast at hotel", "van ride to south of cebu", "oslob whale shark snorkeling", "moal boal sardine dive", "checkin at hotel in moal boal"]
+            "activities": [
+              "breakfast at hotel",
+              "van ride to south of cebu",
+              "oslob whale shark snorkeling",
+              "moal boal sardine dive",
+              "checkin at hotel in moal boal"
+            ]
           },
           {
             "dayNo": 4,
-            "activities": ["breakfast at hotel", "drive to kawasan falls", "kawasan falls canyoneering", "go back to hotel", "dinner at moal boal"]
+            "activities": [
+              "breakfast at hotel",
+              "drive to kawasan falls",
+              "kawasan falls canyoneering",
+              "go back to hotel",
+              "dinner at moal boal"
+            ]
           }
         ],
         "price": 995,
@@ -93,29 +185,54 @@
     "countryCode": "ES",
     "countryName": "Spain",
     "description": "",
+    "tours": [],
     "packages": [
       {
         "code": "barcelona",
         "name": "Barcelona EU Tour",
         "isFlexible": false,
-        "tags": ["best-seller", "sale"],
-        "description": ["Barcelona is a major cultural, economic, and financial centre in southwestern Europe"],
-        "inclusions": ["FLIGHT", "ACCOMMODATION"],
-        "exclusions": ["TRANSFERS"],
+        "tags": [
+          "best-seller",
+          "sale"
+        ],
+        "description": [
+          "Barcelona is a major cultural, economic, and financial centre in southwestern Europe"
+        ],
+        "inclusions": [
+          "FLIGHT",
+          "ACCOMMODATION"
+        ],
+        "exclusions": [
+          "TRANSFERS"
+        ],
         "days": 3,
-        "travelDates": ["2024-12-18", "2025-01-18", "2025-01-25"],
+        "travelDates": [
+          "2024-12-18",
+          "2025-01-18",
+          "2025-01-25"
+        ],
         "itinerary": [
           {
             "dayNo": 1,
-            "activities": ["land airport", "checkin hotel", "museum visit"]
+            "activities": [
+              "land airport",
+              "checkin hotel",
+              "museum visit"
+            ]
           },
           {
             "dayNo": 2,
-            "activities": ["Ciutadella park", "tapas bar hopping"]
+            "activities": [
+              "Ciutadella park",
+              "tapas bar hopping"
+            ]
           },
           {
             "dayNo": 3,
-            "activities": ["souvenir buying", "flight back"]
+            "activities": [
+              "souvenir buying",
+              "flight back"
+            ]
           }
         ],
         "price": 2099,
@@ -125,24 +242,48 @@
         "code": "madrid",
         "name": "Madrid EU Tour",
         "isFlexible": false,
-        "tags": ["best-seller", "sale"],
-        "description": ["Madrid is the capital of Spain and lies in the center of the Iberian Peninsula."],
-        "inclusions": ["FLIGHT", "ACCOMMODATION"],
-        "exclusions": ["TRANSFERS"],
+        "tags": [
+          "best-seller",
+          "sale"
+        ],
+        "description": [
+          "Madrid is the capital of Spain and lies in the center of the Iberian Peninsula."
+        ],
+        "inclusions": [
+          "FLIGHT",
+          "ACCOMMODATION"
+        ],
+        "exclusions": [
+          "TRANSFERS"
+        ],
         "days": 3,
-        "travelDates": ["2024-12-18", "2025-01-18", "2025-01-25"],
+        "travelDates": [
+          "2024-12-18",
+          "2025-01-18",
+          "2025-01-25"
+        ],
         "itinerary": [
           {
             "dayNo": 1,
-            "activities": ["land airport", "checkin hotel", "museum visit"]
+            "activities": [
+              "land airport",
+              "checkin hotel",
+              "museum visit"
+            ]
           },
           {
             "dayNo": 2,
-            "activities": ["Ciutadella park", "tapas bar hopping"]
+            "activities": [
+              "Ciutadella park",
+              "tapas bar hopping"
+            ]
           },
           {
             "dayNo": 3,
-            "activities": ["souvenir buying", "flight back"]
+            "activities": [
+              "souvenir buying",
+              "flight back"
+            ]
           }
         ],
         "price": 2399
@@ -151,28 +292,92 @@
         "code": "granada",
         "name": "Granada EU Tour",
         "isFlexible": true,
-        "tags": ["featured", "sale"],
-        "description": ["Granada is located at the foot of the Sierra Nevada"],
-        "inclusions": ["ACCOMMODATION", "FLIGHT"],
-        "exclusions": ["MEALS", "TRANSFERS"],
+        "tags": [
+          "featured",
+          "sale"
+        ],
+        "description": [
+          "Granada is located at the foot of the Sierra Nevada"
+        ],
+        "inclusions": [
+          "ACCOMMODATION",
+          "FLIGHT"
+        ],
+        "exclusions": [
+          "MEALS",
+          "TRANSFERS"
+        ],
         "days": 3,
-        "travelDates": ["2024-08-01", "2024-11-24"],
+        "travelDates": [
+          "2024-08-01",
+          "2024-11-24"
+        ],
         "itinerary": [
           {
             "dayNo": 1,
-            "activities": ["land airport", "checkin hotel", "museum visit"]
+            "activities": [
+              "land airport",
+              "checkin hotel",
+              "museum visit"
+            ]
           },
           {
             "dayNo": 2,
-            "activities": ["Ciutadella park", "tapas bar hopping"]
+            "activities": [
+              "Ciutadella park",
+              "tapas bar hopping"
+            ]
           },
           {
             "dayNo": 3,
-            "activities": ["souvenir buying", "flight back"]
+            "activities": [
+              "souvenir buying",
+              "flight back"
+            ]
           }
         ],
         "price": 2799,
         "salePrice": 2399
+      }
+    ]
+  },
+  {
+    "countryCode": "ID",
+    "countryName": "Indonesia",
+    "description": "Marvel at the mystical temples, the marvelous beaches and the exotic wildlife of Indonesia.",
+    "packages": [],
+    "tours": [
+      {
+        "code": "bali-1",
+        "name": "Ubud Art Village Tour",
+        "description": [
+          ""
+        ],
+        "tags": [],
+        "inclusions": [
+          "TOURS"
+        ],
+        "exclusions": [
+          "FLIGHT",
+          "MEALS",
+          "ACCOMMODATION",
+          "TRANSFERS"
+        ],
+        "days": 1,
+        "itinerary": [
+          {
+            "dayNo": 1,
+            "activities": [
+              "Ubud Art & Culture Village",
+              "Sacred Monkey Forest Sanctuary",
+              "Ubud Royal Palace",
+              "Tegallalang Rice Terraces",
+              "Big Swing & Coffee Luwak"
+            ]
+          }
+        ],
+        "price": 100,
+        "salePrice": null
       }
     ]
   }

@@ -1,4 +1,4 @@
-import { findPackagesPerCountry } from "@/app/actions/travelPackagesLoader";
+import { findPackagesPerCountry } from "@/app/actions/dataLoader";
 import Image from "next/image";
 import { Box, Title, Container } from "@mantine/core";
 
