@@ -70,6 +70,23 @@ export async function findCountryPackage(predicate: (value: TravelCountryPackage
   }
 }
 
+export async function filterCountries(predicate: (value: TravelCountryPackage, index: number, obj: TravelCountryPackage[]) => boolean) {
+  try {
+    const data = await fs.readFile(travelPackagesJsonPath, {
+      encoding: "utf8",
+    });
+    let packagesByCountry: TravelCountryPackage[] = JSON.parse(data);
+    const countryPackages = packagesByCountry.filter(predicate);
+
+    if (countryPackages) await populateImages(countryPackages);
+
+    return countryPackages;
+  } catch (err) {
+    console.log(err);
+    return [];
+  }
+}
+
 export async function findPackagesPerCountry(predicate: (value: TravelPackage, index: number, obj: TravelPackage[]) => boolean) {
   const packagesByCountry = await getCountryTravelPackages();
   return packagesByCountry.flatMap(cp => cp.packages.filter(predicate));

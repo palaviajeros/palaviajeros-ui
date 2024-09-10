@@ -1,9 +1,9 @@
-import { getCountryTravelPackages } from "@/app/actions/dataLoader";
+import { filterCountries, findCountryPackage, getCountryTravelPackages } from "@/app/actions/dataLoader";
 import Link from "next/link";
 import { Flex, BackgroundImage, Box, Title, Container, Space } from "@mantine/core";
 
 export default async function Countries() {
-  const countries = await getCountryTravelPackages();
+  const countries = await filterCountries(cp => cp.packages.length > 0);
   return (
     <Container size="xl" p={{ base: "50px 30px", sm: "50px", lg: "100px 70px" }}>
       <Title order={1} ta="center">
