@@ -1,27 +1,6 @@
-import { Services } from "@/app/shared/domain/services";
+import { Tour } from "@/app/shared/domain/tour";
 
-export interface TravelPackage {
-  code: string;
-  name: string;
+export interface TravelPackage extends Tour {
   isFlexible?: boolean;
-  description: string[];
-  inclusions: Services[];
-  exclusions: Services[];
-  days: number;
   travelDates: Date[];
-  itinerary: DayPlan[];
-  imageUrls: string[];
-  price: number;
-  salePrice?: number;
-  tags?: string[];
-}
-
-export interface DayPlan {
-  dayNo: number;
-  activities: string[];
-}
-
-export interface DateRange {
-  startDate: Date;
-  endDate: Date;
 }

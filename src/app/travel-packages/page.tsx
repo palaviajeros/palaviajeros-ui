@@ -1,10 +1,11 @@
 import "./styles.travel-packages.scss";
-import { getCountryTravelPackages } from "@/app/actions/travelPackagesLoader";
+import { getCountryTravelPackages } from "@/app/actions/dataLoader";
 import TravelTabs from "./TravelTabs";
 import React from "react";
 import { Metadata } from "next";
 import { TravelCountryPackage } from "@/app/shared/domain/countryPackage";
 import { Container } from "@mantine/core";
+
 export const metadata: Metadata = {
   title: "Travel Packages | Our offered travel packages",
 };

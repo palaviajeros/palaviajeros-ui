@@ -4,30 +4,39 @@ import { TravelPackage } from "@/app/shared/domain/travelPackage";
 import { TravelCountryPackage } from "@/app/shared/domain/countryPackage";
 import fs from "node:fs/promises";
 import path from "node:path";
+import { Tour } from "@/app/shared/domain/tour";
 
 const baseFolder = path.join(process.cwd(), "public");
-const travelPackagesJsonPath = path.join(baseFolder, "packages", "travelpackages.json");
+const packagesBasePath = path.join(baseFolder, "packages");
+const travelPackagesJsonPath = path.join(packagesBasePath, "travelpackages.json");
 
-const getImages = async (fetchedPackages: TravelPackage, country: TravelCountryPackage): Promise<string[]> => {
-  const imagePath = path.join(baseFolder, "packages", country.countryCode, fetchedPackages.code);
+const getImages = async (tour: Tour, country: TravelCountryPackage): Promise<string[]> => {
+  const imagePath = path.join(packagesBasePath, country.countryCode, tour.code);
 
   try {
     const files: string[] = await fs.readdir(imagePath);
-    return files.map(file => path.join("/packages", country.countryCode, fetchedPackages.code, file));
+    return files.map(file => ["/packages", country.countryCode, tour.code, file].join("/"));
   } catch (err) {
-    console.error(`Failed to read directory ${imagePath}:`, err);
+    console.warn(`Skipping ${imagePath}: Folder or file does not exist`);
+    //console.error(`Failed to read directory ${imagePath}:`, err);
     return [];
   }
 };
 
 async function populateImages(packagesByCountry: TravelCountryPackage[]): Promise<void> {
-  const updatePromises = packagesByCountry.flatMap(country =>
+  const updatePromisesPackages = packagesByCountry.flatMap(country =>
     country.packages.map(async travelPackage => {
       travelPackage.imageUrls = await getImages(travelPackage, country);
     })
   );
 
-  await Promise.all(updatePromises);
+  const updatePromiseTours = packagesByCountry.flatMap(country =>
+    country.tours.map(async tour => {
+      tour.imageUrls = await getImages(tour, country);
+    })
+  );
+
+  await Promise.all(updatePromisesPackages.concat(updatePromiseTours));
 }
 
 export async function getCountryTravelPackages(): Promise<TravelCountryPackage[]> {
@@ -38,7 +47,7 @@ export async function getCountryTravelPackages(): Promise<TravelCountryPackage[]
     await populateImages(packagesByCountry);
 
     return packagesByCountry;
-  } catch (err) {
+  } catch (err: any) {
     console.error("Error reading or parsing travel packages JSON:", err);
     return [];
   }
@@ -52,7 +61,7 @@ export async function findCountryPackage(predicate: (value: TravelCountryPackage
     let packagesByCountry: TravelCountryPackage[] = JSON.parse(data);
     const countryPackage = packagesByCountry.find(predicate);
 
-    if (countryPackage) populateImages([countryPackage]);
+    if (countryPackage) await populateImages([countryPackage]);
 
     return countryPackage;
   } catch (err) {
@@ -61,9 +70,31 @@ export async function findCountryPackage(predicate: (value: TravelCountryPackage
   }
 }
 
+export async function filterCountries(predicate: (value: TravelCountryPackage, index: number, obj: TravelCountryPackage[]) => boolean) {
+  try {
+    const data = await fs.readFile(travelPackagesJsonPath, {
+      encoding: "utf8",
+    });
+    let packagesByCountry: TravelCountryPackage[] = JSON.parse(data);
+    const countryPackages = packagesByCountry.filter(predicate);
+
+    if (countryPackages) await populateImages(countryPackages);
+
+    return countryPackages;
+  } catch (err) {
+    console.log(err);
+    return [];
+  }
+}
+
 export async function findPackagesPerCountry(predicate: (value: TravelPackage, index: number, obj: TravelPackage[]) => boolean) {
   const packagesByCountry = await getCountryTravelPackages();
   return packagesByCountry.flatMap(cp => cp.packages.filter(predicate));
+}
+
+export async function findToursPerCountry(predicate: (value: Tour, index: number, obj: Tour[]) => boolean) {
+  const packagesByCountry = await getCountryTravelPackages();
+  return packagesByCountry.flatMap(cp => cp.tours.filter(predicate));
 }
 
 export async function filterPackages(predicate: (value: TravelPackage, index: number, obj: TravelPackage[]) => boolean) {
