@@ -7,16 +7,18 @@ import path from "node:path";
 import { Tour } from "@/app/shared/domain/tour";
 
 const baseFolder = path.join(process.cwd(), "public");
-const travelPackagesJsonPath = path.join(baseFolder, "packages", "travelpackages.json");
+const packagesBasePath = path.join(baseFolder, "packages");
+const travelPackagesJsonPath = path.join(packagesBasePath, "travelpackages.json");
 
 const getImages = async (tour: Tour, country: TravelCountryPackage): Promise<string[]> => {
-  const imagePath = path.join(baseFolder, "packages", country.countryCode, tour.code);
+  const imagePath = path.join(packagesBasePath, country.countryCode, tour.code);
 
   try {
     const files: string[] = await fs.readdir(imagePath);
-    return files.map(file => path.join("/packages", country.countryCode, tour.code, file));
+    return files.map(file => ["/packages", country.countryCode, tour.code, file].join("/"));
   } catch (err) {
-    console.error(`Failed to read directory ${imagePath}:`, err);
+    console.warn(`Skipping ${imagePath}: Folder or file does not exist`);
+    //console.error(`Failed to read directory ${imagePath}:`, err);
     return [];
   }
 };
@@ -34,7 +36,7 @@ async function populateImages(packagesByCountry: TravelCountryPackage[]): Promis
     })
   );
 
-  await Promise.all(updatePromisesPackages);
+  await Promise.all(updatePromisesPackages.concat(updatePromiseTours));
 }
 
 export async function getCountryTravelPackages(): Promise<TravelCountryPackage[]> {
