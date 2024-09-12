@@ -18,7 +18,14 @@
   transform: translate(-50%, -50%);
   color: #fff;
   width: 100%;
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    background: rgba(60, 60, 60, 0.4);
+    padding: 10px;
+    border-radius: 10px;
+  }
 }
+
 .title {
   font-size: 38px;
   font-family: "Montserrat", sans-serif;
@@ -41,6 +48,7 @@
   background-color: var(--mantine-color-red-6);
   color: #fff;
   transition: background-color 0.2s ease;
+
   &:hover {
     background-color: #fff;
     color: var(--mantine-color-red-6);

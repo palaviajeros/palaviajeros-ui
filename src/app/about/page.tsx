@@ -1,5 +1,5 @@
 import React from "react";
-import { Title, Text, Image, Space, Flex, Container } from "@mantine/core";
+import { Title, Text, Image, Space, Flex, Container, Menu, Divider } from "@mantine/core";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -81,9 +81,10 @@ const About: React.FC = () => {
     },
   ];
   return (
-    <Container size="xl" p={{ base: "50px 30px", sm: "50px", lg: "100px 70px" }}>
-      <Title ta="center" mb={60}>
+    <Container size="xl" p={{ base: "30px 0px", sm: "30px 0px", lg: "100px 70px" }}>
+      <Title ta="center" mb={50}>
         About Us
+        <Divider my="md" />
       </Title>
       <Flex direction="column" gap={{ base: "50", lg: "100" }}>
         {contents.map((content, index) => (

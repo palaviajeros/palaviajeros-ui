@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 
 const TravelPackagesPage = async () => {
   const packages: TravelCountryPackage[] = await filterCountries(tcp => tcp.packages.length > 0);
+  const packages: TravelCountryPackage[] = await filterCountries(tcp => tcp.packages.length > 0);
 
   return (
     <Container size="xl" p={{ base: "50px 30px", sm: "50px", lg: "100px 70px" }}>
