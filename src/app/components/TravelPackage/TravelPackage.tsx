@@ -6,16 +6,18 @@ import { Flex, Badge, rem, Title, Text, Tooltip } from "@mantine/core";
 import { IconCheck, IconCircleArrowLeftFilled, IconCircleArrowRightFilled, IconX, IconCalendarPlus } from "@tabler/icons-react";
 import InquiryModalButton from "@/app/components/InquiryModal/InquiryModalButton";
 import { formatDateRange, generateDateRange, getValueOfEnumService } from "@/app/util/Helpers";
-import { TravelCountryPackage } from "@/app/shared/domain/countryPackage";
+import { TravelPackage } from "@/app/shared/domain/travelPackage";
+import { Tour } from "@/app/shared/domain/tour";
 
 interface TravelPackageProps {
-  travelPackage: TravelCountryPackage;
+  packages: (TravelPackage | Tour)[];
 }
 
-const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
+const TravelPackages = ({ packages }: TravelPackageProps) => {
   return (
     <>
-      {travelPackage.packages.map((t, index) => {
+      {packages.map((t, index) => {
+        const isTravelPackage = "travelDates" in t;
         return (
           <React.Fragment key={t.code}>
             <Flex
@@ -85,7 +87,7 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                   <Title order={3} ta={{ base: "center", lg: "left" }}>
                     {t.name}
                   </Title>
-                  <Tooltip
+                  {/* <Tooltip
                     label="Flexible dates allowed"
                     color="var(--mantine-color-gray-4)"
                     position="top"
@@ -98,19 +100,21 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                     <Badge variant="light" radius="sm" display={t.isFlexible ? "flex" : "none"} bd="none">
                       Flexible
                     </Badge>
-                  </Tooltip>
+                  </Tooltip> */}
                 </Flex>
                 <Flex gap={"xs"} direction={{ base: "column", lg: "row" }} wrap="wrap" align={{ base: "center", lg: "start" }}>
                   <Badge radius="md" leftSection={<IconCalendarPlus stroke={2} width={18} />} color="cyan">
                     {t.days} days
                   </Badge>
-                  {t.travelDates.map((d, index) => {
-                    return (
-                      <Badge key={index} radius="md" variant="light" color="cyan" bd="none">
-                        {formatDateRange(generateDateRange(d, t.days))}
-                      </Badge>
-                    );
-                  })}
+                  {isTravelPackage
+                    ? (t as TravelPackage).travelDates.map((d, index) => {
+                        return (
+                          <Badge key={index} radius="md" variant="light" color="cyan" bd="none">
+                            {formatDateRange(generateDateRange(d, t.days))}
+                          </Badge>
+                        );
+                      })
+                    : ""}
                 </Flex>
                 {t.description.map(description => {
                   return (
@@ -162,9 +166,9 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
                     <Text fw="bold" fz="sm" display={t.salePrice ? "block" : "none"} c="var(--mantine-color-red-8)">
                       ₱{t.salePrice}
                     </Text>
-                    <InquiryModalButton variant={"primary"} travelPackage={t}>
+                    {/* <InquiryModalButton variant={"primary"} travelPackage={t}>
                       Get a Quote
-                    </InquiryModalButton>
+                    </InquiryModalButton> */}
                   </Flex>
                 </div>
               </div>
@@ -176,4 +180,4 @@ const TravelPackage = ({ travelPackage }: TravelPackageProps) => {
   );
 };
 
-export default TravelPackage;
+export default TravelPackages;
