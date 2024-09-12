@@ -14,7 +14,7 @@ const TravelPackagesPage = async () => {
   const packages: TravelCountryPackage[] = await filterCountries(tcp => tcp.packages.length > 0);
 
   return (
-    <Container size="xl" p={{ base: "50px 30px", sm: "50px", lg: "100px 70px" }}>
+    <Container size="xl" p={{ base: "30px 0px", sm: "30px 0px", lg: "100px 70px" }}>
       <TravelTabs packages={packages} />
     </Container>
   );
