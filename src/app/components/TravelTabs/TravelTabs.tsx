@@ -4,15 +4,20 @@ import { useState } from "react";
 import { Tabs } from "@mantine/core";
 import TravelPackage from "../TravelPackage/TravelPackage";
 import { TravelCountryPackage } from "@/app/shared/domain/countryPackage";
+import { TravelTabsType } from "@/app/shared/domain/travelTabsType";
 
 interface TravelTabsProps {
   packages: TravelCountryPackage[];
-  pageData: string;
+  tabType: TravelTabsType;
 }
 
-const TravelTabs = ({ packages, pageData }: TravelTabsProps) => {
+const TravelTabs = ({ packages, tabType }: TravelTabsProps) => {
   const [activeTab, setActiveTab] = useState<string | null>(packages[0].countryName);
-  console.log(packages);
+
+  const getPackageData = (p: TravelCountryPackage) => {
+    return tabType === TravelTabsType.Package ? p.packages : p.tours;
+  };
+
   return (
     <>
       <Tabs value={activeTab} onChange={setActiveTab}>
@@ -24,13 +29,7 @@ const TravelTabs = ({ packages, pageData }: TravelTabsProps) => {
           ))}
         </Tabs.List>
       </Tabs>
-      {packages.map(p => {
-        return p.countryName === activeTab && pageData === "packages page" ? (
-          <TravelPackage key={p.countryCode} packages={p.packages} />
-        ) : (
-          <TravelPackage key={p.countryCode} packages={p.tours} />
-        );
-      })}
+      {packages.map(p => p.countryName === activeTab && <TravelPackage key={p.countryCode} packages={getPackageData(p)} />)}
     </>
   );
 };
