@@ -12,6 +12,7 @@ import React from "react";
 const links = [
   { link: "/", label: "Home" },
   { link: "/travel-packages", label: "Packages" },
+  { link: "/tours", label: "Tours" },
   { link: "/about", label: "About" },
 ];
 
