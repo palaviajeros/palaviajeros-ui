@@ -41,7 +41,7 @@ export default function TravelPackageCard({ travelPackage }: TravelPackageCardPr
         <Text fw="bold" ml="xs" fz="sm" display={travelPackage.salePrice ? "block" : "none"} c="var(--mantine-color-red-8)">
           ₱{travelPackage.salePrice}
         </Text>
-        <InquiryModal travelPackage={travelPackage} variant={"default"}>
+        <InquiryModal tour={travelPackage} variant={"default"}>
           <Button variant="default" mt="md" radius="lg" size="xs" maw={150} ml="auto">
             Request a Quote
           </Button>

@@ -12,7 +12,7 @@ describe("Test contents of Inquiry Modal", () => {
     const testTravelPackage = await getCountryTravelPackages();
     let tp = testTravelPackage[0].packages[0];
     tp.isFlexible = true;
-    const sut = <InquiryModal travelPackage={tp} isOpen={true} closeFxn={() => {}} />;
+    const sut = <InquiryModal tour={tp} isOpen={true} closeFxn={() => {}} />;
 
     // Act
     render(sut);
@@ -28,7 +28,7 @@ describe("Test contents of Inquiry Modal", () => {
     const testTravelPackage = await getCountryTravelPackages();
     let tp = testTravelPackage[0].packages[0];
     tp.isFlexible = false;
-    const sut = <InquiryModal travelPackage={tp} isOpen={true} closeFxn={() => {}} />;
+    const sut = <InquiryModal tour={tp} isOpen={true} closeFxn={() => {}} />;
 
     // Act
     render(sut);

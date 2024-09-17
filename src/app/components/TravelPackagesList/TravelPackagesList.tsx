@@ -13,7 +13,7 @@ interface TravelPackageProps {
   packages: (TravelPackage | Tour)[];
 }
 
-const TravelPackages = ({ packages }: TravelPackageProps) => {
+const TravelPackagesList = ({ packages }: TravelPackageProps) => {
   return (
     <>
       {packages.map((t, index) => {
@@ -169,11 +169,9 @@ const TravelPackages = ({ packages }: TravelPackageProps) => {
                     <Text fw="bold" fz="sm" display={t.salePrice ? "block" : "none"} c="var(--mantine-color-red-8)">
                       ₱{t.salePrice}
                     </Text>
-                    {isTravelPackage && (
-                      <InquiryModalButton variant={"primary"} travelPackage={t}>
-                        Get a Quote
-                      </InquiryModalButton>
-                    )}
+                    <InquiryModalButton variant={"primary"} tour={t}>
+                      Get a Quote
+                    </InquiryModalButton>
                   </Flex>
                 </div>
               </div>
@@ -185,4 +183,4 @@ const TravelPackages = ({ packages }: TravelPackageProps) => {
   );
 };
 
-export default TravelPackages;
+export default TravelPackagesList;

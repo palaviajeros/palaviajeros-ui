@@ -2,20 +2,20 @@
 
 import { useState } from "react";
 import { Tabs } from "@mantine/core";
-import TravelPackage from "../TravelPackage/TravelPackage";
+import TravelPackage from "@/app/components/TravelPackagesList/TravelPackagesList";
 import { TravelCountryPackage } from "@/app/shared/domain/countryPackage";
-import { TravelTabsType } from "@/app/shared/domain/travelTabsType";
+import { PackageType } from "@/app/shared/domain/packageType";
 
 interface TravelTabsProps {
   packages: TravelCountryPackage[];
-  tabType: TravelTabsType;
+  tabType: PackageType;
 }
 
 const TravelTabs = ({ packages, tabType }: TravelTabsProps) => {
   const [activeTab, setActiveTab] = useState<string | null>(packages[0].countryName);
 
   const getPackageData = (p: TravelCountryPackage) => {
-    return tabType === TravelTabsType.Package ? p.packages : p.tours;
+    return tabType === PackageType.FullItinerary ? p.packages : p.tours;
   };
 
   return (
