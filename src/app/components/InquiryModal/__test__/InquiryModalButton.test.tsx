@@ -11,7 +11,7 @@ describe("Test InquiryModal Button", () => {
     // Service Under Test
     const testTravelPackage = await getCountryTravelPackages();
     let tp = testTravelPackage[0].packages[0];
-    const sut = <InquiryModalButton travelPackage={tp} />;
+    const sut = <InquiryModalButton tour={tp} />;
 
     // Act
     render(sut);
@@ -26,7 +26,7 @@ describe("Test InquiryModal Button", () => {
     const testTravelPackage = await getCountryTravelPackages();
     let tp = testTravelPackage[0].packages[0];
     tp.isFlexible = true;
-    const sut = <InquiryModalButton travelPackage={tp} />;
+    const sut = <InquiryModalButton tour={tp} />;
 
     // Act
     render(sut);

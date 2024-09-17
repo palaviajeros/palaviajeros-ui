@@ -1,5 +1,5 @@
 "use client";
-import { Button, ButtonVariant, Checkbox, Group, Modal, rem, Select, Text, Textarea, TextInput, Anchor } from "@mantine/core";
+import { Anchor, Button, Checkbox, Group, Modal, rem, Select, Text, Textarea, TextInput } from "@mantine/core";
 import ReCAPTCHA from "react-google-recaptcha";
 import { handleCaptchaSubmission } from "@/app/actions/recaptcha/verifyRecaptcha";
 import React, { useRef, useState } from "react";
@@ -11,24 +11,27 @@ import { InquiryEmailTemplateProps } from "@/app/components/Email/inquiry-email-
 import { sendInquiry } from "@/app/actions/resend/send-inquiry";
 import { notifications } from "@mantine/notifications";
 import { isEmail, isNotEmpty, matches, useForm } from "@mantine/form";
+import { Tour } from "@/app/shared/domain/tour";
 import { TravelPackage } from "@/app/shared/domain/travelPackage";
+import { PackageType } from "@/app/shared/domain/packageType";
 
 interface InquiryModalProps {
-  travelPackage: TravelPackage;
+  tour: Tour;
   isOpen: boolean;
   closeFxn: () => void;
 }
 
-const InquiryModal = ({ travelPackage, isOpen, closeFxn }: InquiryModalProps) => {
-  const [checked, setChecked] = useState(false);
+const InquiryModal = ({ tour, isOpen, closeFxn }: InquiryModalProps) => {
+  const isTravelPackage = "travelDates" in tour;
+  const [isCustomDatesChecked, setIsCustomDatesChecked] = useState(!isTravelPackage);
   // value of DatePickerInput
   const [customDate, setCustomDate] = useState<string | undefined>();
 
   const recaptchaRef = useRef<ReCAPTCHA | null>(null);
 
-  const travelDatesOptions = Array.from(
-    new Set(generateDateRanges(travelPackage.travelDates, travelPackage.days).map(dr => formatDateRange(dr)))
-  );
+  const travelDatesOptions = isTravelPackage
+    ? Array.from(new Set(generateDateRanges((tour as TravelPackage).travelDates, tour.days).map(dr => formatDateRange(dr))))
+    : [];
   const noOfPeopleOptions = new Array(9).fill(null).map((_, i) => `${i + 1}`);
 
   const form = useForm({
@@ -41,15 +44,13 @@ const InquiryModal = ({ travelPackage, isOpen, closeFxn }: InquiryModalProps) =>
       customDates: customDate,
       noOfPax: "",
       message: "",
-      travelPackage: travelPackage.name,
+      travelPackage: tour.name,
     },
 
     onValuesChange: values => {
       // update custom date format after user has selected a custom date
-      if (checked && values.customDates) {
-        setCustomDate(
-          `${format(values.customDates, "dd MMM yyyy")} - ${format(addDays(values.customDates, travelPackage.days), "dd MMM yyyy")}`
-        );
+      if (isCustomDatesChecked && values.customDates) {
+        setCustomDate(`${format(values.customDates, "dd MMM yyyy")} - ${format(addDays(values.customDates, tour.days), "dd MMM yyyy")}`);
       } else {
         setCustomDate("");
         form.setFieldValue("customDates", undefined);
@@ -61,7 +62,7 @@ const InquiryModal = ({ travelPackage, isOpen, closeFxn }: InquiryModalProps) =>
       noOfPax: isNotEmpty(),
       message: isNotEmpty(),
       travelDates: !customDate ? isNotEmpty() : undefined,
-      customDates: checked ? isNotEmpty() : undefined,
+      customDates: isCustomDatesChecked ? isNotEmpty() : undefined,
     },
   });
 
@@ -71,17 +72,18 @@ const InquiryModal = ({ travelPackage, isOpen, closeFxn }: InquiryModalProps) =>
       if (token) {
         let emailTemplateProps = {
           ...values,
-          travelPackage,
+          tour,
           inquiryDate: format(new Date(), "dd MMM yyyy HH:mm:ss"),
           travelDates: customDate ? customDate : form.getValues().travelDates,
+          travelPackageType: isTravelPackage ? PackageType.FullItinerary : PackageType.Tours,
         } as InquiryEmailTemplateProps;
         await sendInquiry(emailTemplateProps)
           .then(_ =>
             notifications.show({
               id: "inquiry-notif",
               withCloseButton: true,
-              title: `Inquiry Sent: ${travelPackage.name}`,
-              message: `Hey there, we received your inquiry for ${travelPackage.name} on ${customDate ? customDate : form.getValues().travelDates} and we will respond to you shortly! Thank you for your patience!`,
+              title: `Inquiry Sent: ${tour.name}`,
+              message: `Hey there, we received your inquiry for ${tour.name} on ${customDate ? customDate : form.getValues().travelDates} and we will respond to you shortly! Thank you for your patience!`,
               color: "green",
               autoClose: 10000,
             })
@@ -90,7 +92,7 @@ const InquiryModal = ({ travelPackage, isOpen, closeFxn }: InquiryModalProps) =>
             notifications.show({
               id: "inquiry-notif-error",
               withCloseButton: true,
-              title: `Inquiry Sent: ${travelPackage.name}`,
+              title: `Inquiry Sent: ${tour.name}`,
               message: `Hey there, we attempted to send your inquiry but an unexpected error occurred. Please try again shortly`,
               color: "red",
               autoClose: 10000,
@@ -147,21 +149,22 @@ const InquiryModal = ({ travelPackage, isOpen, closeFxn }: InquiryModalProps) =>
         key={form.key("travelDates")}
         {...form.getInputProps("travelDates")}
         required
-        disabled={checked}
+        disabled={isCustomDatesChecked}
         data-testid="selectDates"
+        display={!isTravelPackage ? "none" : "block"}
       />
-      {travelPackage.isFlexible && (
+      {(isTravelPackage ? (tour as TravelPackage).isFlexible : true) && (
         <>
           <Checkbox
             mt="xs"
-            checked={checked}
-            onChange={event => setChecked(event.currentTarget.checked)}
+            checked={isCustomDatesChecked}
+            onChange={event => setIsCustomDatesChecked(event.currentTarget.checked)}
+            display={!isTravelPackage ? "none" : "block"}
             label="I want to choose my own travel dates"
-            display="block"
             data-testid="checkBoxFlexible"
           />
 
-          <Group display={checked ? "block" : "none"}>
+          <Group display={!isTravelPackage || isCustomDatesChecked ? "block" : "none"}>
             <DatePickerInput
               mt="xs"
               placeholder="Pick start date"
@@ -171,10 +174,11 @@ const InquiryModal = ({ travelPackage, isOpen, closeFxn }: InquiryModalProps) =>
               required
               {...form.getInputProps("customDates")}
               key={form.key("customDates")}
+              label="My Travel Dates"
             />
             {customDate && (
               <Text mt="xs" size="sm" c="var(--mantine-color-indigo-7)">
-                <b>[{travelPackage.days}-day package]:</b> {customDate}
+                <b>[{tour.days}-day package]:</b> {customDate}
               </Text>
             )}
           </Group>
