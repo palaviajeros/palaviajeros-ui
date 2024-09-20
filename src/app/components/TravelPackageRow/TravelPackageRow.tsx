@@ -12,7 +12,6 @@ import { TravelPackage } from "@/app/shared/domain/travelPackage";
 interface TravelPackageProps {
   tourPackage: Tour;
   index: number;
-  isTravelPackage: boolean;
 }
 
 const TravelPackageRow = ({ tourPackage, index }: TravelPackageProps) => {
