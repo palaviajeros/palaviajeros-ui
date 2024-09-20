@@ -12,7 +12,7 @@ const TravelPackagesList = ({ packages }: TravelPackageProps) => {
     <>
       {packages.map((t, index) => {
         const isTravelPackage = "travelDates" in t;
-        return <TravelPackageRow key={t.code} tPackage={t} index={index} isTravelPackage={isTravelPackage} />;
+        return <TravelPackageRow key={t.code} tourPackage={t} index={index} isTravelPackage={isTravelPackage} />;
       })}
     </>
   );

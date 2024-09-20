@@ -10,15 +10,15 @@ import { Tour } from "@/app/shared/domain/tour";
 import { TravelPackage } from "@/app/shared/domain/travelPackage";
 
 interface TravelPackageProps {
-  tPackage: TravelPackage | Tour;
+  tourPackage: Tour;
   index: number;
   isTravelPackage: boolean;
 }
 
-const TravelPackageRow = ({ tPackage, index, isTravelPackage }: TravelPackageProps) => {
+const TravelPackageRow = ({ tourPackage, index, isTravelPackage }: TravelPackageProps) => {
   return (
     <>
-      <React.Fragment key={tPackage.code}>
+      <React.Fragment key={tourPackage.code}>
         <Flex
           gap={{ lg: "xl" }}
           mb={"xl"}
@@ -55,7 +55,7 @@ const TravelPackageRow = ({ tPackage, index, isTravelPackage }: TravelPackagePro
                 />
               }
             >
-              {tPackage.imageUrls.map((img, index) => {
+              {tourPackage.imageUrls.map((img, index) => {
                 return (
                   <Carousel.Slide key={index} mr="xs">
                     <Image
@@ -84,7 +84,7 @@ const TravelPackageRow = ({ tPackage, index, isTravelPackage }: TravelPackagePro
               wrap="wrap"
             >
               <Title order={3} ta={{ base: "center", lg: "left" }}>
-                {tPackage.name}
+                {tourPackage.name}
               </Title>
               {isTravelPackage && (
                 <Tooltip
@@ -105,19 +105,19 @@ const TravelPackageRow = ({ tPackage, index, isTravelPackage }: TravelPackagePro
             </Flex>
             <Flex gap={"xs"} direction={{ base: "column", lg: "row" }} wrap="wrap" align={{ base: "center", lg: "start" }}>
               <Badge radius="md" leftSection={<IconCalendarPlus stroke={2} width={18} />} color="cyan">
-                {tPackage.days} days
+                {tourPackage.days} days
               </Badge>
 
               {isTravelPackage &&
-                (tPackage as TravelPackage).travelDates.map((d, index) => {
+                (tourPackage as TravelPackage).travelDates.map((d, index) => {
                   return (
                     <Badge key={index} radius="md" variant="light" color="cyan" bd="none">
-                      {formatDateRange(generateDateRange(d, tPackage.days))}
+                      {formatDateRange(generateDateRange(d, tourPackage.days))}
                     </Badge>
                   );
                 })}
             </Flex>
-            {tPackage.description.map(description => {
+            {tourPackage.description.map(description => {
               return (
                 <Text
                   key={`description-${index}`}
@@ -137,7 +137,7 @@ const TravelPackageRow = ({ tPackage, index, isTravelPackage }: TravelPackagePro
             <div>
               <Flex direction={{ base: "row", lg: "column" }} gap={{ base: "lg", lg: "xs" }} mt={"md"} mb={"lg"} wrap="wrap">
                 <Flex direction="row" gap={"lg"}>
-                  {tPackage.inclusions.map((inclusion, index) => {
+                  {tourPackage.inclusions.map((inclusion, index) => {
                     return (
                       <Flex key={index} align="center" gap={"xs"}>
                         <IconCheck stroke={3} color="var(--mantine-color-teal-4)" />
@@ -147,7 +147,7 @@ const TravelPackageRow = ({ tPackage, index, isTravelPackage }: TravelPackagePro
                   })}
                 </Flex>
                 <Flex direction="row" gap={"lg"}>
-                  {tPackage.exclusions.map((exclusion, index) => {
+                  {tourPackage.exclusions.map((exclusion, index) => {
                     return (
                       <Flex key={index} gap={"xs"}>
                         <IconX stroke={2} color="var(--mantine-color-dark-2)" />
@@ -161,13 +161,13 @@ const TravelPackageRow = ({ tPackage, index, isTravelPackage }: TravelPackagePro
                 </Flex>
               </Flex>
               <Flex mt={{ base: "xs", lg: "xl" }} direction="row" justify="flex-end" align="center" gap={{ base: "sm", lg: "sm" }}>
-                <Text fw="bold" fz="sm" td={tPackage.salePrice ? "line-through" : "none"}>
-                  ₱{tPackage.price}
+                <Text fw="bold" fz="sm" td={tourPackage.salePrice ? "line-through" : "none"}>
+                  ₱{tourPackage.price}
                 </Text>
-                <Text fw="bold" fz="sm" display={tPackage.salePrice ? "block" : "none"} c="var(--mantine-color-red-8)">
-                  ₱{tPackage.salePrice}
+                <Text fw="bold" fz="sm" display={tourPackage.salePrice ? "block" : "none"} c="var(--mantine-color-red-8)">
+                  ₱{tourPackage.salePrice}
                 </Text>
-                <InquiryModalButton variant={"primary"} tour={tPackage}>
+                <InquiryModalButton variant={"primary"} tour={tourPackage}>
                   Get a Quote
                 </InquiryModalButton>
               </Flex>
