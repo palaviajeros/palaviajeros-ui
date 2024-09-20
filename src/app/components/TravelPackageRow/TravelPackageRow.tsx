@@ -15,7 +15,8 @@ interface TravelPackageProps {
   isTravelPackage: boolean;
 }
 
-const TravelPackageRow = ({ tourPackage, index, isTravelPackage }: TravelPackageProps) => {
+const TravelPackageRow = ({ tourPackage, index }: TravelPackageProps) => {
+  const isTravelPackage = "travelDates" in tourPackage;
   return (
     <>
       <React.Fragment key={tourPackage.code}>
