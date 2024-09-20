@@ -135,7 +135,7 @@ const TravelPackageRow = ({ tourPackage }: TravelPackageProps) => {
             })}
             <div>
               <Flex direction={{ base: "row", lg: "column" }} gap={{ base: "lg", lg: "xs" }} mt={"md"} mb={"lg"} wrap="wrap">
-                <Flex direction="row" gap={"lg"}>
+                <Flex direction="row" gap={"lg"} wrap="wrap">
                   {tourPackage.inclusions.map((inclusion, index) => {
                     return (
                       <Flex key={index} align="center" gap={"xs"}>
@@ -145,7 +145,7 @@ const TravelPackageRow = ({ tourPackage }: TravelPackageProps) => {
                     );
                   })}
                 </Flex>
-                <Flex direction="row" gap={"lg"}>
+                <Flex direction="row" gap={"lg"} wrap="wrap">
                   {tourPackage.exclusions.map((exclusion, index) => {
                     return (
                       <Flex key={index} gap={"xs"}>
