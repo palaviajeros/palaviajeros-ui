@@ -11,8 +11,7 @@ const TravelPackagesList = ({ packages }: TravelPackageProps) => {
   return (
     <>
       {packages.map((t, index) => {
-        const isTravelPackage = "travelDates" in t;
-        return <TravelPackageRow key={t.code} tourPackage={t} index={index} isTravelPackage={isTravelPackage} />;
+        return <TravelPackageRow key={t.code} tourPackage={t} index={index} />;
       })}
     </>
   );
