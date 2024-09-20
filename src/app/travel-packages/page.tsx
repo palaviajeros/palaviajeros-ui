@@ -1,4 +1,4 @@
-import { filterCountries } from "@/app/actions/dataLoader";
+import { filterCountriesData } from "@/app/actions/dataLoader";
 import TravelTabs from "../components/TravelTabs/TravelTabs";
 import React from "react";
 import { Metadata } from "next";
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 const TravelPackagesPage = async () => {
-  const packages: TravelCountryPackage[] = await filterCountries(tcp => tcp.packages.length > 0);
+  const packages: TravelCountryPackage[] = await filterCountriesData(tcp => tcp.packages.length > 0);
 
   return (
     <Container size="xl" p={{ base: "30px 0px", sm: "30px 0px", lg: "100px 70px" }}>
