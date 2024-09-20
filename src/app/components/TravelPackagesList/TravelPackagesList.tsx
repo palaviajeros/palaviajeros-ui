@@ -10,8 +10,8 @@ interface TravelPackageProps {
 const TravelPackagesList = ({ packages }: TravelPackageProps) => {
   return (
     <>
-      {packages.map((t, index) => {
-        return <TravelPackageRow key={t.code} tourPackage={t} index={index} />;
+      {packages.map(t => {
+        return <TravelPackageRow key={t.code} tourPackage={t} />;
       })}
     </>
   );

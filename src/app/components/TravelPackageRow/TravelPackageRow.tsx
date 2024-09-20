@@ -11,10 +11,9 @@ import { TravelPackage } from "@/app/shared/domain/travelPackage";
 
 interface TravelPackageProps {
   tourPackage: Tour;
-  index: number;
 }
 
-const TravelPackageRow = ({ tourPackage, index }: TravelPackageProps) => {
+const TravelPackageRow = ({ tourPackage }: TravelPackageProps) => {
   const isTravelPackage = "travelDates" in tourPackage;
   return (
     <>
@@ -117,7 +116,7 @@ const TravelPackageRow = ({ tourPackage, index }: TravelPackageProps) => {
                   );
                 })}
             </Flex>
-            {tourPackage.description.map(description => {
+            {tourPackage.description.map((description, index) => {
               return (
                 <Text
                   key={`description-${index}`}
