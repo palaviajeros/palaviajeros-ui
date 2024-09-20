@@ -5,7 +5,7 @@ import { TravelCountryPackage } from "@/app/shared/domain/countryPackage";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { Tour } from "@/app/shared/domain/tour";
-import { addDays, startOfToday } from "date-fns";
+import { addDays, startOfDay, startOfToday } from "date-fns";
 
 const baseFolder = path.join(process.cwd(), "public");
 const packagesBasePath = path.join(baseFolder, "packages");
@@ -56,7 +56,7 @@ async function parseCountriesData(predicate?: (value: TravelCountryPackage, inde
   }
 }
 
-function filterPastTravelDates(countryData: TravelCountryPackage[], dayThreshold: number) {
+function filterPastTravelDates(countryData: TravelCountryPackage[], userDateUtc: Date) {
   return countryData.map(
     country =>
       ({
@@ -65,16 +65,15 @@ function filterPastTravelDates(countryData: TravelCountryPackage[], dayThreshold
           p =>
             ({
               ...p,
-              travelDates: p.travelDates.filter(d => addDays(d, dayThreshold) > startOfToday()),
+              travelDates: p.travelDates.filter(d => startOfDay(d) >= startOfDay(userDateUtc)),
             }) as TravelPackage
         ),
       }) as TravelCountryPackage
   );
 }
 
-function removePackagesWithNoTravelDates(countryData: TravelCountryPackage[]) {
-  const dayThreshold = 1;
-  const filteredCountryData = filterPastTravelDates(countryData, dayThreshold).map(
+function removePackagesWithNoTravelDates(countryData: TravelCountryPackage[], userDateUtc: Date) {
+  const filteredCountryData = filterPastTravelDates(countryData, userDateUtc).map(
     country =>
       ({
         ...country,
@@ -84,9 +83,12 @@ function removePackagesWithNoTravelDates(countryData: TravelCountryPackage[]) {
   return filteredCountryData;
 }
 
-export async function getCountryTravelPackages(retainExpiredDates: boolean = false): Promise<TravelCountryPackage[]> {
+export async function getCountryTravelPackages(
+  userDateToday: Date = startOfToday(),
+  retainExpiredDates: boolean = false
+): Promise<TravelCountryPackage[]> {
   const countryData = await parseCountriesData();
-  return retainExpiredDates ? countryData : removePackagesWithNoTravelDates(countryData);
+  return retainExpiredDates ? countryData : removePackagesWithNoTravelDates(countryData, userDateToday);
 }
 
 export async function findCountryPackage(predicate: (value: TravelCountryPackage, index: number, obj: TravelCountryPackage[]) => boolean) {
@@ -94,8 +96,11 @@ export async function findCountryPackage(predicate: (value: TravelCountryPackage
   return countriesData.find(predicate);
 }
 
-export async function filterCountriesData(predicate: (value: TravelCountryPackage, index: number, obj: TravelCountryPackage[]) => boolean) {
-  const countriesData = await getCountryTravelPackages();
+export async function filterCountriesData(
+  predicate: (value: TravelCountryPackage, index: number, obj: TravelCountryPackage[]) => boolean,
+  userDateUtc: Date
+) {
+  const countriesData = await getCountryTravelPackages(userDateUtc);
   return countriesData.filter(predicate);
 }
 

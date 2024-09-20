@@ -3,9 +3,10 @@ import { filterCountriesData } from "@/app/actions/dataLoader";
 import { TravelCountryPackage } from "@/app/shared/domain/countryPackage";
 import { Container } from "@mantine/core";
 import { PackageType } from "../shared/domain/packageType";
+import { startOfToday } from "date-fns";
 
 export default async function ToursPage() {
-  const packages: TravelCountryPackage[] = await filterCountriesData(tcp => tcp.tours.length > 0);
+  const packages: TravelCountryPackage[] = await filterCountriesData(tcp => tcp.tours.length > 0, startOfToday());
 
   return (
     <>
