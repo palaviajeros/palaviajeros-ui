@@ -10,7 +10,10 @@ interface TravelPackageProps {
 const TravelPackagesList = ({ packages }: TravelPackageProps) => {
   return (
     <>
-      <TravelPackageRow packages={packages} />
+      {packages.map((t, index) => {
+        const isTravelPackage = "travelDates" in t;
+        return <TravelPackageRow key={t.code} tPackage={t} index={index} isTravelPackage={isTravelPackage} />;
+      })}
     </>
   );
 };
