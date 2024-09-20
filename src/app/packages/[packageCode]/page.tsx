@@ -1,4 +1,4 @@
-import { findPackagesPerCountry } from "@/app/actions/dataLoader";
+import { filterPackagesPerCountry } from "@/app/actions/dataLoader";
 import Image from "next/image";
 import { Box, Title, Container } from "@mantine/core";
 
@@ -7,7 +7,7 @@ interface PackageDetailsPageProps {
 }
 
 export default async function PackageDetailsPage({ params }: { params: PackageDetailsPageProps }) {
-  const travelPackage = await findPackagesPerCountry(p => p.code === params.packageCode);
+  const travelPackage = await filterPackagesPerCountry(p => p.code === params.packageCode);
 
   return (
     <>
