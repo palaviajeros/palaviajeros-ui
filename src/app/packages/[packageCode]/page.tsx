@@ -1,8 +1,9 @@
 import { filterPackagesPerCountry } from "@/app/actions/dataLoader";
 import Image from "next/image";
-import { Box, Title, Container, Flex, Text, Divider, Timeline } from "@mantine/core";
+import { Box, Title, Container, Flex, Text, Divider } from "@mantine/core";
 import { IconMapPin, IconCircleCheckFilled, IconSquareX } from "@tabler/icons-react";
-import _ from "lodash";
+import { getValueOfEnumService } from "@/app/util/Helpers";
+
 import TimelineItinerary from "./TimelineItinerary";
 interface PackageDetailsPageProps {
   packageCode: string;
@@ -57,7 +58,7 @@ export default async function PackageDetailsPage({ params }: { params: PackageDe
                   <Flex key={t}>
                     <IconCircleCheckFilled width="20px" stroke={2} />
                     <Text c="gray" fz="sm" ml="5px">
-                      {_.startCase(_.toLower(t))}
+                      {`${getValueOfEnumService(t)}`}
                     </Text>
                   </Flex>
                 ))}
@@ -70,7 +71,7 @@ export default async function PackageDetailsPage({ params }: { params: PackageDe
                   <Flex key={t}>
                     <IconSquareX width="20px" stroke={2} />
                     <Text c="gray" fz="sm" ml="5px">
-                      {_.startCase(_.toLower(t))}
+                      {`${getValueOfEnumService(t)}`}
                     </Text>
                   </Flex>
                 ))}
@@ -80,6 +81,33 @@ export default async function PackageDetailsPage({ params }: { params: PackageDe
                 Travel Plans:
               </Title>
               <TimelineItinerary tp={tp} />
+              <Flex mt="xl" gap="md" pos="relative" w="100%" direction={{ base: "column", sm: "row" }}>
+                <div style={{ flex: 2 }}>
+                  <Image
+                    style={{ objectFit: "cover", borderRadius: "3%", width: "100%", height: "100%" }}
+                    width={600}
+                    height={600}
+                    src={travelPackage[0].imageUrls[0]}
+                    alt={params.packageCode}
+                  />
+                </div>
+                <Flex direction="column" gap="md" style={{ flex: 1 }}>
+                  <Image
+                    style={{ objectFit: "cover", borderRadius: "3%", width: "100%", height: "100%" }}
+                    width={300}
+                    height={300}
+                    src={travelPackage[0].imageUrls[1]}
+                    alt={params.packageCode}
+                  />
+                  <Image
+                    style={{ objectFit: "cover", borderRadius: "3%", width: "100%", height: "100%" }}
+                    width={300}
+                    height={300}
+                    src={travelPackage[0].imageUrls[2]}
+                    alt={params.packageCode}
+                  />
+                </Flex>
+              </Flex>
             </Container>
           </div>
         );
