@@ -9,51 +9,31 @@
         "code": "boracay-1",
         "name": "Boracay Summer Getaway",
         "isFlexible": true,
-        "tags": [
-          "best-seller",
-          "sale"
+        "tags": ["best-seller", "sale"],
+        "shortDescription": ["Enjoy the pristine white sand beaches in one of the best islands in the country!"],
+        "longDescription": [
+          "Enjoy the pristine white sand beaches in one of the best islands in the country! Discover the beauty of Boracay, home to some of the most pristine white-sand beaches in the Philippines, consistently ranked among the best islands in the world. Whether you're looking to unwind by the crystal-clear waters or indulge in thrilling water sports like kite surfing and paddleboarding, Boracay offers a perfect blend of relaxation and adventure. As the sun sets, the island transforms into a lively hub with beachfront bars, vibrant nightlife, and exciting fire shows that keep the party going long into the night. With its breathtaking sunsets and warm tropical ambiance, Boracay is a dream destination for beach lovers."
         ],
-        "description": [
-          "Enjoy the pristine white sand beaches in one of the best islands in the country!"
-        ],
-        "inclusions": [
-          "ACCOMMODATION",
-          "FLIGHT"
-        ],
-        "exclusions": [
-          "MEALS",
-          "TRANSFERS",
-          "TOURS"
-        ],
+        "location": ["Boracay, Philippines"],
+        "inclusions": ["ACCOMMODATION", "FLIGHT"],
+        "exclusions": ["MEALS", "TRANSFERS", "TOURS"],
         "days": 3,
-        "travelDates": [
-          "2024-09-10",
-          "2024-10-01"
-        ],
+        "travelDates": ["2024-09-10", "2024-10-01"],
         "itinerary": [
           {
             "dayNo": 1,
-            "activities": [
-              "land at caticlan",
-              "sea transfer",
-              "paragliding",
-              "tour to puka beach"
-            ]
+            "title": "Arrival and Adventure in Boracay",
+            "activities": ["Land at caticlan", "Sea transfer", "Paragliding", "Tour to puka beach"]
           },
           {
             "dayNo": 2,
-            "activities": [
-              "talipapa",
-              "dinner at the beach",
-              "barhopping"
-            ]
+            "title": "Local Experiences and Nightlife",
+            "activities": ["Talipapa", "Dinner at the beach", "Barhopping"]
           },
           {
             "dayNo": 3,
-            "activities": [
-              "souvenir buying",
-              "flight back"
-            ]
+            "title": "Souvenir Shopping and Departure",
+            "activities": ["Souvenir buying", "Flight back"]
           }
         ],
         "price": 2099,
@@ -62,51 +42,33 @@
       {
         "code": "palawan-1",
         "name": "Enjoy the Sun in Palawan Tour!",
-        "tags": [
-          "best-seller",
-          "featured"
+        "tags": ["best-seller", "featured"],
+        "shortDescription": [
+          "Palawan is a tropical paradise known for its stunning limestone cliffs, crystal-clear waters, and pristine beaches, making it a top destination for nature lovers and adventure seekers."
         ],
-        "description": [
-          "It's all you ever wanted and more! Enjoy the white sand beaches and snorkel through the corals underwater in the day and enjoy the vibrant party scene at night! We also offer guided island hopping tours."
+        "longDescription": [
+          "Palawan is a tropical paradise known for its stunning limestone cliffs, crystal-clear waters, and pristine beaches, making it a top destination for nature lovers and adventure seekers. It's all you ever wanted and more! Enjoy the white sand beaches and snorkel through the corals underwater in the day and enjoy the vibrant party scene at night! We also offer guided island hopping tours."
         ],
-        "inclusions": [
-          "ACCOMMODATION",
-          "FLIGHT",
-          "TOURS"
-        ],
-        "exclusions": [
-          "MEALS",
-          "TRANSFERS"
-        ],
+        "location": ["Palawan, Philippines"],
+        "inclusions": ["ACCOMMODATION", "FLIGHT", "TOURS"],
+        "exclusions": ["MEALS", "TRANSFERS"],
         "days": 3,
-        "travelDates": [
-          "2024-09-10",
-          "2024-10-01",
-          "2025-01-25"
-        ],
+        "travelDates": ["2024-09-10", "2024-10-01", "2025-01-25"],
         "itinerary": [
           {
             "dayNo": 1,
-            "activities": [
-              "land at el nido airport",
-              "check-in hotel"
-            ]
+            "title": "Arrival in El Nido: Welcome to Paradise",
+            "activities": ["Land at el nido airport", "Check-in hotel"]
           },
           {
             "dayNo": 2,
-            "activities": [
-              "island hopping",
-              "lunch at the island",
-              "barhopping"
-            ]
+            "title": "Island Adventures: Hopping and Nightlife",
+            "activities": ["Island hopping", "Lunch at the island", "Barhopping"]
           },
           {
             "dayNo": 3,
-            "activities": [
-              "island hopping 2",
-              "lunch at the boat",
-              "clubbing"
-            ]
+            "title": "Extended Island Exploration: Dining and Dancing",
+            "activities": ["Island hopping 2", "Lunch at the boat", "Clubbing"]
           }
         ],
         "price": 1395
@@ -115,64 +77,49 @@
         "code": "cebu-1",
         "name": "Cebu sinulog tour",
         "isFlexible": false,
-        "tags": [
-          "best-seller",
-          "featured"
-        ],
-        "description": [
+        "tags": ["best-seller", "featured"],
+        "shortDescription": [
           "Experience the biggest street party in the Philippines! While enjoying the best nature has to offer around Cebu!"
         ],
-        "inclusions": [
-          "ACCOMMODATION",
-          "FLIGHT",
-          "TOURS"
+        "longDescription": [
+          "Experience the biggest street party in the Philippines! While enjoying the best nature has to offer around Cebu! This lively celebration features colorful parades, traditional dances, and electrifying music that bring the streets to life. While enjoying the festivities, take the opportunity to explore Cebu’s stunning natural beauty, from its pristine white-sand beaches to its breathtaking waterfalls and lush landscapes. Whether you're soaking in the cultural richness or discovering the wonders of nature, Cebu offers an unforgettable experience."
         ],
-        "exclusions": [
-          "MEALS",
-          "TRANSFERS"
-        ],
+        "location": ["Cebu, Philippines"],
+        "inclusions": ["ACCOMMODATION", "FLIGHT", "TOURS"],
+        "exclusions": ["MEALS", "TRANSFERS"],
         "days": 4,
-        "travelDates": [
-          "2025-01-18",
-          "2025-01-25"
-        ],
+        "travelDates": ["2025-01-18", "2025-01-25"],
         "itinerary": [
           {
             "dayNo": 1,
-            "activities": [
-              "land at mactan international airport",
-              "land transfer to hotel",
-              "city tour",
-              "lunch in carcar"
-            ]
+            "title": "Arrival and City Exploration",
+            "activities": ["Land at mactan international airport", "Land transfer to hotel", "City tour", "Lunch in carcar"]
           },
           {
             "dayNo": 2,
-            "activities": [
-              "breakfast at hotel",
-              "city tour",
-              "wet market tour",
-              "lunch at cebu city center"
-            ]
+            "title": "Culinary and Cultural Day",
+            "activities": ["Breakfast at hotel", "City tour", "Wet market tour", "Lunch at cebu city center"]
           },
           {
             "dayNo": 3,
+            "title": "Adventure Awaits: Snorkeling and Diving in Southern Cebu",
             "activities": [
-              "breakfast at hotel",
-              "van ride to south of cebu",
-              "oslob whale shark snorkeling",
-              "moal boal sardine dive",
-              "checkin at hotel in moal boal"
+              "Breakfast at hotel",
+              "Van ride to south of cebu",
+              "Oslob whale shark snorkeling",
+              "Moal boal sardine dive",
+              "Check-in at hotel in moal boal"
             ]
           },
           {
             "dayNo": 4,
+            "title": "Thrilling Adventures: Canyoneering at Kawasan Falls",
             "activities": [
-              "breakfast at hotel",
-              "drive to kawasan falls",
-              "kawasan falls canyoneering",
-              "go back to hotel",
-              "dinner at moal boal"
+              "Breakfast at hotel",
+              "Drive to kawasan falls",
+              "Kawasan falls canyoneering",
+              "Go back to hotel",
+              "Dinner at moal boal"
             ]
           }
         ],
@@ -191,48 +138,31 @@
         "code": "barcelona",
         "name": "Barcelona EU Tour",
         "isFlexible": false,
-        "tags": [
-          "best-seller",
-          "sale"
+        "tags": ["best-seller", "sale"],
+        "shortDescription": ["Barcelona is a major cultural, economic, and financial centre in southwestern Europe"],
+        "longDescription": [
+          "Barcelona is a major cultural, economic, and financial centre in southwestern Europe, , renowned for its influence on art, architecture, and innovation. The city is a vibrant showcase of modernism, highlighted by Antoni Gaudí's iconic creations, such as the Sagrada Família and Park Güell. As a thriving economic center, Barcelona plays a crucial role in trade, tourism, and technology, attracting both global businesses and creative industries. Its dynamic atmosphere, rich cultural heritage, and Mediterranean lifestyle make Barcelona a truly unique and influential city on the world stage."
         ],
-        "description": [
-          "Barcelona is a major cultural, economic, and financial centre in southwestern Europe"
-        ],
-        "inclusions": [
-          "FLIGHT",
-          "ACCOMMODATION"
-        ],
-        "exclusions": [
-          "TRANSFERS"
-        ],
+        "location": ["Barcelona, Spain"],
+        "inclusions": ["FLIGHT", "ACCOMMODATION"],
+        "exclusions": ["TRANSFERS"],
         "days": 3,
-        "travelDates": [
-          "2024-12-18",
-          "2025-01-18",
-          "2025-01-25"
-        ],
+        "travelDates": ["2024-12-18", "2025-01-18", "2025-01-25"],
         "itinerary": [
           {
             "dayNo": 1,
-            "activities": [
-              "land airport",
-              "checkin hotel",
-              "museum visit"
-            ]
+            "title": "Arrival and Check-In",
+            "activities": ["Land airport", "Check-in hotel", "Museum visit"]
           },
           {
             "dayNo": 2,
-            "activities": [
-              "Ciutadella park",
-              "tapas bar hopping"
-            ]
+            "title": "Cultural Exploration and Culinary Delights",
+            "activities": ["Ciutadella park", "Tapas bar hopping"]
           },
           {
             "dayNo": 3,
-            "activities": [
-              "souvenir buying",
-              "flight back"
-            ]
+            "title": "Departure and Last-Minute Shopping",
+            "activities": ["Souvenir buying", "Flight back"]
           }
         ],
         "price": 2099,
@@ -242,48 +172,31 @@
         "code": "madrid",
         "name": "Madrid EU Tour",
         "isFlexible": false,
-        "tags": [
-          "best-seller",
-          "sale"
+        "tags": ["best-seller", "sale"],
+        "shortDescription": ["Madrid is the capital of Spain and lies in the center of the Iberian Peninsula."],
+        "longDescription": [
+          "Madrid is the capital of Spain and lies in the center of the Iberian Peninsula, making it the geographic and cultural center of the country. Known for its rich history, stunning architecture, and lively atmosphere, Madrid offers visitors a unique blend of old-world charm and modern sophistication. From the grand Royal Palace to the bustling streets of Puerta del Sol, the city is filled with iconic landmarks, world-class museums, and a thriving culinary scene. With its sunny climate and energetic spirit, Madrid is a city that captivates at every turn."
         ],
-        "description": [
-          "Madrid is the capital of Spain and lies in the center of the Iberian Peninsula."
-        ],
-        "inclusions": [
-          "FLIGHT",
-          "ACCOMMODATION"
-        ],
-        "exclusions": [
-          "TRANSFERS"
-        ],
+        "location": ["Madrid, Spain"],
+        "inclusions": ["FLIGHT", "ACCOMMODATION"],
+        "exclusions": ["TRANSFERS"],
         "days": 3,
-        "travelDates": [
-          "2024-12-18",
-          "2025-01-18",
-          "2025-01-25"
-        ],
+        "travelDates": ["2024-12-18", "2025-01-18", "2025-01-25"],
         "itinerary": [
           {
             "dayNo": 1,
-            "activities": [
-              "land airport",
-              "checkin hotel",
-              "museum visit"
-            ]
+            "title": "Arrival and Check-In",
+            "activities": ["Land airport", "Check-in hotel", "Museum visit"]
           },
           {
             "dayNo": 2,
-            "activities": [
-              "Ciutadella park",
-              "tapas bar hopping"
-            ]
+            "title": "Cultural Exploration and Culinary Delights",
+            "activities": ["Ciutadella park", "Tapas bar hopping"]
           },
           {
             "dayNo": 3,
-            "activities": [
-              "souvenir buying",
-              "flight back"
-            ]
+            "title": "Departure and Last-Minute Shopping",
+            "activities": ["Souvenir buying", "Flight back"]
           }
         ],
         "price": 2399
@@ -292,48 +205,31 @@
         "code": "granada",
         "name": "Granada EU Tour",
         "isFlexible": true,
-        "tags": [
-          "featured",
-          "sale"
+        "tags": ["featured", "sale"],
+        "shortDescription": ["Granada is located at the foot of the Sierra Nevada"],
+        "longDescription": [
+          "Granada is located at the foot of the Sierra Nevada mountains in southern Spain, within the region of Andalusia. This enchanting city is renowned for its stunning blend of Moorish and Spanish Renaissance architecture, most notably exemplified by the majestic Alhambra Palace, a UNESCO World Heritage site. Set against the backdrop of snow-capped peaks, Granada offers breathtaking views and a diverse landscape that transitions from mountains to rolling hills."
         ],
-        "description": [
-          "Granada is located at the foot of the Sierra Nevada"
-        ],
-        "inclusions": [
-          "ACCOMMODATION",
-          "FLIGHT"
-        ],
-        "exclusions": [
-          "MEALS",
-          "TRANSFERS"
-        ],
+        "location": ["Granada, Spain"],
+        "inclusions": ["ACCOMMODATION", "FLIGHT", "TRAVEL INSURANCE", "AIRPORT TRANSFERS", "ENGLISH-SPEAKING GUIDED TOURS"],
+        "exclusions": ["MEALS", "TRANSFERS"],
         "days": 3,
-        "travelDates": [
-          "2024-08-01",
-          "2024-11-24"
-        ],
+        "travelDates": ["2024-08-01", "2024-11-24"],
         "itinerary": [
           {
             "dayNo": 1,
-            "activities": [
-              "land airport",
-              "checkin hotel",
-              "museum visit"
-            ]
+            "title": "Arrival and Check-In",
+            "activities": ["Land airport", "Check-in hotel", "Museum visit"]
           },
           {
             "dayNo": 2,
-            "activities": [
-              "Ciutadella park",
-              "tapas bar hopping"
-            ]
+            "title": "Cultural Exploration and Culinary Delights",
+            "activities": ["Ciutadella park", "Tapas bar hopping"]
           },
           {
             "dayNo": 3,
-            "activities": [
-              "souvenir buying",
-              "flight back"
-            ]
+            "title": "Departure and Last-Minute Shopping",
+            "activities": ["Souvenir buying", "Flight back"]
           }
         ],
         "price": 2799,
@@ -344,29 +240,25 @@
   {
     "countryCode": "ID",
     "countryName": "Indonesia",
-    "description": "Marvel at the mystical temples, the marvelous beaches and the exotic wildlife of Indonesia.",
+    "shortDescription": ["Marvel at the mystical temples, the marvelous beaches and the exotic wildlife of Indonesia."],
+    "longDescription": [
+      "Marvel at the mystical temples, the marvelous beaches and the exotic wildlife of Indonesia. Discover the enchanting beauty of Indonesia, where ancient mystical temples stand as a testament to the country’s rich cultural heritage. Explore pristine, sun-kissed beaches that stretch along stunning coastlines, offering endless opportunities for relaxation and adventure. Immerse yourself in the lush landscapes and encounter diverse, exotic wildlife that thrive in the country’s tropical rainforests and natural reserves."
+    ],
     "packages": [],
     "tours": [
       {
         "code": "bali-1",
         "name": "Ubud Art Village Tour",
-        "description": [
-          ""
-        ],
+        "description": [""],
         "tags": [],
-        "inclusions": [
-          "TOURS"
-        ],
-        "exclusions": [
-          "FLIGHT",
-          "MEALS",
-          "ACCOMMODATION",
-          "TRANSFERS"
-        ],
+        "location": ["Bali, Indonesia"],
+        "inclusions": ["TOURS"],
+        "exclusions": ["FLIGHT", "MEALS", "ACCOMMODATION", "TRANSFERS"],
         "days": 1,
         "itinerary": [
           {
             "dayNo": 1,
+            "title": "Ubud: A Journey Through Art, Nature, and Tradition",
             "activities": [
               "Ubud Art & Culture Village",
               "Sacred Monkey Forest Sanctuary",

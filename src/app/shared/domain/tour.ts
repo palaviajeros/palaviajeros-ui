@@ -4,7 +4,9 @@ import { DayPlan } from "@/app/shared/domain/dayPlan";
 export interface Tour {
   code: string;
   name: string;
-  description: string[];
+  shortDescription: string[];
+  longDescription: string[];
+  location: string[];
   inclusions: Services[];
   exclusions: Services[];
   days: number;

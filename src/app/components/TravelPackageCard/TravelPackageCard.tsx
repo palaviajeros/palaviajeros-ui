@@ -32,7 +32,7 @@ export default function TravelPackageCard({ travelPackage }: TravelPackageCardPr
         {travelPackage.days} days trip
       </Badge>
       <Text size="sm" c="dimmed">
-        {travelPackage.description}
+        {travelPackage.shortDescription}
       </Text>
       <Flex align="flex-end" flex={1}>
         <Text fw="bold" fz="sm" td={travelPackage.salePrice ? "line-through" : "none"}>
