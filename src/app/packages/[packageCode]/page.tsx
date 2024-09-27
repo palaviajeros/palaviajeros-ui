@@ -26,23 +26,25 @@ export default async function PackageDetailsPage({ params }: { params: PackageDe
           <IconMapPin stroke={2} width="18px" />
           <Text ml="5px">{travelPackage.location}</Text>
         </Flex>
-        <Box mt="xs">
-          <Flex>
+        <Box mt="xs" maw={170}>
+          <Flex justify="space-between">
             <Text c="gray" fz="sm">
               Price:
             </Text>
-            <Text fw="bold" ml="5px" fz="sm" td={travelPackage.salePrice ? "line-through" : "none"}>
-              ₱{travelPackage.price}
-            </Text>
-            <Text fw="bold" ml="5px" fz="sm" display={travelPackage.salePrice ? "block" : "none"} c="var(--mantine-color-red-8)">
-              ₱{travelPackage.salePrice}
-            </Text>
+            <Flex w={100}>
+              <Text fw="bold" fz="sm" td={travelPackage.salePrice ? "line-through" : "none"}>
+                ₱{travelPackage.price}
+              </Text>
+              <Text fw="bold" ml="5px" fz="sm" display={travelPackage.salePrice ? "block" : "none"} c="var(--mantine-color-red-8)">
+                ₱{travelPackage.salePrice}
+              </Text>
+            </Flex>
           </Flex>
-          <Flex>
+          <Flex justify="space-between">
             <Text c="gray" fz="sm">
               Schedule:
             </Text>
-            <Text fw="bold" ml="5px" fz="sm">
+            <Text fw="bold" fz="sm" w={100}>
               {travelPackage.travelDates[0].toString()}
             </Text>
           </Flex>
