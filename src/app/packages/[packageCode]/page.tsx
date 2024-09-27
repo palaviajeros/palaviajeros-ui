@@ -48,14 +48,11 @@ export default async function PackageDetailsPage({ params }: { params: PackageDe
               {travelPackage.travelDates[0].toString()}
             </Text>
           </Flex>
-          {/* <InquiryModalButton tour={travelPackage} variant={"default"}>
+          <InquiryModalButton tour={travelPackage} variant={"default"}>
             <Button variant="default" mt="md" radius="lg" size="xs" maw={150} ml="auto">
               Request a Quote
             </Button>
-          </InquiryModalButton> */}
-          <Button variant="default" mt="md" radius="lg" size="xs" maw={150} ml="auto">
-            Request a Quote
-          </Button>
+          </InquiryModalButton>
         </Box>
         <Divider my="xl" />
         <Text mt="xs" fz="sm" c="gray" maw="700px">
