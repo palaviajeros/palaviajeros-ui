@@ -11,10 +11,7 @@ interface CardBestSellersProps {
   noOfRenderedCards: number;
 }
 
-export default function PackageCarousel({
-  travelPackages,
-  noOfRenderedCards,
-}: CardBestSellersProps) {
+export default function PackageCarousel({ travelPackages, noOfRenderedCards }: CardBestSellersProps) {
   return (
     <>
       <Carousel
@@ -46,10 +43,7 @@ export default function PackageCarousel({
       >
         {travelPackages.map((travelPackage: TravelPackage) => {
           return (
-            <Carousel.Slide
-              key={travelPackage.code}
-              style={{ cursor: "pointer" }}
-            >
+            <Carousel.Slide key={travelPackage.code}>
               <TravelPackageCard travelPackage={travelPackage} />
             </Carousel.Slide>
           );
