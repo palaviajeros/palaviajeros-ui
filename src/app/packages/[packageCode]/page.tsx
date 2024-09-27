@@ -2,9 +2,8 @@ import { findPackage } from "@/app/actions/dataLoader";
 import Image from "next/image";
 import { Box, Title, Container, Flex, Text, Divider, Button } from "@mantine/core";
 import { IconMapPin, IconCircleCheckFilled, IconCircleXFilled } from "@tabler/icons-react";
-import { getValueOfEnumService } from "@/app/util/Helpers";
+import { formatDateRange, generateDateRange, getValueOfEnumService } from "@/app/util/Helpers";
 import TimelineItinerary from "./TimelineItinerary";
-import InquiryModal from "@/app/components/InquiryModal/InquiryModal";
 import InquiryModalButton from "@/app/components/InquiryModal/InquiryModalButton";
 
 interface PackageDetailsPageProps {
@@ -26,12 +25,12 @@ export default async function PackageDetailsPage({ params }: { params: PackageDe
           <IconMapPin stroke={2} width="18px" />
           <Text ml="5px">{travelPackage.location}</Text>
         </Flex>
-        <Box mt="xs" maw={170}>
+        <Box mt="xs" maw={350}>
           <Flex justify="space-between">
             <Text c="gray" fz="sm">
               Price:
             </Text>
-            <Flex w={100}>
+            <Flex w={270}>
               <Text fw="bold" fz="sm" td={travelPackage.salePrice ? "line-through" : "none"}>
                 ₱{travelPackage.price}
               </Text>
@@ -44,8 +43,8 @@ export default async function PackageDetailsPage({ params }: { params: PackageDe
             <Text c="gray" fz="sm">
               Schedule:
             </Text>
-            <Text fw="bold" fz="sm" w={100}>
-              {travelPackage.travelDates[0].toString()}
+            <Text fw="bold" fz="sm" w={270}>
+              {formatDateRange(generateDateRange(travelPackage.travelDates[0], travelPackage.days))}
             </Text>
           </Flex>
           <InquiryModalButton tour={travelPackage} variant={"default"}>
