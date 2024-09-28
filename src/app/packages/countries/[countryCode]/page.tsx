@@ -24,9 +24,7 @@ const CountryPackage = async ({ params }: { params: CountryLandingPageProps }) =
           <Flex direction={{ base: "column", md: "row" }} gap="md">
             {country[0].packages.map(c => (
               <div key={c.code} style={{ flex: 1 }}>
-                <Link href={`/packages/${c.code}`} style={{ textDecoration: "none" }}>
-                  <TravelPackageCard travelPackage={c} />
-                </Link>
+                <TravelPackageCard travelPackage={c} />
               </div>
             ))}
           </Flex>

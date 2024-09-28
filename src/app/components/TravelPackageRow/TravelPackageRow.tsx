@@ -116,7 +116,7 @@ const TravelPackageRow = ({ tourPackage }: TravelPackageProps) => {
                   );
                 })}
             </Flex>
-            {tourPackage.description.map((description, index) => {
+            {tourPackage.shortDescription.map((description, index) => {
               return (
                 <Text
                   key={`description-${index}`}

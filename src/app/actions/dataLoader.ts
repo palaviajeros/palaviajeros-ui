@@ -109,6 +109,11 @@ export async function filterPackagesPerCountry(predicate: (value: TravelPackage,
   return packagesByCountry.flatMap(cp => cp.packages.filter(predicate));
 }
 
+export async function findPackage(predicate: (value: TravelPackage, index: number, obj: TravelPackage[]) => boolean) {
+  const packagesByCountry = await getCountryTravelPackages();
+  return packagesByCountry.flatMap(cp => cp.packages).find(predicate);
+}
+
 export async function filterToursPerCountry(predicate: (value: Tour, index: number, obj: Tour[]) => boolean) {
   const packagesByCountry = await getCountryTravelPackages();
   return packagesByCountry.flatMap(cp => cp.tours.filter(predicate));

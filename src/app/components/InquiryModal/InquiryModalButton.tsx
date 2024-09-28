@@ -1,3 +1,5 @@
+"use client";
+
 import { useDisclosure } from "@mantine/hooks";
 import { Button, ButtonVariant } from "@mantine/core";
 import "@mantine/dates/styles.css";
