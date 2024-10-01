@@ -15,8 +15,8 @@
           "Enjoy the pristine white sand beaches in one of the best islands in the country! Discover the beauty of Boracay, home to some of the most pristine white-sand beaches in the Philippines, consistently ranked among the best islands in the world. Whether you're looking to unwind by the crystal-clear waters or indulge in thrilling water sports like kite surfing and paddleboarding, Boracay offers a perfect blend of relaxation and adventure. As the sun sets, the island transforms into a lively hub with beachfront bars, vibrant nightlife, and exciting fire shows that keep the party going long into the night. With its breathtaking sunsets and warm tropical ambiance, Boracay is a dream destination for beach lovers."
         ],
         "location": ["Boracay, Philippines"],
-        "inclusions": ["ACCOMMODATION", "FLIGHT", "TRAVEL_INSURANCE"],
-        "exclusions": ["MEALS", "TRANSFERS", "TOURS"],
+        "inclusions": ["Accommodation", "Flight", "TravelInsurance"],
+        "exclusions": ["Meals", "Transfers", "Tours"],
         "days": 3,
         "travelDates": ["2024-09-10", "2024-10-01"],
         "itinerary": [
@@ -50,8 +50,8 @@
           "Palawan is a tropical paradise known for its stunning limestone cliffs, crystal-clear waters, and pristine beaches, making it a top destination for nature lovers and adventure seekers. It's all you ever wanted and more! Enjoy the white sand beaches and snorkel through the corals underwater in the day and enjoy the vibrant party scene at night! We also offer guided island hopping tours."
         ],
         "location": ["Palawan, Philippines"],
-        "inclusions": ["ACCOMMODATION", "FLIGHT", "TRAVEL_INSURANCE"],
-        "exclusions": ["MEALS", "TRANSFERS"],
+        "inclusions": ["Accommodation", "Flight", "TravelInsurance"],
+        "exclusions": ["Meals", "Transfers"],
         "days": 3,
         "travelDates": ["2024-09-10", "2024-10-01", "2025-01-25"],
         "itinerary": [
@@ -85,8 +85,8 @@
           "Experience the biggest street party in the Philippines! While enjoying the best nature has to offer around Cebu! This lively celebration features colorful parades, traditional dances, and electrifying music that bring the streets to life. While enjoying the festivities, take the opportunity to explore Cebu’s stunning natural beauty, from its pristine white-sand beaches to its breathtaking waterfalls and lush landscapes. Whether you're soaking in the cultural richness or discovering the wonders of nature, Cebu offers an unforgettable experience."
         ],
         "location": ["Cebu, Philippines"],
-        "inclusions": ["ACCOMMODATION", "FLIGHT", "TRAVEL_INSURANCE"],
-        "exclusions": ["MEALS", "TRANSFERS"],
+        "inclusions": ["Accommodation", "Flight", "TravelInsurance"],
+        "exclusions": ["Meals", "Transfers"],
         "days": 4,
         "travelDates": ["2025-01-18", "2025-01-25"],
         "itinerary": [
@@ -144,8 +144,8 @@
           "Barcelona is a major cultural, economic, and financial centre in southwestern Europe, renowned for its influence on art, architecture, and innovation. The city is a vibrant showcase of modernism, highlighted by Antoni Gaudí's iconic creations, such as the Sagrada Família and Park Güell. As a thriving economic center, Barcelona plays a crucial role in trade, tourism, and technology, attracting both global businesses and creative industries. Its dynamic atmosphere, rich cultural heritage, and Mediterranean lifestyle make Barcelona a truly unique and influential city on the world stage."
         ],
         "location": ["Barcelona, Spain"],
-        "inclusions": ["ACCOMMODATION", "FLIGHT", "TRAVEL_INSURANCE"],
-        "exclusions": ["TRANSFERS"],
+        "inclusions": ["Accommodation", "Flight", "TravelInsurance"],
+        "exclusions": ["Transfers"],
         "days": 3,
         "travelDates": ["2024-12-18", "2025-01-18", "2025-01-25"],
         "itinerary": [
@@ -178,8 +178,8 @@
           "Madrid is the capital of Spain and lies in the center of the Iberian Peninsula, making it the geographic and cultural center of the country. Known for its rich history, stunning architecture, and lively atmosphere, Madrid offers visitors a unique blend of old-world charm and modern sophistication. From the grand Royal Palace to the bustling streets of Puerta del Sol, the city is filled with iconic landmarks, world-class museums, and a thriving culinary scene. With its sunny climate and energetic spirit, Madrid is a city that captivates at every turn."
         ],
         "location": ["Madrid, Spain"],
-        "inclusions": ["ACCOMMODATION", "FLIGHT", "TRAVEL_INSURANCE"],
-        "exclusions": ["TRANSFERS"],
+        "inclusions": ["Accommodation", "Flight", "TravelInsurance"],
+        "exclusions": ["Transfers"],
         "days": 3,
         "travelDates": ["2024-12-18", "2025-01-18", "2025-01-25"],
         "itinerary": [
@@ -211,8 +211,8 @@
           "Granada is located at the foot of the Sierra Nevada mountains in southern Spain, within the region of Andalusia. This enchanting city is renowned for its stunning blend of Moorish and Spanish Renaissance architecture, most notably exemplified by the majestic Alhambra Palace, a UNESCO World Heritage site. Set against the backdrop of snow-capped peaks, Granada offers breathtaking views and a diverse landscape that transitions from mountains to rolling hills."
         ],
         "location": ["Granada, Spain"],
-        "inclusions": ["ACCOMMODATION", "FLIGHT", "TRAVEL_INSURANCE"],
-        "exclusions": ["MEALS", "TRANSFERS"],
+        "inclusions": ["Accommodation", "Flight", "TravelInsurance"],
+        "exclusions": ["Meals", "Transfers"],
         "days": 3,
         "travelDates": ["2024-08-01", "2024-11-24"],
         "itinerary": [
@@ -252,8 +252,8 @@
         ],
         "tags": [],
         "location": ["Bali, Indonesia"],
-        "inclusions": ["TOURS"],
-        "exclusions": ["FLIGHT", "MEALS", "ACCOMMODATION", "TRANSFERS"],
+        "inclusions": ["Tours"],
+        "exclusions": ["Flight", "Meals", "Accommodation", "Transfers"],
         "days": 1,
         "itinerary": [
           {
