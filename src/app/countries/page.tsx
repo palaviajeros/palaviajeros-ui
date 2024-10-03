@@ -13,11 +13,7 @@ export default async function Countries() {
       <Space h="xl" />
       <Flex justify="center" wrap="wrap" gap={20}>
         {countries.map(country => (
-          <Link
-            key={country.countryCode}
-            href={{ pathname: `/packages/countries/${country.countryCode}` }}
-            style={{ textDecoration: "none" }}
-          >
+          <Link key={country.countryCode} href={{ pathname: `/countries/${country.countryCode}` }} style={{ textDecoration: "none" }}>
             <Box>
               <BackgroundImage w={400} h={240} src={country.packages[0].imageUrls[0]} radius="md" p={20}>
                 <Title order={3} c="var(--mantine-color-white)">
